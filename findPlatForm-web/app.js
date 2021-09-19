@@ -8,7 +8,6 @@ App({
 
   },
   onHide: function(){
-    
 
   },
   onError: function(msg){
