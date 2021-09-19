@@ -1,0 +1,4 @@
+<!--components/SearchBar/SearchBar.wxml-->
+<view class="search_bar">
+    <navigator url="/pages/search/index" open-type="switchTab">搜索</navigator>
+</view>
