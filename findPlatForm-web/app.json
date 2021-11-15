@@ -11,7 +11,8 @@
     "pages/login/index",
     "pages/location/index",
     "pages/auth/index",
-    "pages/pay/index"
+    "pages/pay/index",
+    "pages/find/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
