@@ -1,6 +1,7 @@
 const qiniuUploader = require("../../utils/qiniuUploader");
 // index.js
 
+
 // 初始化七牛云相关配置
 function initQiniu() {
     var options = {
@@ -11,7 +12,8 @@ function initQiniu() {
         // 由其他程序生成七牛云uptoken，然后直接写入uptoken
         uptoken: '',
         // 从指定 url 通过 HTTP GET 获取 uptoken，返回的格式必须是 json 且包含 uptoken 字段，例如： {"uptoken": "0MLvWPnyy..."}
-        uptokenURL: 'https://img.moxhub.cn/api/uptoken',
+        uptokenURL: 'http://47.98.246.231:8080/getToken',
+        
         // uptokenFunc 这个属性的值可以是一个用来生成uptoken的函数，详情请见 README.md
         uptokenFunc: function () { 
         		// do something
@@ -19,7 +21,7 @@ function initQiniu() {
         },
 
         // bucket 外链域名，下载资源时用到。如果设置，会在 success callback 的 res 参数加上可以直接使用的 fileURL 字段。否则需要自己拼接
-        domain: 'http://img.moxhub.cn.bkt.clouddn.com',
+        domain: 'https://img.moxhub.cn/',
         // qiniuShouldUseQiniuFileName 如果是 true，则文件的 key 由 qiniu 服务器分配（全局去重）。如果是 false，则文件的 key 使用微信自动生成的 filename。出于初代sdk用户升级后兼容问题的考虑，默认是 false。
         // 微信自动生成的 filename较长，导致fileURL较长。推荐使用{qiniuShouldUseQiniuFileName: true} + "通过fileURL下载文件时，自定义下载名" 的组合方式。
         // 自定义上传key 需要两个条件：1. 此处shouldUseQiniuFileName值为false。 2. 通过修改qiniuUploader.upload方法传入的options参数，可以进行自定义key。（请不要直接在sdk中修改options参数，修改方法请见demo的index.js）
@@ -57,7 +59,22 @@ Page({
     // 图片上传（从相册）方法
     didPressChooesImage: function () {
         var that = this;
-        didPressChooesImage(that);
+        initQiniu();
+        // 微信 API 选文件
+        wx.chooseImage({
+            count: 1,
+            success: function (res) {
+              var filePath = res.tempFilePaths[0];
+              // 交给七牛上传
+              qiniuUploader.upload(filePath, (res) => {
+                that.setData({
+                  'imageObject': res
+                });
+              }, (error) => {
+                console.error('error: ' + JSON.stringify(error));
+              });
+            }
+        })    
     },
     // 文件上传（从客户端会话）方法，支持图片、视频、其余文件 (PDF(.pdf), Word(.doc/.docx), Excel(.xls/.xlsx), PowerPoint(.ppt/.pptx)等文件格式)
     didPressChooesMessageFile: function () {
