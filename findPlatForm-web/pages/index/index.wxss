@@ -1,9 +1,6 @@
 view{
     /* 使用主题颜色 */
     /* color:var(--themeColor); */
-<<<<<<< Updated upstream
-}
-=======
 }
 
 .title{
@@ -19,4 +16,3 @@ view{
     width: 100%;
     margin: 0 auto;
 }
->>>>>>> Stashed changes

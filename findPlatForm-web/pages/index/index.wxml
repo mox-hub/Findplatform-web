@@ -2,3 +2,14 @@
     <!-- search bar -->
     <SearchBar></SearchBar>
 </view>
+<view class="content">
+    <!-- 拾取跳转 -->
+    <navigator class="title" url="/pages/find/index?title=发布照片" open-type='navigate'>我是拾物者
+        <image class="ima" style="width:100%;height:200rpx" src="/icons/me.png"></image>
+    </navigator>
+    <!-- 分割线 -->
+    <view class="hr"></view>
+    <!-- 寻物跳转 -->
+    <navigator class="title" url="/pages/search/index" open-type='switchTab'>我是失物者
+    </navigator>
+</view>
