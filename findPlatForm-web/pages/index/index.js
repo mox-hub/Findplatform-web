@@ -1,7 +1,7 @@
 //Page Object
 Page({
   data: {
-    
+    searchBtnState:false
   },
   //options(Object)
   onLoad: function(options){

@@ -5,7 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        searchBtnState:true,
+        searchtext:" "
     },
 
     /**
@@ -62,5 +63,21 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    searchinput:function(e){
+        console.log(e);
+        var val = e.detail.value;
+        if(val != ''){
+            this.setData({
+                searchtext:val,
+                searchBtnState:false
+            });
+        }
+        else{
+            this.setData({
+                searchtext:val,
+                searchBtnState:true
+            });
+        }
     }
 })

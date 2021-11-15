@@ -1,4 +1,35 @@
 <!--components/SearchBar/SearchBar.wxml-->
-<view class="search_bar">
-    <navigator url="/pages/search/index" open-type="switchTab">搜索</navigator>
+<!-- <view class="search_bar"> -->
+    <!-- <navigator url="/pages/search/index" open-type="switchTab">搜索</navigator> -->
+    <!-- 搜索框 -->
+        <!-- <input type="text" bindinput='searchinput' placeholder="校园卡、手机、雨伞..."/>
+</view> -->
+<view class="searchbar">
+  <view class="content">
+    <image src="/icons/search.png" class="search-icon"></image>
+    <input 
+      bindinput="handleInput"
+      bindconfirm="handleConfirm"
+      type="text"
+      value="{{inputValue}}" 
+      placeholder="{{placeholder}}" 
+      class="input"
+      confirm-type="search"
+    ></input>
+    <!-- <image
+     wx:if="{{inputValue}}" 
+     bindtap="handleDeleteClick"
+     src="/icons/search.png" 
+     class="delete-icon"
+    ></image> -->
+
+        <icon  
+        wx:if="{{inputValue}}"
+        bindtap="handleDeleteClick"
+        class="iconfont icon-guanbi">
+        </icon>
+
+   
+  </view>
+  <view wx:if="{{inputValue}}" bindtap="handleTextbtnClick" class="text-btn">取消</view>
 </view>
