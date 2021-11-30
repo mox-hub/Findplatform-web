@@ -1,3 +1,21 @@
 <!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
-<icon class="iconfont icon-guanbi"></icon>
+<!-- <text>pages/user/index.wxml</text> -->
+<view class="container">
+ 
+ <view class="info-box">
+   <view style="text-align: center;margin-bottom:10%;">
+     <!-- <image class="avatar-img" src="{{avatarUrl}}" /> -->
+     <image class="avatar-img" src="/icons/me-o.png" />
+   </view>
+ 
+   <text>昵称： {{username}}</text>
+   <text>手机号： {{phone}}</text>
+   <text>qq号： {{QQ}}</text>
+ </view>
+
+ <view style="margin-top:20%"> 
+   <button open-type="getUserInfo" bindtap="showUserInfoTap">获取个人信息</button>
+ </view>
+
+</view>
+

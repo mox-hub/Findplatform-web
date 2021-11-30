@@ -1,1 +1,19 @@
 /* pages/user/index.wxss */
+
+.info-box{
+  width: 80%;
+  margin: 0 auto;
+}
+.avatar-img {
+  margin-top: 60rpx;
+
+  width: 100px;
+  height: 100px;
+  border: 1px solid gray;
+}
+.info-box>text{
+  display: block;
+  margin-left: 20%;
+  margin-top: 4%;
+  font-size: 40rpx;
+}

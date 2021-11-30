@@ -3,11 +3,13 @@
     <!-- search bar -->
     <SearchBar></SearchBar>
 </view>
-<!-- <view class="content">
-  <view class="search">搜索：</view>
-  <view class="text">
-    <input type="text" bindinput='searchinput' placeholder="校园卡、手机、雨伞..."/>
-  </view>
-  <view class="hr"></view>
-  <button type="primary" class="button" disabled="{{searchBtnState}}" >搜索</button>
-</view> -->
+<!-- 获取图片并展示 -->
+<view class="display">
+  <block wx:for="{{arr}}">{{item}}
+    <image></image>
+  
+  
+  </block>
+
+
+</view>

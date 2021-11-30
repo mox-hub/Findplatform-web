@@ -12,7 +12,7 @@ function initQiniu() {
         // 由其他程序生成七牛云uptoken，然后直接写入uptoken
         uptoken: '',
         // 从指定 url 通过 HTTP GET 获取 uptoken，返回的格式必须是 json 且包含 uptoken 字段，例如： {"uptoken": "0MLvWPnyy..."}
-        uptokenURL: 'http://47.98.246.231:8080/getToken',
+        uptokenURL: 'http://47.98.246.231:8080/getToken/',
         
         // uptokenFunc 这个属性的值可以是一个用来生成uptoken的函数，详情请见 README.md
         uptokenFunc: function () { 

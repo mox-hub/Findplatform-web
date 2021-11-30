@@ -5,9 +5,46 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        loginBtnState: true,
+        username:"",
+        password:""
     },
-
+    usernameinput:function(e){
+      var val = e.detail.value;
+      if(val != ''){
+          this.setData({
+              username:val
+          });
+          if(this.data.password != ""){
+            this.setData({
+                loginBtnState: false
+            })
+        }
+      }
+      else{
+        this.setData({
+            loginBtnState: true
+        })
+      }
+    },
+    passwordinput:function(e){
+        var val = e.detail.value;
+        if(val != ''){
+            this.setData({
+                password:val
+            });
+            if(this.data.username != ""){
+                this.setData({
+                    loginBtnState: false
+                })
+            }
+        }
+        else{
+            this.setData({
+                loginBtnState: true
+            })
+          }
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -71,4 +108,9 @@ Page({
             },
         })
     },
+    login:function(){
+        wx.switchTab({
+          url: '../index/index',
+        });
+    }   
 })
