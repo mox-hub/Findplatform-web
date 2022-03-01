@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "SearchBar":"../../components/SearchBar/SearchBar"
+    "mp-searchbar": "weui-miniprogram/searchbar/searchbar"
   },
-  "navigationBarTitleText": "findPlatform-home"
+  "navigationBarTitleText": "寻找页面"
 }

@@ -19,7 +19,8 @@
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fb7299",
     "navigationBarTitleText": "findPlatform",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle":"white",
+    "backgroundColor": "#ededed"
   },
   "tabBar": {
     "color": "#999",

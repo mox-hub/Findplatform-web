@@ -1,6 +1,6 @@
 <view class="index">
     <!-- search bar -->
-    <SearchBar></SearchBar>
+    <mp-searchbar></mp-searchbar>
 </view>
 <view class="content">
     <!-- 拾取跳转 -->
