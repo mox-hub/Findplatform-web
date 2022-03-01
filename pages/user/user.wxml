@@ -39,7 +39,7 @@
       <view class="weui-cell__bd"><view>关于</view></view>
       <view class="weui-cell__ft"></view>
     </navigator>
-    <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/feedback/feedback" open-type='navigate'>
+    <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/about/feedback" open-type='navigate'>
       <view class="weui-cell__bd"><view>提交反馈</view></view>
       <view class="weui-cell__ft"></view>
     </navigator>
