@@ -10,7 +10,7 @@ page,view,text,image,navigator{
 /* 主题颜色 */
 page{
     /* 定义主题颜色 */
-    --themeColor:#fb7299;
+    --themeColor:#c6e7ec;
     /* 定义统一的字体大小 */
     font-size: 28rpx;
 }

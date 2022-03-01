@@ -1,5 +1,8 @@
 /* pages/user/index.wxss */
 
+page{
+  background-color: #f0f0f0;
+}
 .info-box{
   width: 80%;
   margin: 0 auto;

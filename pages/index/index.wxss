@@ -2,6 +2,13 @@ view{
     /* 使用主题颜色 */
     color:var(--themeColor);
 }
+page{
+    background-color: #f5f6f8;
+}
+
+.searchbar{
+    background-color: #f5f6f8;
+}
 
 .title{
     color:#ddddff;
