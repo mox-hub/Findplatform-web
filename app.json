@@ -1,24 +1,24 @@
 {
   "pages":[  
     "pages/index/index",
-    "pages/category/index",
-    "pages/goods_list/index",
-    "pages/goods_detail/index",
-    "pages/collect/index",
-    "pages/search/index",
-    "pages/user/index",
-    "pages/feedback/index",
-    "pages/login/index",
-    "pages/location/index",
-    "pages/auth/index",
-    "pages/find/index",
-    "pages/register/index",
-    "pages/repassword/index",
-    "pages/about/index"
+    "pages/category/category",
+    "pages/goods_list/goods_list",
+    "pages/goods_detail/goods_detail",
+    "pages/collect/collect",
+    "pages/search/search",
+    "pages/user/user",
+    "pages/feedback/feedback",
+    "pages/login/login",
+    "pages/location/location",
+    "pages/find/find",
+    "pages/register/register",
+    "pages/repassword/repassword",
+    "pages/about/about",
+    "pages/release/release"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fb7299",
+    "navigationBarBackgroundColor": "#8e9de2",
     "navigationBarTitleText": "findPlatform",
     "navigationBarTextStyle":"white",
     "backgroundColor": "#ededed"
@@ -37,19 +37,19 @@
         "selectedIconPath": "icons/home-o.png"
       },
       {
-        "pagePath": "pages/search/index",
+        "pagePath": "pages/search/search",
         "text": "寻找",
         "iconPath": "icons/search.png",
         "selectedIconPath": "icons/search-o.png"
       },
       {
-        "pagePath": "pages/collect/index",
+        "pagePath": "pages/collect/collect",
         "text": "收藏",
         "iconPath": "icons/collect.png",
         "selectedIconPath": "icons/collect-o.png"
       },
       {
-        "pagePath": "pages/user/index",
+        "pagePath": "pages/user/user",
         "text": "我的",
         "iconPath": "icons/me.png",
         "selectedIconPath": "icons/me-o.png"

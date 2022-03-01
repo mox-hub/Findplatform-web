@@ -1,0 +1,8 @@
+/* pages/search/search.wxss */
+page{
+    background-color: #f5f6f8;
+}
+
+.searchbar{
+    background-color: #f5f6f8;
+}

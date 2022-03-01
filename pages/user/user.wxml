@@ -1,0 +1,61 @@
+<!--pages/user/index.wxml-->
+<!-- <text>pages/user/index.wxml</text> -->
+<view class="container">
+  <!-- 头像部分 -->
+<view class="header">
+  <view class="info-box">
+    <view style="text-align: center; margin-bottom:2%;">
+  <!-- <image class="avatar-img" src="{{avatarUrl}}" /> -->
+    <image class="avatar-img" src="/icons/me-o.png" />  
+  </view>
+  </view>
+  <view class="username">
+    <text>{{username}}</text>
+  </view>
+</view>
+
+  <!-- 个人信息栏 -->
+  <mp-cells ext-class="my-cells" >
+    <mp-cell value="昵称：" footer="{{username}}"></mp-cell>
+    <mp-cell value="手机号：" footer="{{phone}}"></mp-cell>
+    <mp-cell value="qq号：" footer="{{QQ}}"></mp-cell>
+  </mp-cells>
+  <!-- 功能栏 -->
+  <mp-cells ext-class="my-cells">
+    <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/collect/collect" open-type='switchTab'>
+      <image class="icon" src="/icons/collect-o.png"></image>
+      <view class="weui-cell__bd"><view>我的收藏</view></view>
+      <view class="weui-cell__ft"></view>
+    </navigator>
+    <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/release/release" open-type='navigate'>
+      <image class="icon" src="/icons/collect-o.png"></image>
+      <view class="weui-cell__bd" ext-class="text"><view>我的发布</view></view>
+      <view class="weui-cell__ft"></view>
+    </navigator>
+  </mp-cells>
+  <!-- 关于页面跳转 -->
+  <mp-cells ext-class="my-cells">
+    <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/about/about" open-type='navigate'>
+      <view class="weui-cell__bd"><view>关于</view></view>
+      <view class="weui-cell__ft"></view>
+    </navigator>
+    <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/feedback/feedback" open-type='navigate'>
+      <view class="weui-cell__bd"><view>提交反馈</view></view>
+      <view class="weui-cell__ft"></view>
+    </navigator>
+  </mp-cells>
+  <!-- 获取个人信息 -->
+  <view style="margin-top:20%"> 
+    <!-- <button open-type="getUserInfo" bindtap="showUserInfoTap">获取个人信息</button> -->
+  </view>
+
+  <!-- 底栏 -->
+  <view class="weui-footer">
+      <view class="weui-footer__links">
+        <navigator class="weui-footer__link weui-wa-hotarea" url="https://gitee.com/hfutcs-330">不醒人室</navigator>
+      </view>
+      <view class="weui-footer__text">Copyright &copy; 2022-至今 foocode.cn</view>
+  </view>
+
+</view>
+
