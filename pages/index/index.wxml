@@ -4,7 +4,8 @@
 </view>
 <view class="content">
     <!-- 拾取跳转 -->
-    <navigator class="title" url="/pages/find/index?title=发布照片" open-type='navigate'>我是拾物者
+    <navigator class="title" url="/pages/find/index?title=发布照片" open-type='navigate'>
+        我是拾物者
         <image class="ima" style="width:100%;height:200rpx" src="/icons/xiao.png"></image>
     </navigator>
     <!-- 分割线 -->

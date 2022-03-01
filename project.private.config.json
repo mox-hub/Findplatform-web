@@ -40,6 +40,20 @@
                     "name": "",
                     "pathName": "pages/login/index",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/user/index",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

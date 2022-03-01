@@ -7,13 +7,7 @@
 .avatar-img {
   margin-top: 60rpx;
 
-  width: 100px;
-  height: 100px;
-  border: 1px solid gray;
-}
-.info-box>text{
-  display: block;
-  margin-left: 20%;
-  margin-top: 4%;
-  font-size: 40rpx;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #ededed;
 }
