@@ -75,27 +75,27 @@ Page({
               });
             }
         })
-        if(imageObject.imageURL != ''){
-            wx.request({
-                url: 'https://api.moxhub.cn//item/v1/addItem',
-                method: 'post',
-                success: function(res) {
-                  th.setData({
-                      itemId:"22",
-                      imgUrl: res.imageObject.imageURL,
-                      tag:"test1",
-                      state:1,
-                      pickLocation:"classroom",
-                      placement:"classroom_1",
-                      pickTime:"2022-11-2",
-                      userId:"2"
-                  });
-                },
-                fail:function(res){
-                  console.log("-------fail------")
-                }
-              })
-        }    
+        // if(imageObject.imageURL != ''){
+        //     wx.request({
+        //         url: 'https://api.moxhub.cn//item/v1/addItem',
+        //         method: 'post',
+        //         success: function(res) {
+        //           th.setData({
+        //               itemId:"22",
+        //               imgUrl: res.imageObject.imageURL,
+        //               tag:"test1",
+        //               state:1,
+        //               pickLocation:"classroom",
+        //               placement:"classroom_1",
+        //               pickTime:"2022-11-2",
+        //               userId:"2"
+        //           });
+        //         },
+        //         fail:function(res){
+        //           console.log("-------fail------")
+        //         }
+        //       })
+        // }    
     },
     // 文件上传（从客户端会话）方法，支持图片、视频、其余文件 (PDF(.pdf), Word(.doc/.docx), Excel(.xls/.xlsx), PowerPoint(.ppt/.pptx)等文件格式)
     didPressChooesMessageFile: function () {
