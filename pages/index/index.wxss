@@ -19,7 +19,7 @@ page{
 }
 
 .content1{
-    margin-top: 5px;
+    margin-top: 2%;
     margin-left: 12px;
     margin-right: 12px;
     background-color:#f0fff0;
@@ -33,7 +33,7 @@ page{
     margin-top: 10px;
     margin-left: 8px;
     margin-right: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 3%;
     background-color:#ffecec;
     border:2px solid;
     border-color:#f0f0f0;
