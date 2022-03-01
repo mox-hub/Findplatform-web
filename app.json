@@ -12,7 +12,9 @@
     "pages/location/index",
     "pages/auth/index",
     "pages/pay/index",
-    "pages/find/index"
+    "pages/find/index",
+    "pages/register/index",
+    "pages/repassword/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

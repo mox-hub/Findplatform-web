@@ -7,11 +7,11 @@
     <input bindinput="usernameinput" placeholder="请输入用户名"/>
     <label>密码</label>
     <input bindinput="passwordinput" placeholder="请输入密码"/>
-    <button class="login-btn" bindtap="login" >立即登录</button>
+    <button class="login-btn" bindtap="login" disabled="loginBtnState" >立即登录</button>
     <view class="three-line">一一一一一没有账户一一一一一</view>
-    <button class="login-btn" style="background-color:green;">立即注册</button>
+    <button class="login-btn" bindtap="register" style="background-color:green;">立即注册</button>
     <view class="findpw">
-      <button class="login-btn" style="background-color:green;">找回密码</button>
+      <button class="login-btn" bindtap="repassword" style="background-color:green;">找回密码</button>
     </view>
   </view>
 </view>

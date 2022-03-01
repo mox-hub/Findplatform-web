@@ -15,7 +15,7 @@ Page({
           this.setData({
               username:val
           });
-          if(this.data.password != ""){
+          if(this.data.password != ''){
             this.setData({
                 loginBtnState: false
             })
@@ -33,7 +33,7 @@ Page({
             this.setData({
                 password:val
             });
-            if(this.data.username != ""){
+            if(this.data.username != ''){
                 this.setData({
                     loginBtnState: false
                 })
@@ -112,5 +112,15 @@ Page({
         wx.switchTab({
           url: '../index/index',
         });
-    }   
+    },
+    register:function(){
+        wx.navigateTo({
+          url: '../register/index',
+        });
+    },
+    repassword:function(){
+        wx.navigateTo({
+          url: '../repassword/index',
+        });
+    }      
 })
