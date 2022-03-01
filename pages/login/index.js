@@ -15,15 +15,15 @@ Page({
           this.setData({
               username:val
           });
-          if(this.data.password != ''){
+          if(this.data.password != ""){
             this.setData({
-                loginBtnState: false
+                loginBtnState:false
             })
         }
       }
       else{
         this.setData({
-            loginBtnState: true
+            loginBtnState:true
         })
       }
     },
@@ -33,15 +33,15 @@ Page({
             this.setData({
                 password:val
             });
-            if(this.data.username != ''){
+            if(this.data.username != ""){
                 this.setData({
-                    loginBtnState: false
+                    loginBtnState:false
                 })
             }
         }
         else{
             this.setData({
-                loginBtnState: true
+                loginBtnState:true
             })
           }
     },
