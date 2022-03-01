@@ -13,7 +13,8 @@
     "pages/auth/index",
     "pages/find/index",
     "pages/register/index",
-    "pages/repassword/index"
+    "pages/repassword/index",
+    "pages/about/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

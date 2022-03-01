@@ -41,7 +41,7 @@
         "ignoreUploadUnusedFiles": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.10.4",
+    "libVersion": "2.22.0",
     "appid": "wxf51f0d3a5c9550e6",
     "projectname": "findPlatform-web",
     "debugOptions": {
