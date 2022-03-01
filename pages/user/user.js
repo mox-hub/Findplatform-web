@@ -5,6 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        open : false,
         username : "abc",
         phone : "12345678912",
         QQ : "123456789"
@@ -28,14 +29,26 @@ Page({
           }
         })
     },
-   
+    kindToggle(e) {
+
+      var that = this;
+      if(that.open == true){
+        that.open = false;
+      }else {
+        that.open = true;
+        console.log(that);
+      }
+      this.setData({
+        open:that.open
+      })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-   
+      
     },
-   
+    
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

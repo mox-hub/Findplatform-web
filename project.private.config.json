@@ -16,8 +16,8 @@
                     "name": "登录页面",
                     "pathName": "pages/login/login",
                     "query": "",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
                 },
                 {
                     "name": "直接首页",
@@ -25,6 +25,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "用户界面",
+                    "pathName": "pages/user/user",
+                    "query": "",
+                    "scene": null,
+                    "launchMode": "default"
                 }
             ]
         }

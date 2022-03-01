@@ -11,10 +11,24 @@
   </view>
   <view class="username">
     <text>{{username}}</text>
+    <text>{{open}}</text>
   </view>
 </view>
 
   <!-- 个人信息栏 -->
+  <view class="kind-list__item">
+    <view class="weui-flex kind-list__item-hd {{open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+        <view class="weui-flex__item">个人信息</view>
+        <image aria-role="button" aria-label="{{open ? ' 收起' : ' 展开'}}" class="kind-list__img" src="/icons/collect-o.png"></image>
+    </view>
+    <view aria-hidden="true" class="kind-list__item-bd">
+        <view class="weui-cells weui-cells_show">
+          <mp-cell value="昵称：" footer="{{username}}"></mp-cell>
+          <mp-cell value="手机号：" footer="{{phone}}"></mp-cell>
+          <mp-cell value="qq号：" footer="{{QQ}}"></mp-cell>
+        </view>
+    </view>
+  </view>
   <mp-cells ext-class="my-cells" >
     <mp-cell value="昵称：" footer="{{username}}"></mp-cell>
     <mp-cell value="手机号：" footer="{{phone}}"></mp-cell>
@@ -47,6 +61,7 @@
   <!-- 获取个人信息 -->
   <view style="margin-top:20%"> 
     <!-- <button open-type="getUserInfo" bindtap="showUserInfoTap">获取个人信息</button> -->
+    <button bindtap="kindToggle" disabled="{{open}}">测试</button>
   </view>
 
   <!-- 底栏 -->
