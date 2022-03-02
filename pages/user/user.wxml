@@ -6,12 +6,16 @@
   <view class="info-box">
     <view style="text-align: center; margin-bottom:2%;">
   <!-- <image class="avatar-img" src="{{avatarUrl}}" /> -->
-    <image class="avatar-img" src="/icons/me-o.png" />  
+      <image class="avatar-img" src="/icons/me-o.png" />  
+    </view> 
   </view>
-  </view>
-  <view class="username">
-    <text>{{username}}</text>
-    <text>{{open}}</text>
+  <view class="info-value">
+    <view class="username">
+      <text>{{username}}</text>
+    </view>
+    <view class="phone">
+      <text>{{phone}}</text>
+    </view>
   </view>
 </view>
 
@@ -21,19 +25,20 @@
         <view class="weui-flex__item">个人信息</view>
         <image aria-role="button" aria-label="{{open ? ' 收起' : ' 展开'}}" class="kind-list__img" src="/icons/collect-o.png"></image>
     </view>
-    <view aria-hidden="true" class="kind-list__item-bd">
+    <view aria-hidden="{{open ? 'false' : 'true'}}" class="kind-list__item-bd {{open ? 'kind-list__item-bd_show' : ''}}">
         <view class="weui-cells weui-cells_show">
-          <mp-cell value="昵称：" footer="{{username}}"></mp-cell>
-          <mp-cell value="手机号：" footer="{{phone}}"></mp-cell>
-          <mp-cell value="qq号：" footer="{{QQ}}"></mp-cell>
+          <mp-cell value="昵称" footer="{{username}}"></mp-cell>
+          <mp-cell value="手机号" footer="{{phone}}"></mp-cell>
+          <mp-cell value="qq号" footer="{{QQ}}"></mp-cell>
+          <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/user/change" open-type='navigate'>
+            <image class="icon" src="/icons/collect-o.png"></image>
+            <view class="weui-cell__bd" ext-class="text"><view>修改个人信息</view></view>
+            <view class="weui-cell__ft"></view>
+          </navigator>
         </view>
     </view>
   </view>
-  <mp-cells ext-class="my-cells" >
-    <mp-cell value="昵称：" footer="{{username}}"></mp-cell>
-    <mp-cell value="手机号：" footer="{{phone}}"></mp-cell>
-    <mp-cell value="qq号：" footer="{{QQ}}"></mp-cell>
-  </mp-cells>
+  
   <!-- 功能栏 -->
   <mp-cells ext-class="my-cells">
     <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/collect/collect" open-type='switchTab'>
@@ -61,7 +66,7 @@
   <!-- 获取个人信息 -->
   <view style="margin-top:20%"> 
     <!-- <button open-type="getUserInfo" bindtap="showUserInfoTap">获取个人信息</button> -->
-    <button bindtap="kindToggle" disabled="{{open}}">测试</button>
+    <!-- <button bindtap="kindToggle" disabled="{{open}}">测试</button> -->
   </view>
 
   <!-- 底栏 -->

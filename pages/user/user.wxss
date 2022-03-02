@@ -25,17 +25,21 @@ page{
     margin-bottom: -4rpx;
     margin-right: 10rpx;
   }
-  
   .username {
     margin-top: 50rpx;
     margin-left: 60rpx;
     font-size: 60rpx;
   }
-  
+  .phone {
+    /* margin-top: 10rpx; */
+    margin-left: 60rpx;
+    font-size: 30rpx;
+  }
   .header {
     display: flex;
     flex-direction: row;
   }
+
   .weui-flex {
     -webkit-box-align: center;
     -webkit-align-items: center;
