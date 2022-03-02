@@ -1,5 +1,6 @@
 @import "./styles/iconfont.wxss";
-@import './miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+@import "./styles/weui.wxss";
+/* @import './miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss'; */
 
 page,view,text,image,navigator{
     padding: 0;

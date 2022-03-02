@@ -1,64 +1,65 @@
 {
-  "pages":[  
-    "pages/index/index",
-    "pages/about/about",
-    "pages/about/feedback",
-    "pages/category/category",
-    "pages/collect/collect",
-    "pages/find/find",
-    "pages/goods_list/goods_list",
-    "pages/goods_detail/goods_detail",
-    "pages/login/login",
-    "pages/location/location",
-    "pages/register/register",
-    "pages/repassword/repassword",
-    "pages/release/release",
-    "pages/search/search",
-    "pages/user/change",
-    "pages/user/user"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#8e9de2",
-    "navigationBarTitleText": "findPlatform",
-    "navigationBarTextStyle":"white",
-    "backgroundColor": "#ededed"
-  },
-  "tabBar": {
-    "color": "#999",
-    "selectedColor": "#ff2d4a",
-    "backgroundColor": "#f5f6f8",
-    "position": "bottom",
-    "borderStyle": "black",
-    "list": [
-      { 
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "icons/home.png",
-        "selectedIconPath": "icons/home-o.png"
-      },
-      {
-        "pagePath": "pages/search/search",
-        "text": "寻找",
-        "iconPath": "icons/search.png",
-        "selectedIconPath": "icons/search-o.png"
-      },
-      {
-        "pagePath": "pages/collect/collect",
-        "text": "收藏",
-        "iconPath": "icons/collect.png",
-        "selectedIconPath": "icons/collect-o.png"
-      },
-      {
-        "pagePath": "pages/user/user",
-        "text": "我的",
-        "iconPath": "icons/me.png",
-        "selectedIconPath": "icons/me-o.png"
-      }
-    ]
-  },
-  
-    
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/index/index",
+        "pages/about/about",
+        "pages/about/feedback",
+        "pages/category/category",
+        "pages/collect/collect",
+        "pages/find/find",
+        "pages/goods_list/goods_list",
+        "pages/goods_detail/goods_detail",
+        "pages/login/login",
+        "pages/location/location",
+        "pages/msg/msg_success",
+        "pages/msg/msg_warn",
+        "pages/register/register",
+        "pages/repassword/repassword",
+        "pages/release/release",
+        "pages/search/search",
+        "pages/user/change_user_info",
+        "pages/user/user"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#8e9de2",
+        "navigationBarTitleText": "findPlatform",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#ededed"
+    },
+    "tabBar": {
+        "color": "#999",
+        "selectedColor": "#ff2d4a",
+        "backgroundColor": "#f5f6f8",
+        "position": "bottom",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "icons/home.png",
+                "selectedIconPath": "icons/home-o.png"
+            },
+            {
+                "pagePath": "pages/search/search",
+                "text": "寻找",
+                "iconPath": "icons/search.png",
+                "selectedIconPath": "icons/search-o.png"
+            },
+            {
+                "pagePath": "pages/collect/collect",
+                "text": "收藏",
+                "iconPath": "icons/collect.png",
+                "selectedIconPath": "icons/collect-o.png"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "text": "我的",
+                "iconPath": "icons/me.png",
+                "selectedIconPath": "icons/me-o.png"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents"
 }

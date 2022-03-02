@@ -27,10 +27,20 @@
     </view>
     <view aria-hidden="{{open ? 'false' : 'true'}}" class="kind-list__item-bd {{open ? 'kind-list__item-bd_show' : ''}}">
         <view class="weui-cells weui-cells_show">
-          <mp-cell value="昵称" footer="{{username}}"></mp-cell>
-          <mp-cell value="手机号" footer="{{phone}}"></mp-cell>
-          <mp-cell value="qq号" footer="{{QQ}}"></mp-cell>
-          <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/user/change" open-type='navigate'>
+          <view class="weui-cell">
+            <view class="weui-cell__bd">昵称</view>
+              <view class="weui-cell__ft">{{username}}</view>
+          </view>
+          <view class="weui-cell">
+            <view class="weui-cell__bd">QQ</view>
+              <view class="weui-cell__ft">{{QQ}}</view>
+          </view>
+          <view class="weui-cell">
+            <view class="weui-cell__bd">手机</view>
+              <view class="weui-cell__ft">{{phone}}</view>
+          </view>
+          <!-- 个人信息修改页面跳转 -->
+          <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/user/change_user_info" open-type='navigate'>
             <image class="icon" src="/icons/collect-o.png"></image>
             <view class="weui-cell__bd" ext-class="text"><view>修改个人信息</view></view>
             <view class="weui-cell__ft"></view>
@@ -40,7 +50,7 @@
   </view>
   
   <!-- 功能栏 -->
-  <mp-cells ext-class="my-cells">
+  <view class="weui-cells">
     <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/collect/collect" open-type='switchTab'>
       <image class="icon" src="/icons/collect-o.png"></image>
       <view class="weui-cell__bd"><view>我的收藏</view></view>
@@ -51,9 +61,9 @@
       <view class="weui-cell__bd" ext-class="text"><view>我的发布</view></view>
       <view class="weui-cell__ft"></view>
     </navigator>
-  </mp-cells>
+  </view>
   <!-- 关于页面跳转 -->
-  <mp-cells ext-class="my-cells">
+  <view class="weui-cells">
     <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/about/about" open-type='navigate'>
       <view class="weui-cell__bd"><view>关于</view></view>
       <view class="weui-cell__ft"></view>
@@ -62,7 +72,20 @@
       <view class="weui-cell__bd"><view>提交反馈</view></view>
       <view class="weui-cell__ft"></view>
     </navigator>
-  </mp-cells>
+  </view>
+  <!-- 页面测试部分 -->
+  <view class="weui-cells">
+    <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/msg/msg_success" open-type='navigate'>
+      <image class="icon" src="/icons/collect-o.png"></image>
+      <view class="weui-cell__bd"><view>成功返回页面</view></view>
+      <view class="weui-cell__ft"></view>
+    </navigator>
+    <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/msg/msg_warn" open-type='navigate'>
+      <image class="icon" src="/icons/collect-o.png"></image>
+      <view class="weui-cell__bd" ext-class="text"><view>失败返回页面</view></view>
+      <view class="weui-cell__ft"></view>
+    </navigator>
+  </view>
   <!-- 获取个人信息 -->
   <view style="margin-top:20%"> 
     <!-- <button open-type="getUserInfo" bindtap="showUserInfoTap">获取个人信息</button> -->

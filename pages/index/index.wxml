@@ -1,6 +1,8 @@
 <view class="index">
     <!-- search bar -->
-    <mp-searchbar ext-class="searchbar"></mp-searchbar>
+    <mp-searchbar ext-class="searchbar">
+    
+    </mp-searchbar>
 </view>
 <view class="content1">
     <!-- 拾取跳转 -->

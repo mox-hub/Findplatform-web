@@ -1,4 +1,4 @@
-// pages/user/change.js
+// pages/msg/msg_warn.js
 Page({
 
     /**

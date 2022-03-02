@@ -30,6 +30,13 @@
                     "name": "用户界面",
                     "pathName": "pages/user/user",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/user/change",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }
