@@ -6,9 +6,10 @@ Page({
      */
     data: {
         open : false,
-        username : "abc",
+        id : "20220001",
+        username : "不醒人室",
         phone : "12345678912",
-        QQ : "123456789"
+        QQ : "88888888"
     },
    
     showUserInfoTap:function(){
@@ -29,7 +30,7 @@ Page({
           }
         })
     },
-    kindToggle(e) {
+    infoToggle(e) {
 
       var that = this;
       if(that.open == true){
