@@ -1,18 +1,15 @@
 <view class="index">
     <!-- search bar -->
-    <mp-searchbar ext-class="searchbar">
-    
-    </mp-searchbar>
+    <mp-searchbar ext-class="searchbar"></mp-searchbar>
 </view>
-<view class="content1">
+<view class="content-1">
     <!-- 拾取跳转 -->
-    <navigator class="title" url="/pages/find/find?title=发布照片" open-type='navigate'>
+    <navigator class="title" url="/pages/find/find" open-type='navigate'>
         我是拾物者
     </navigator>
 </view>
-    <!-- 分割线 -->
-    <view class="hr"></view>
-<view class="content2">
+
+<view class="content-2">
     <!-- 寻物跳转 -->
     <navigator class="title" url="/pages/search/search" open-type='switchTab'>
         我是失物者

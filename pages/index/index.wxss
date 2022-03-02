@@ -11,33 +11,32 @@ page{
 }
 
 .title{
-    color:#ddddff;
+    color:#fbfcff;
+    margin: 0 auto;
     padding:90rpx 160rpx;
     width: 100%;
     height: 500rpx;
     font-size: 70rpx;
-    height: 43vh;
+    font-family:cursive;
 }
 
-.content1{
-    margin-top: 2%;
-    margin-left: 12px;
-    margin-right: 12px;
-    background-color:#f0fff0;
-    border:2px solid;
+.content-1{
+    height: 45vh;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    background: linear-gradient(to right, #8FCFD6, #c2e1e3);
+    border:6rpx solid;
     border-color: #f0f0f0;
-    border-radius: 10px;
-    font-size: larger;
+    border-radius: 25rpx;
 }
-
-.content2{
-    margin-top: 10px;
-    margin-left: 8px;
-    margin-right: 8px;
+.content-2{
+    height: 45vh;
+    margin-top: 10rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
     margin-bottom: 3%;
-    background-color:#ffecec;
-    border:2px solid;
+    background: linear-gradient(to right, #e899aa, #ebbfc8);
+    border:6rpx solid;
     border-color:#f0f0f0;
-    border-radius: 10px;
-    font-size: larger;
+    border-radius: 25rpx;
 }

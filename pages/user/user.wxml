@@ -5,7 +5,7 @@
 <view class="header-card">
   <view class="header-avatar-outline">
 <!-- <image class="header-avatar" src="{{avatarUrl}}" /> -->
-    <image class="header-avatar" src="/icons/me-o.png" />  
+    <image class="header-avatar" src="/icons/user/avatar-sample.png" />  
   </view> 
   <view class="haeder-user-info">
     <view class="haeder-user-info-username">
@@ -21,7 +21,7 @@
   <view class="info-list__item">
     <view class="weui-flex info-list__item-hd {{open ? 'info-list__item-hd_show' : ''}}" bindtap="infoToggle">
         <view class="weui-flex__item">个人信息</view>
-        <image aria-role="button" aria-label="{{open ? ' 收起' : ' 展开'}}" class="info-list__img" src="/icons/collect-o.png"></image>
+        <image aria-role="button" aria-label="{{open ? ' 收起' : ' 展开'}}" class="info-list__img" src="/icons/user/user-info.png"></image>
     </view>
     <view aria-hidden="{{open ? 'false' : 'true'}}" class="info-list__item-bd {{open ? 'info-list__item-bd_show' : ''}}">
         <view class="weui-cells weui-cells_show">
@@ -39,6 +39,7 @@
           </view>
           <!-- 个人信息修改页面跳转 -->
           <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/user/change_user_info" open-type='navigate'>
+            <image class="icon" src="/icons/user/edit.png"></image>
             <view class="weui-cell__bd" ext-class="text"><view>修改我的信息</view></view>
             <view class="weui-cell__ft"></view>
           </navigator>
@@ -55,7 +56,7 @@
       <view class="weui-cell__ft"></view>
     </navigator>
     <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/release/release" open-type='navigate'>
-      <image class="icon" src="/icons/collect-o.png"></image>
+      <image class="icon" src="/icons/user/release.png"></image>
       <view class="weui-cell__bd" ext-class="text"><view>我的发布</view></view>
       <view class="weui-cell__ft"></view>
     </navigator>

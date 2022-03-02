@@ -1,8 +1,17 @@
 /* pages/user/user.wxss */
 
 page{
-    background-color: #f5f6f8;
-  }
+  background-color: #f5f6f8;
+}
+
+/* 全局样式 */
+
+.icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: -4rpx;
+  margin-right: 15rpx;
+}
 
   /* 头部卡片样式 */
 .header-card{
@@ -48,13 +57,6 @@ page{
   font-size: 25rpx;
 }
 
-/* 全局样式 */
-.icon {
-  width: 34rpx;
-  height: 34rpx;
-  margin-bottom: -4rpx;
-  margin-right: 10rpx;
-}
 
 /* 个人信息栏目样式 */
 .weui-flex {
@@ -97,8 +99,8 @@ page{
 }
 
 .info-list__img {
-  width: 40rpx;
-  height: 40rpx
+  width: 50rpx;
+  height: 50rpx
 }
 .info-list__item-bd_show {
   height: auto
