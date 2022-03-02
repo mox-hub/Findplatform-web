@@ -1,2 +1,29 @@
 <!--pages/collect/collect.wxml-->
-<text>pages/collect/collect.wxml</text>
+<page-meta root-font-size="system"/>
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+			<view class="weui-panel__hd">我的收藏</view>
+			<view class="weui-panel__bd">
+				<view wx:for="{{item}}">
+					<navigator aria-labelledby="js_p1m1_bd" class="weui-media-box weui-media-box_appmsg" url="/pages/goods_detail/goods_detail">
+						<view aria-hidden="true" class="weui-media-box__hd">
+							<image class="weui-media-box__thumb" src="{{item.image}}" alt></image>
+						</view>
+						<view aria-hidden="true" id="js_p1m1_bd" class="weui-media-box__bd">
+							<text class="weui-media-box__title">{{item.name}}</text>
+						<view class="weui-media-box__desc">{{item.text}}</view>
+					</view>
+					</navigator>
+			</view>
+			</view>
+			<view class="weui-panel__ft">
+				<navigator class="weui-cell weui-cell_active weui-cell_access weui-cell_link" url="javascript:">
+					<text class="weui-cell__bd">查看更多</text>
+					<text class="weui-cell__ft"></text>
+				</navigator>
+			</view>
+		</view>
+	
+	</view>
+</view>
