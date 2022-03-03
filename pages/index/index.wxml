@@ -4,7 +4,7 @@
 </view>
 <view class="content-1">
     <!-- 拾取跳转 -->
-    <navigator class="title" url="/pages/find/find" open-type='navigate'>
+    <navigator class="title" url="/pages/item/item_upload" open-type='navigate'>
         我是拾物者
     </navigator>
 </view>

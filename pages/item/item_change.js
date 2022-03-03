@@ -1,28 +1,11 @@
-// pages/release/release.js
+// pages/item/item_change.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        item:[{
-            image:'/icons/index01.png',
-            name:'手机',
-            text:'这是一部手机...'
-        },{
-            image:'/icons/index02.png',
-            name:'拼接雨伞',
-            text:'这是一把拼接雨伞...'
-        },{
-            image:'/icons/index04.png',
-            name:'电脑',
-            text:'这是一台电脑...'
-        },{
-            image:'/icons/ub04.png',
-            name:'西瓜雨伞',
-            text:'这是一把西瓜雨伞...'
-        }
-    ]
+
     },
 
     /**

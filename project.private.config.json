@@ -47,6 +47,13 @@
                     "name": "搜索页面",
                     "pathName": "pages/search/search",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "关于页面",
+                    "pathName": "pages/about/about",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

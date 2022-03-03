@@ -1,0 +1,3 @@
+<!--pages/item/item_details.wxml-->
+<text>pages/item/item_details.wxml</text>
+<p>--id:{{id}}</p>

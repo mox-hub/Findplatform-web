@@ -16,7 +16,7 @@
   <view class="goods" style="width:100%">
     <view class="item-list">
       <view wx:for="{{col1}}" wx:key="id">
-        <navigator class="item-card" url='/pages/goods_detail/goods_detail?url={{item.item_id}}'>
+        <navigator class="item-card" url='/pages/item/item_details?url={{item.item_id}}'>
         <view class="item-img-outline">
           <image class="item-img" src="{{item.imageurl}}" style="width:100%;height:{{item.height}}px"></image>
         </view>
@@ -24,7 +24,7 @@
             <view class="item-name">
               {{item.name}}
             </view>
-            <p class="{{item.state ? 'item-status-on' : 'item-status'}}">{{item.state? '找回' : '未找回'}}</p>      
+            <p class="{{item.state ? 'item-status-on' : 'item-status'}}">{{item.state? '已找回' : '未找回'}}</p>      
           </view>
           <view class="item-info-box">
             <p class="item-info-time">{{item.pick_time}}</p>  
@@ -35,7 +35,7 @@
     </view>
     <view class="item-list">
       <view wx:for="{{col2}}" wx:key="id">
-        <navigator class="item-card" url='/pages/goods_detail/goods_detail?url=123'>
+        <navigator class="item-card" url='/pages/item/item_details?url={{item.item_id}}'>
           <view class="item-img-outline">
             <image class="item-img" src="{{item.imageurl}}" style="width:100%;height:{{item.height}}px"></image>
           </view>
@@ -43,7 +43,7 @@
             <view class="item-name">
               {{item.name}}
             </view>
-            <p class="{{item.state ? 'item-status-on' : 'item-status'}}">{{item.state? '找回' : '未找回'}}</p>      
+            <p class="{{item.state ? 'item-status-on' : 'item-status'}}">{{item.state? '已找回' : '未找回'}}</p>      
           </view>
           <view class="item-info-box">
             <p class="item-info-time">{{item.pick_time}}</p>  

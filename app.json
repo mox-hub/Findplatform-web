@@ -1,13 +1,13 @@
 {
     "pages": [
-        "pages/index/index",
         "pages/about/about",
         "pages/about/feedback",
-        "pages/category/category",
         "pages/collect/collect",
         "pages/find/find",
-        "pages/goods_list/goods_list",
-        "pages/goods_detail/goods_detail",
+        "pages/index/index",
+        "pages/item/item_details",
+        "pages/item/item_upload",
+        "pages/item/item_change",
         "pages/login/login",
         "pages/location/location",
         "pages/msg/msg_success",

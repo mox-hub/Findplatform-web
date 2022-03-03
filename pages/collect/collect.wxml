@@ -3,10 +3,10 @@
 <view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
 	<view class="page__bd">
 		<view class="weui-panel weui-panel_access">
-			<view class="weui-panel__hd">我的收藏</view>
+			<view class="weui-panel__hd">我的发布</view>
 			<view class="weui-panel__bd">
 				<view wx:for="{{item}}">
-					<navigator aria-labelledby="js_p1m1_bd" class="weui-media-box weui-media-box_appmsg" url="/pages/goods_detail/goods_detail">
+					<navigator aria-labelledby="js_p1m1_bd" class="weui-media-box weui-media-box_appmsg" url="/pages/item/item_details">
 						<view aria-hidden="true" class="weui-media-box__hd">
 							<image class="weui-media-box__thumb" src="{{item.image}}" alt></image>
 						</view>
@@ -24,6 +24,5 @@
 				</navigator>
 			</view>
 		</view>
-	
 	</view>
 </view>
