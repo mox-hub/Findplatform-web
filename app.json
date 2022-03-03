@@ -3,7 +3,6 @@
         "pages/about/about",
         "pages/about/feedback",
         "pages/collect/collect",
-        "pages/find/find",
         "pages/index/index",
         "pages/item/item_details",
         "pages/item/item_upload",
