@@ -21,22 +21,24 @@ page{
 }
 
 .content-1{
-    height: 45vh;
+    height: 43vh;
     margin-left: 20rpx;
     margin-right: 20rpx;
     background: linear-gradient(to right, #8FCFD6, #c2e1e3);
-    border:6rpx solid;
-    border-color: #f0f0f0;
+    border:2rpx solid;
+    border-color: #94d1d7;
     border-radius: 25rpx;
+    box-shadow: 6rpx 6rpx 6rpx #8f9091;
 }
 .content-2{
-    height: 45vh;
-    margin-top: 10rpx;
+    height: 43vh;
+    margin-top: 20rpx;
     margin-left: 20rpx;
     margin-right: 20rpx;
     margin-bottom: 3%;
     background: linear-gradient(to right, #e899aa, #ebbfc8);
-    border:6rpx solid;
-    border-color:#f0f0f0;
+    border:2rpx solid;
+    border-color:#e9a0b0;
     border-radius: 25rpx;
+    box-shadow: 6rpx 6rpx 6rpx #8f9091;
 }

@@ -71,6 +71,7 @@ page{
   transform: translateY(0)
 }
 
+
 .info-list__item-hd {
   padding: 30rpx;
   border:6rpx solid;

@@ -6,52 +6,54 @@
 <!-- 获取图片并展示 -->
 <!-- <view class="display">
   <block wx:for="{{arr}}">{{item}}
-    <image></image>
-  
-  
+    <image></image> 
   </block>
-
-
 </view> -->
+
+
+<!-- 双列滚动浏览 -->
 <scroll-view class= "item" scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="loadImages">
   <view class="goods" style="width:100%">
-    <view class="img_item">
+    <view class="item-list">
       <view wx:for="{{col1}}" wx:key="id">
-      <navigator url='/pages/goods_detail/goods_detail'>
-      <view class="item_info">
-        <image src="{{item.imageurl}}" style="width:100%;height:{{item.height}}px"></image>
-      </view>
-            <view class="product-name">
+        <navigator class="item-card" url='/pages/goods_detail/goods_detail?url={{item.item_id}}'>
+        <view class="item-img-outline">
+          <image class="item-img" src="{{item.imageurl}}" style="width:100%;height:{{item.height}}px"></image>
+        </view>
+        <view class="item-info-box">
+            <view class="item-name">
               {{item.name}}
             </view>
-            <view class="product-price-wrap">
-            <view>{{item.goodId}}</view>
-              <p class="product-price-new">￥{{item.newprice}}</p>  
-              <p class="product-price-old">￥{{item.oldprice}}</p> 
-               <p class="discount">{{item.discount}}折</p>   
-            </view>
-          </navigator>
+            <p class="{{item.state ? 'item-status-on' : 'item-status'}}">{{item.state? '找回' : '未找回'}}</p>      
+          </view>
+          <view class="item-info-box">
+            <p class="item-info-time">{{item.pick_time}}</p>  
+            <p class="item-info-location">{{item.pick_location}}</p>  
+          </view>
+        </navigator>
       </view>
     </view>
-    <view class="img_item">
+    <view class="item-list">
       <view wx:for="{{col2}}" wx:key="id">
-        <navigator url='/pages/item/item'>
-      <view class="item_info">
-        <image src="{{item.imageurl}}" style="width:100%;height:{{item.height}}px"></image>
-      </view>
-            <view class="product-name">
+        <navigator class="item-card" url='/pages/goods_detail/goods_detail?url=123'>
+          <view class="item-img-outline">
+            <image class="item-img" src="{{item.imageurl}}" style="width:100%;height:{{item.height}}px"></image>
+          </view>
+          <view class="item-info-box">
+            <view class="item-name">
               {{item.name}}
             </view>
-            <view class="product-price-wrap">
-              <p class="product-price-new">￥{{item.newprice}}</p>  
-              <p class="product-price-old">￥{{item.oldprice}}</p> 
-               <p class="discount">{{item.discount}}折</p>   
-            </view>
-          </navigator>
+            <p class="{{item.state ? 'item-status-on' : 'item-status'}}">{{item.state? '找回' : '未找回'}}</p>      
+          </view>
+          <view class="item-info-box">
+            <p class="item-info-time">{{item.pick_time}}</p>  
+            <p class="item-info-location">{{item.pick_location}}</p>  
+          </view>
+        </navigator>
       </view>
     </view>
   </view>
 </scroll-view>
- <view style="display:none">
+<view style="display:none">
   <image wx:for="{{images}}" wx:key="id" id="{{item.id}}" src="{{item.imageurl}}" bindload="onImageLoad"></image>
 </view> 

@@ -1,44 +1,102 @@
 /* pages/search/index.wxss */
 page{  
     height: 100%;  
-    background-color: #F3F4F6;
+    background-color: #f5f6f8;
   } 
   /* 单个图片容器的样式 */
-  .img_item {
-    width: 48.5%;
-    margin: 2px;
-    display: inline-block;
-    vertical-align: top;
-    background-color: #ffffff;
-    font-size: 24rpx;
+.item-list {
+  width: 48.5%;
+  margin: 2px;
+  display: inline-block;
+  vertical-align: top;
+  background-color: #f3f4f6;
+  font-size: 24rpx;
+
+}
+.item-card {
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  border: 2rpx solid;
+  border-color: #f0f0f0;
+  border-radius: 20rpx;
+  box-shadow: 8rpx 8rpx 8rpx #c2c3c4;
+  background-color: #fff;
+}
+
+.item-img-outline {
+  margin-top: 15rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+.item-img {
+  border: 5rpx solid;
+  border-color: #f5f6f8;
+  border-radius: 20rpx;
+}
+
+.item-name{
+  color: #000;
+  text-align:left;
+  margin-left: 20rpx;
+  margin-bottom: 5rpx; 
+}
+.item-info-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-info-box .product-price-new{
+  color: #e80080;
+  margin-left:5px;
+  font-weight:900;
+}
+
+.item-info-box .product-price-old{
+  color: #888;
+  text-decoration: line-through;
+  padding-left: 2px;
+}
+
+
+.item-info-box .item-info-time{
+  color: #8fbc8b;
+  margin-left: 10rpx;
+  font-weight: 800;
+}
+
+.item-info-box .item-info-location{
+  color: black;
+  margin-right: 10rpx;
+}
+
+.item-status{
+  margin-right: 14rpx;
+  margin-bottom: 6rpx;
+  padding-left: 8rpx;
+  padding-right: 8rpx;
+  background-color: red;
+  color: #fff;
+  border: 1rpx solid;
+  border-color: rgb(197, 11, 11);
+  border-radius: 20rpx;
+
+}
+.item-status-on{
+  margin-right: 14rpx;
+  margin-bottom: 6rpx;
+  padding-left: 8rpx;
+  padding-right: 8rpx;
+  background-color: #8ad815;
+  color: #fff;
+  border: 1rpx solid;
+  border-color: #81c717;
+  border-radius: 20rpx;
+
+}
   
-  }
-  .item_info{
-    border-top:1px dashed red;
-  }
-  .product-name{
-    color: #000;
-    /* height: 28px; */
-    text-align:left;
-     margin: 0px 5px; 
-     margin-bottom: 5px; 
-  }
-  .product-price-wrap .product-price-new{
-    color: #e80080;
-    margin-left:5px;
-    font-weight:900;
-  }
-  .product-price-wrap .product-price-old{
-    color: #888;
-    text-decoration: line-through;
-    padding-left: 2px;
-  }
-  .product-price-wrap .discount{
-    margin-left: 30px;
-    background-color: #000;
-    color: #fff;
-  }
-  
-  .item{
-    margin-top: 10px;
-  }
+.item{
+  margin-top: 10rpx;
+}
