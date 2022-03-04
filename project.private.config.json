@@ -61,6 +61,13 @@
                     "name": "",
                     "pathName": "pages/item/item_upload",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "物品编辑页面",
+                    "pathName": "pages/item/item_change",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }
