@@ -4,7 +4,7 @@
         "ignore": []
     },
     "setting": {
-        "urlCheck": false,
+        "urlCheck": true,
         "es6": true,
         "enhance": false,
         "postcss": true,
@@ -29,7 +29,8 @@
             "disablePlugins": [],
             "outputPath": ""
         },
-        "useIsolateContext": true,
+        "useIsolateContext": false,
+        "userConfirmedUseIsolateContext": false,
         "userConfirmedBundleSwitch": false,
         "packNpmManually": false,
         "packNpmRelationList": [],
@@ -41,7 +42,7 @@
         "ignoreUploadUnusedFiles": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.22.0",
+    "libVersion": "2.22.1",
     "appid": "wxf51f0d3a5c9550e6",
     "projectname": "findPlatform-web",
     "debugOptions": {

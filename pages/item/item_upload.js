@@ -30,16 +30,17 @@ function initQiniu() {
     };
     // 将七牛云相关配置初始化进本sdk
     qiniuUploader.init(options);
+
 }
 
 //获取应用实例
 var app = getApp()
+
 Page({
     data: {
         files:[],
         //图片上传成功参数
         successState: "",
-        count:0,
         // 图片上传（从相册）返回对象。上传完成后，此属性被赋值
         imageObject: {},
         // 文件上传（从客户端会话）返回对象。上传完成后，此属性被赋值
@@ -92,11 +93,9 @@ Page({
              var filePath = res.tempFilePaths[0];
              // 交给七牛上传
              qiniuUploader.upload(filePath, (res) => {
-              //  that.data.successState = true;
               that.setData({
                 imageObject : res,
                 successState : true,
-                count : 1
               })
               
               if(that.data.successState == true){
