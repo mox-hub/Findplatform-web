@@ -12,7 +12,7 @@ function initQiniu() {
         // 由其他程序生成七牛云uptoken，然后直接写入uptoken
         uptoken: '',
         // 从指定 url 通过 HTTP GET 获取 uptoken，返回的格式必须是 json 且包含 uptoken 字段，例如： {"uptoken": "0MLvWPnyy..."}
-        uptokenURL: 'https://api.moxhub.cn//img/v1/getToken/',
+        uptokenURL: 'https://api.moxhub.cn/img/v1/getToken/',
         
         // uptokenFunc 这个属性的值可以是一个用来生成uptoken的函数，详情请见 README.md
         uptokenFunc: function () { 
@@ -38,7 +38,8 @@ Page({
     data: {
         files:[],
         //图片上传成功参数
-        successState:'',
+        successState: "",
+        count:0,
         // 图片上传（从相册）返回对象。上传完成后，此属性被赋值
         imageObject: {},
         // 文件上传（从客户端会话）返回对象。上传完成后，此属性被赋值
@@ -58,55 +59,61 @@ Page({
     odidPressChooesImage: function (options) {
         var th = this;
         if(imageObject.imageURL != ''){
-            wx.request({
-                url: 'https://api.moxhub.cn//item/v1/addItem',
-                method: 'post',
-                success: function(res) {
-                  th.setData({
-                      itemId:"22",
-                      imgUrl: res.imageObject.imageURL,
-                      tag:"test1",
-                      state:1,
-                      pickLocation:"classroom",
-                      placement:"classroom_1",
-                      pickTime:"2022-11-2",
-                      userId:"2"
-                  });
-                },
-                fail:function(res){
-                  console.log("-------fail------")
-                }
-              })
+          wx.request({
+            url: 'https://api.moxhub.cn//item/v1/addItem',
+            method: 'post',
+            success: function(res) {
+              th.setData({
+                  itemId:"22",
+                  imgUrl: res.imageObject.imageURL,
+                  tag:"test1",
+                  state:1,
+                  pickLocation:"classroom",
+                  placement:"classroom_1",
+                  pickTime:"2022-11-2",
+                  userId:"2"
+              });
+            },
+            fail:function(res){
+              console.log("-------fail------")
+            }
+          })
         }
-
       },
       chooseImage() {
+
         const that = this;
+        initQiniu();
         wx.chooseImage({
           sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
           sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+
           success:function(res) {
              var filePath = res.tempFilePaths[0];
              // 交给七牛上传
              qiniuUploader.upload(filePath, (res) => {
+              //  that.data.successState = true;
               that.setData({
-                'imageObject': res,
-                'successState':true
-              });
+                imageObject : res,
+                successState : true,
+                count : 1
+              })
+              
+              if(that.data.successState == true){
+                that.setData({
+                  files: that.data.files.concat(filePath),
+                });
+              }
             }, (error) => {
               console.error('error: ' + JSON.stringify(error));
             });
             // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-            if(res.successState == true){
-              that.setData({
-                files: that.data.files.concat(res.tempFilePaths),
-              });
-            }
+
           },
           fail:function(res){
             if(res.files == ''){
               that.setData({
-                successState:'false'
+                successState:false
               })
             }
           }

@@ -54,6 +54,13 @@
                     "name": "关于页面",
                     "pathName": "pages/about/about",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/item/item_upload",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

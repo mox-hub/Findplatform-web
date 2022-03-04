@@ -27,5 +27,12 @@
               </view>
         </view>
       </view>
+    <!-- 底栏 -->
+    <view class="weui-footer">
+      <view class="weui-footer__links">
+        <navigator class="weui-footer__link weui-wa-hotarea" url="https://gitee.com/hfutcs-330">不醒人室</navigator>
+      </view>
+      <view class="weui-footer__text">Copyright &copy; 2022-至今 foocode.cn</view>
+    </view>
   </view>
 </view>
