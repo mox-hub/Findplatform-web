@@ -14,7 +14,7 @@
                               <view class="weui-uploader__info">{{files.length}}/9</view>
                           </view>
                           <view class="weui-uploader__tips">
-                            上传提示
+                            请尽量让物品出现在图片中心，并且在简单背景下进行拍摄
                           </view>
                         </view>
                         <view class="weui-uploader__bd">
