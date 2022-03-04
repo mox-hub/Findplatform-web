@@ -76,3 +76,6 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+# wx-tools ignore
+project.private.config.json

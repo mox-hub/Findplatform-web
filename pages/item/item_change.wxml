@@ -22,7 +22,6 @@
                     <view class="weui-cell__hd">
                         <label class="weui-label">昵称</label>
                     </view>
-                    
                     <view class="weui-cell__bd">
                         <input class="weui-input" placeholder="填写本人微信号的昵称" placeholder-class="weui-input__placeholder" />
                     </view>
@@ -44,31 +43,6 @@
                     </view>
                 </view>
             </view>
-            <!-- 验证信息部分 -->
-            <view class="weui-cells__title">验证信息</view>
-                <view class="weui-cells weui-cells_form">
-                    <!-- 手机号部分 -->
-                    <view class="weui-cell weui-cell_active">
-                        <view class="weui-cell__hd"><label class="weui-label">手机号</label></view>
-                        <view class="weui-cell__bd">
-                            <input class="weui-input" type="number" placeholder="请输入手机号" value="12345678907" placeholder-class="weui-input__placeholder" />
-                        </view>
-                        <view class="weui-cell__ft">
-                            <button style="width: auto;" class="weui-btn_reset weui-btn_icon">
-                                <view class="weui-icon-info-circle"></view>
-                                <view class="weui-hidden_abs">帮助</view>
-                            </button>
-                        </view>
-                    </view>
-                    <!-- 验证码部分 -->
-                    <view class="weui-cell weui-cell_active weui-cell_vcode weui-cell_wrap">
-                        <view class="weui-cell__hd"><label class="weui-label">验证码</label></view>
-                        <view class="weui-cell__bd cell-vcode">
-                            <input bindinput="bindVcodeInput" class="weui-cell__control weui-cell__control_flex weui-input" type="text" placeholder="输入验证码" placeholder-class="weui-input__placeholder" />
-                            <view aria-role="button" class="weui-cell__control weui-btn weui-btn_default weui-vcode-btn btn">获取验证码</view>
-                        </view>
-                    </view>
-                </view>
                 <view class="weui-cells__tips" ext-class="vcode">
                         <navigator class="weui-link" url="/pages/about/about" >收不到验证码</navigator>
                     </view>
