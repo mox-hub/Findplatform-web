@@ -1,7 +1,7 @@
 <!--pages/search/index.wxml-->
 <view class="index">
     <!-- search bar -->
-    <SearchBar></SearchBar>
+    <mp-searchbar></mp-searchbar>
 </view>
 <!-- 获取图片并展示 -->
 <!-- <view class="display">

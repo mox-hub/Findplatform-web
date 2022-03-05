@@ -5,7 +5,7 @@
 <view class="page-content-1">
     <!-- 拾取跳转 -->
     <navigator class="page-title" url="/pages/item/item_upload" open-type='navigate'>
-        <text class="page-text">我是寻物者</text>
+        <text class="page-text">我是拾物者</text>
         <image class="page-emoji"src="/icons/icons8-emoji1-64.png"></image>
         <!-- <image class="page-emoji-1"src="/icons/icons8-emoji1-64.png"></image> -->
     </navigator>

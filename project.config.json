@@ -29,7 +29,7 @@
             "disablePlugins": [],
             "outputPath": ""
         },
-        "useIsolateContext": false,
+        "useIsolateContext": true,
         "userConfirmedUseIsolateContext": false,
         "userConfirmedBundleSwitch": false,
         "packNpmManually": false,
