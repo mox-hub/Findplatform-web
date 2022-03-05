@@ -5,62 +5,69 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        uploadBtnState:true,
+        text:'',
+        wx:'',
+        phone:''
+    },
+    textinput:function(e){
+        var val = e.detail.value;
+        if(val != ''){
+            this.setData({
+                text:val
+            });
+            if(this.data.phone != '' && this.data.wx != ''){
+              this.setData({
+                  uploadBtnState:false
+              })
+          }
+        }
+        else{
+          this.setData({
+            uploadBtnState:true
+          })
+        }
+      },
+      wxinput:function(e){
+        var val = e.detail.value;
+        if(val != ''){
+            this.setData({
+                wx:val
+            });
+            if(this.data.text != '' && this.data.phone != ''){
+              this.setData({
+                  uploadBtnState:false
+              })
+          }
+        }
+        else{
+          this.setData({
+            uploadBtnState:true
+          })
+        }
+      },
+      phoneinput:function(e){
+        var val = e.detail.value;
+        if(val != ''){
+            this.setData({
+                phone:val
+            });
+            if(this.data.text != '' && this.data.wx != ''){
+              this.setData({
+                  uploadBtnState:false
+              })
+          }
+        }
+        else{
+          this.setData({
+            uploadBtnState:true
+          })
+        }
+      },
+      upload:function(){
+        wx.redirectTo({
+          url: '/pages/msg/msg_success'
+        });
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })
