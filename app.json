@@ -58,5 +58,10 @@
     },
     "style": "v2",
     "sitemapLocation": "sitemap.json",
-    "lazyCodeLoading": "requiredComponents"
+    "lazyCodeLoading": "requiredComponents",
+    "permission": {
+        "scope.userLocation": {
+          "desc": "你的位置信息将用于选取拾取地点"
+        }
+      }
 }
