@@ -45,7 +45,12 @@
 			</view>
 			<view id="p4" class="weui-form-preview__item">
 				<label class="weui-form-preview__label">拾取地点：</label>
-				<text class="weui-form-preview__value">食堂</text>
+				<!-- <text class="weui-form-preview__value">食堂</text> -->
+				<view class="weui-cells">
+    			<navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/location/location" open-type='navigate'>
+     				 <view class="weui-cell__bd">获取地址</view>
+    			</navigator>
+        </view>
 			</view>
 			<view id="p5" class="weui-form-preview__item">
 				<label class="weui-form-preview__label">物品状态：</label>

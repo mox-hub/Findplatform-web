@@ -1,22 +1,6 @@
-/* components/SearchBar/SearchBar.wxss */
-/* .search_bar {
-    height: 90rpx;
-    padding: 10rpx;
-    background-color: var(--themeColor);
-  }
-  .search_bar input {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 20rpx;
-    color: #666;
-  }
-   */
-   
 
-   .searchbar {
+
+   /* .searchbar {
     height: 88rpx;
     padding: 20rpx 30rpx;
     display: flex;
@@ -54,7 +38,7 @@
     color: rgba(21,96,220,1);
   }
   @font-face {
-    font-family: 'iconfont';  /* Project id 2757028 */
+    font-family: 'iconfont';  
     src: url('//at.alicdn.com/t/font_2757028_t08guscgyug.woff2?t=1636946450047') format('woff2'),
          url('//at.alicdn.com/t/font_2757028_t08guscgyug.woff?t=1636946450047') format('woff'),
          url('//at.alicdn.com/t/font_2757028_t08guscgyug.ttf?t=1636946450047') format('truetype');
@@ -153,4 +137,5 @@
   .icon-tupian:before {
     content: "\e8bd";
   }
-  
+   */
+   .searchbar-result{margin-top:0;font-size:0.8235294117647058rem}.searchbar-result .weui-cell__bd{padding:2px 0 2px 20px;color:var(--weui-FG-1)}.searchbar-result:before{display:none}
