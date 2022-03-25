@@ -82,5 +82,35 @@ item01(){
   this.setData({
     inputVal:'雨伞'
   })
+},
+item02(){
+  this.setData({
+    inputVal:'水杯'
+  })
+},
+item03(){
+  this.setData({
+    inputVal:'手机'
+  })
+},
+item04(){
+  this.setData({
+    inputVal:'电脑'
+  })
+},
+item05(){
+  this.setData({
+    inputVal:'耳机'
+  })
+},
+item06(){
+  this.setData({
+    inputVal:'教材书籍'
+  })
+},
+item07(){
+  this.setData({
+    inputVal:'校园卡'
+  })
 }
 });
