@@ -76,5 +76,11 @@ Page({
         url: '/pages/search/search',
       })
     }
- }
+ },
+ 
+item01(){
+  this.setData({
+    inputVal:'雨伞'
+  })
+}
 });

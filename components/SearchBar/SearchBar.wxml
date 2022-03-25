@@ -47,29 +47,57 @@
           <span class="weui-search-bar__text">搜索</span>
         </label>
 			</form>
-      <view aria-role="button" class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
+      <view aria-role="button" class="weui-search-bar__cancel-btn" bindtap="search">搜索</view>
 		</view>
-		<view aria-role="listbox" id="searchResult" class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+		<view aria-role="listbox" id="searchResult" class="weui-cells searchbar-result" wx:if="{{inputVal == '雨' || inputVal == 'yu'}}">
 			<view role="option" class="weui-cell weui-cell_active weui-cell_access">
 				<view class="weui-cell__bd weui-cell_primary">
-					<view>实时搜索文本</view>
+					<view bindtap="item01">雨伞</view>
 				</view>
-			</view>
+	 	  </view>
+  	</view>
+    <view aria-role="listbox" id="searchResult" class="weui-cells searchbar-result" wx:if="{{inputVal == '水' || inputVal == 'shui'}}">
 			<view role="option" class="weui-cell weui-cell_active weui-cell_access">
 				<view class="weui-cell__bd weui-cell_primary">
-					<view>实时搜索文本</view>
+					<view bindtap="item01">水杯</view>
 				</view>
-			</view>
+	 	  </view>
+  	</view>
+    <view aria-role="listbox" id="searchResult" class="weui-cells searchbar-result" wx:if="{{inputVal == '手' || inputVal == 'shou'}}">
 			<view role="option" class="weui-cell weui-cell_active weui-cell_access">
 				<view class="weui-cell__bd weui-cell_primary">
-					<view>实时搜索文本</view>
+					<view bindtap="item01">手机</view>
 				</view>
-			</view>
+	 	  </view>
+  	</view>
+    <view aria-role="listbox" id="searchResult" class="weui-cells searchbar-result" wx:if="{{inputVal == '电脑' || inputVal == 'dian'}}">
 			<view role="option" class="weui-cell weui-cell_active weui-cell_access">
 				<view class="weui-cell__bd weui-cell_primary">
-					<view>实时搜索文本</view>
+					<view bindtap="item01">电脑</view>
 				</view>
-			</view>
-		</view>
-	</view>
+	 	  </view>
+  	</view>
+    <view aria-role="listbox" id="searchResult" class="weui-cells searchbar-result" wx:if="{{inputVal == '耳' || inputVal == 'er'}}">
+			<view role="option" class="weui-cell weui-cell_active weui-cell_access">
+				<view class="weui-cell__bd weui-cell_primary">
+					<view bindtap="item01">耳机</view>
+				</view>
+	 	  </view>
+  	</view>
+    <view aria-role="listbox" id="searchResult" class="weui-cells searchbar-result" wx:if="{{inputVal == '书' || inputVal == 'shu'}}">
+			<view role="option" class="weui-cell weui-cell_active weui-cell_access">
+				<view class="weui-cell__bd weui-cell_primary">
+					<view bindtap="item01">教材书籍</view>
+				</view>
+	 	  </view>
+  	</view>
+    <view aria-role="listbox" id="searchResult" class="weui-cells searchbar-result" wx:if="{{inputVal == '卡' || inputVal == 'ka'||inputVal == '校' ||inputVal == 'xiao' ||inputVal == '校园' }}">
+			<view role="option" class="weui-cell weui-cell_active weui-cell_access">
+				<view class="weui-cell__bd weui-cell_primary">
+					<view bindtap="item01">校园卡</view>
+				</view>
+	 	  </view>
+  	</view>
+  </view>
 </view>
+   
