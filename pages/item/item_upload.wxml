@@ -32,12 +32,12 @@
                                     </view>
                                 </view>
                                 </view>
-
                             </view>
                             <view class="weui-uploader__input-box">
                                 <view aria-role="button" aria-label="上传" class="weui-uploader__input" bindtap="chooseImage"></view>
                             </view>
                         </view>
+                        <button class='button' style="primary" bindtap="itemSuccess">上传</button>
                     </view>
                 </view>
             </view>

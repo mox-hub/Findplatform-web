@@ -1,1 +1,4 @@
 /* pages/item/item_upload.wxss */
+.button{
+  margin-top: 10rpx;
+}
