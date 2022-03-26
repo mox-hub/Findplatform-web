@@ -32,6 +32,8 @@ page{
 }
 
 .item-img {
+  width:100%;
+  height: 350rpx;
   border: 5rpx solid;
   border-color: #f5f6f8;
   border-radius: 20rpx;

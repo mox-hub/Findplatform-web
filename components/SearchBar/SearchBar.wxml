@@ -70,7 +70,7 @@
 				</view>
 	 	  </view>
   	</view>
-    <view aria-role="listbox" id="searchResult" class="weui-cells searchbar-result" wx:if="{{inputVal == '电脑' || inputVal == 'dian'}}">
+    <view aria-role="listbox" id="searchResult" class="weui-cells searchbar-result" wx:if="{{inputVal == '电' || inputVal == 'dian'}}">
 			<view role="option" class="weui-cell weui-cell_active weui-cell_access">
 				<view class="weui-cell__bd weui-cell_primary">
 					<view bindtap="item04">电脑</view>

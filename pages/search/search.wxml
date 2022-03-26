@@ -3,51 +3,44 @@
     <!-- search bar -->
     <mp-searchbar></mp-searchbar>
 </view>
-<!-- 获取图片并展示 -->
-<!-- <view class="display">
-  <block wx:for="{{arr}}">{{item}}
-    <image></image> 
-  </block>
-</view> -->
-
 
 <!-- 双列滚动浏览 -->
-<scroll-view class= "item" scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="loadImages">
+<scroll-view class= "item" scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="getItemInfo">
   <view class="goods" style="width:100%">
     <view class="item-list">
       <view wx:for="{{col1}}" wx:key="id">
-        <navigator class="item-card" url='/pages/item/item_details?url={{item.item_id}}'>
+        <navigator class="item-card" url='/pages/item/item_details?url={{item.itemId}}'>
         <view class="item-img-outline">
-          <image class="item-img" src="{{item.imageurl}}" style="width:100%;height:{{item.height}}px"></image>
+          <image class="item-img" src="{{item.imgUrl}}"></image>
         </view>
         <view class="item-info-box">
             <view class="item-name">
-              {{item.name}}
+              {{item.itemName}}
             </view>
             <p class="{{item.state ? 'item-status-on' : 'item-status'}}">{{item.state? '已找回' : '未找回'}}</p>      
           </view>
           <view class="item-info-box">
-            <p class="item-info-time">{{item.pick_time}}</p>  
-            <p class="item-info-location">{{item.pick_location}}</p>  
+            <p class="item-info-time">{{item.pickTime}}</p>  
+            <p class="item-info-location">{{item.pickLocation}}</p>  
           </view>
         </navigator>
       </view>
     </view>
     <view class="item-list">
       <view wx:for="{{col2}}" wx:key="id">
-        <navigator class="item-card" url='/pages/item/item_details?url={{item.item_id}}'>
+        <navigator class="item-card" url='/pages/item/item_details?url={{item.itemId}}'>
           <view class="item-img-outline">
-            <image class="item-img" src="{{item.imageurl}}" style="width:100%;height:{{item.height}}px"></image>
+            <image class="item-img" src="{{item.imgUrl}}"></image>
           </view>
           <view class="item-info-box">
             <view class="item-name">
-              {{item.name}}
+              {{item.itemName}}
             </view>
             <p class="{{item.state ? 'item-status-on' : 'item-status'}}">{{item.state? '已找回' : '未找回'}}</p>      
           </view>
           <view class="item-info-box">
-            <p class="item-info-time">{{item.pick_time}}</p>  
-            <p class="item-info-location">{{item.pick_location}}</p>  
+            <p class="item-info-time">{{item.pickTime}}</p>  
+            <p class="item-info-location">{{item.pickLocation}}</p>  
           </view>
         </navigator>
       </view>
@@ -55,5 +48,5 @@
   </view>
 </scroll-view>
 <view style="display:none">
-  <image wx:for="{{images}}" wx:key="id" id="{{item.id}}" src="{{item.imageurl}}" bindload="onImageLoad"></image>
+  <image wx:for="{{images}}" wx:key="id" id="{{item.id}}" src="{{item.imgUrl}}" bindload="onImageLoad"></image>
 </view> 
