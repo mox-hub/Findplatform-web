@@ -9,10 +9,10 @@
   </view> 
   <view class="haeder-user-info">
     <view class="haeder-user-info-username">
-      <text>{{username}}</text>
+      <text>{{userInfo.username}}</text>
     </view>
     <view class="haeder-user-info-phone">
-      <text>寻物ID: {{id}}</text>
+      <text>寻物ID: {{userInfo.id}}</text>
     </view>
   </view>
 </view>
@@ -27,15 +27,15 @@
         <view class="weui-cells weui-cells_show">
           <view class="weui-cell">
             <view class="weui-cell__bd">昵称</view>
-              <view class="weui-cell__ft">{{username}}</view>
+              <view class="weui-cell__ft">{{userInfo.username}}</view>
           </view>
           <view class="weui-cell">
-            <view class="weui-cell__bd">QQ</view>
-              <view class="weui-cell__ft">{{QQ}}</view>
+            <view class="weui-cell__bd">学校</view>
+              <view class="weui-cell__ft">{{userInfo.college}}</view>
           </view>
           <view class="weui-cell">
             <view class="weui-cell__bd">手机</view>
-              <view class="weui-cell__ft">{{phone}}</view>
+              <view class="weui-cell__ft">{{userInfo.phoneNumber}}</view>
           </view>
           <!-- 个人信息修改页面跳转 -->
           <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/user/change_user_info" open-type='navigate'>
@@ -61,14 +61,17 @@
       <view class="weui-cell__ft"></view>
     </navigator>
   </view>
+
   <!-- 关于页面跳转 -->
   <view class="weui-cells__title">关于</view>
   <view class="weui-cells">
     <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/about/about" open-type='navigate'>
+      <image class="icon" src="/icons/user/release.png"></image>
       <view class="weui-cell__bd"><view>关于</view></view>
       <view class="weui-cell__ft"></view>
     </navigator>
     <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/about/feedback" open-type='navigate'>
+      <image class="icon" src="/icons/user/release.png"></image>
       <view class="weui-cell__bd"><view>提交反馈</view></view>
       <view class="weui-cell__ft"></view>
     </navigator>
