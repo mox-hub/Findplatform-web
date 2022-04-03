@@ -5,7 +5,7 @@
 		<view class="weui-panel weui-panel_access">
 			<view class="weui-panel__hd">我的收藏</view>
 			<view class="weui-panel__bd">
-				<view wx:for="{{item}}">
+				<view wx:for="{{item}}" wx:key="itemId">
 					<navigator aria-labelledby="js_p1m1_bd" class="weui-media-box weui-media-box_appmsg" url="/pages/item/item_details?url={{item.itemId}}">
 						<view aria-hidden="true" class="weui-media-box__hd">
 							<image class="weui-media-box__thumb" src="{{item.imgUrl}}" alt></image>
