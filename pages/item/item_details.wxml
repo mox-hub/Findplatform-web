@@ -62,9 +62,6 @@
 		</view>
 		<view class="weui-form-preview__ft">
 			<!-- <navigator class="weui-form-preview__btn weui-form-preview__btn_default" aria-role="button" url="javascript:">辅助操作</navigator> -->
-			<navigator class="weui-form-preview__btn weui-form-preview__btn_primary" aria-role="button" url="/pages/item/item_change">
-				<view class="modify">修改信息</view>
-			</navigator>
 		</view>
 	</view>
 </view>

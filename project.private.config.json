@@ -101,6 +101,30 @@
           "pathName": "pages/login/login",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/release/release",
+          "pathName": "pages/release/release",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/item/item_change",
+          "pathName": "pages/item/item_change",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/release/release",
+          "pathName": "pages/release/release",
+          "query": "",
+          "scene": null
         }
       ]
     }

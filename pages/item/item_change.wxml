@@ -1,66 +1,70 @@
 <!--pages/item/item_change.wxml-->
-<!-- weUI 表单 -->
-<view class="weui-form">
-    <!-- 标题文本域 -->
-    <view class="weui-form__text-area">
-        <h2 class="weui-form__title">物品信息修改</h2>
-        <view class="weui-form__desc">请注意你的修改信息</view>
-    </view>
-    <!-- 内容控制域 -->
-    <view class="weui-form__control-area">
-        <navigator class="item-img-nav" url="/pages/item/item_upload" open-type='navigate'>
-            <view class="item-img-outline">
-                <image class="item-img" src="https://img.moxhub.cn/tmp/4TPbhcC6AYIoec73bda846dce342327492ae12fb831d.png"></image>
-            </view>
-        </navigator>
-        <view class="weui-cells__group weui-cells__group_form">
-            <!-- 基础信息部分 -->
-            <view class="weui-cells__title">基础信息</view>
-            <view class="weui-cells">
-                <!-- 输入昵称 -->
-                <view class="weui-cell weui-cell_active">
-                    <view class="weui-cell__hd">
-                        <label class="weui-label">昵称</label>
-                    </view>
-                    <view class="weui-cell__bd">
-                        <input class="weui-input" placeholder="填写本人微信号的昵称" placeholder-class="weui-input__placeholder" />
-                    </view>
-                </view>
-                <!-- 输入微信号 -->
-                <view class="weui-cell weui-cell_active">
-                    <view class="weui-cell__hd"><label class="weui-label">微信号</label></view>
-                    <view class="weui-cell__bd">
-                        <input class="weui-input" placeholder="填写本人微信号" placeholder-class="weui-input__placeholder" />
-                    </view>
-                </view>
-                <!-- 输入电话号-非验证 -->
-                <view class="weui-cell weui-cell_active">
-                    <view class="weui-cell__hd">
-                        <label class="weui-label">联系电话</label>
-                    </view>
-                    <view class="weui-cell__bd">
-                        <input class="weui-input" placeholder="填写绑定的电话号码" type="number" placeholder-class="weui-input__placeholder" />
-                    </view>
-                </view>
-            </view>
-                <view class="weui-cells__tips" ext-class="vcode">
-                        <navigator class="weui-link" url="/pages/about/about" >收不到验证码</navigator>
-                    </view>
-        </view>
-    </view>
+<page-meta root-font-size="system" />
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+			<view class="weui-panel__bd">
+				<view aria-labelledby="js_p1m1_bd" class="weui-media-box weui-media-box_appmsg">
+					<view class="weui-media-box__hd">
+						<image class="weui-media-box__thumb" src="{{item.imgUrl}}" alt></image>
+					</view>
+					<view aria-hidden="true" id="js_p1m1_bd" class="weui-media-box__bd">
+						<text class="weui-media-box__title">{{item.itemName}}</text>
 
-    <!-- 确定按钮 -->
-    <view class="weui-form__opr-area">
-    <button type="primary" disabled="{{vcodeValue ? false : true}}" bindtap="checkStatus">确定</button>
-    </view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="weui-panel__ft">
 
-    <!-- 表单底栏 -->
-    <view class="weui-form__extra-area">
-        <view class="weui-footer">
-            <view class="weui-footer__links">
-                <navigator class="weui-footer__link weui-wa-hotarea" url="https://gitee.com/hfutcs-330">不醒人室</navigator>
-            </view>
-            <view class="weui-footer__text">Copyright &copy; 2022-至今 foocode.cn</view>
-        </view>
-    </view>
+		</view>
+	</view>
+</view>
+<view class="page__bd">
+	<view class="weui-form-preview">
+		<view class="weui-form-preview__hd" aria-role="option">
+			<label class="weui-form-preview__label">发布者</label>
+            <input class="weui-form-preview__value" value="{{user.username}}"/>
+			<label class="weui-form-preview__label">联系方式</label>
+						<input class="weui-form-preview__value"value="{{user.phoneNumber}}"/>
+		</view>
+		<view aria-labelledby="p4 js_a11y_comma p5 js_a11y_comma p6" class="weui-form-preview__bd" aria-role="option">
+			<view id="p1" class="weui-form-preview__item">
+				<label class="weui-form-preview__label">颜色</label>
+				<text class="weui-form-preview__value">蓝色</text>
+			</view>
+			<view id="p2" class="weui-form-preview__item">
+				<label class="weui-form-preview__label">物品类别</label>
+				<input bindblur="tag" class="weui-form-preview__value"value="{{item.tag}}"/>
+			</view>
+			<view id="p3" class="weui-form-preview__item">
+				<label class="weui-form-preview__label">拾取时间</label>
+				<input bindblur="pickTime" class="weui-form-preview__value"value="{{item.pickTime}}"/>
+			</view>
+			<view id="p4" class="weui-form-preview__item">
+				<label class="weui-form-preview__label">拾取地点</label>
+				<input bindblur="pickLocation" class="weui-form-preview__value"value="{{item.pickLocation}}"/>
+				<view class="weui-cells">
+					<navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/location/location" open-type='navigate'>
+						<view class="weui-cell__bd">获取地址</view>
+					</navigator>
+				</view>
+			</view>
+			<view id="p5" class="weui-form-preview__item">
+				<label class="weui-form-preview__label">物品状态</label>
+				<input bindblur="state" class="weui-form-preview__value"value="{{item.state}}"/>
+			</view>
+			<view id="p6" class="weui-form-preview__item">
+				<label class="weui-form-preview__label">描述</label>
+				<input bindblur="itemInfo" class="weui-form-preview__value"value="{{item.itemInfo}}"/>
+			</view>
+		</view>
+		<view class="weui-form-preview__ft">
+			<!-- <navigator class="weui-form-preview__btn weui-form-preview__btn_default" aria-role="button" url="javascript:">辅助操作</navigator> -->
+			<!-- <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" aria-role="button">
+				<view class="modify">修改信息</view>
+			</navigator> -->
+		</view>
+		<button bindtap="change">修改信息</button>
+	</view>
 </view>

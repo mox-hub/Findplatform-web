@@ -14,7 +14,7 @@ Page({
     onLoad: function (options) {
           setTimeout(() => {
             wx.navigateTo({
-              url: '../item/item_details',
+              url: '../item/item_change',
             })
           }, 3000);
     },

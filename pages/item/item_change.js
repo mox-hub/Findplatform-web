@@ -1,66 +1,195 @@
 // pages/item/item_change.js
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
-
+        itemId:'',
+        item:'',
+        user:'',
+        tag:'',
+        pickTime:'',
+        pickLocation:'',
+        state:'',
+        itemInfo:'',
+        itemName:'',
+        placement:'',
+        imgUrl:''
     },
-
+    
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      console.log("[findplatform-web] itemId gotten.");
+      this.setData({
+          itemId:options.url
+      })
+      this.getItemInfo();
+      // console.log(this);
+    },
+      
+    /**
+     * 获取物品信息
+     */
+    getItemInfo: function () {
+      console.log("[findplatform-web] func getItemInfo start.")
+      var that = this;
+      wx.request({
+        url: 'https://api.foocode.cn/item/v1/queryItem/id?item_id='+that.data.itemId,
+        header: {
+          'content-type': 'application/json'
+        },
+        method: "GET",
+        data: {
+        },
+  
+        success(res) {
+          // console.log(res.data);
+          that.setData({
+            item: res.data,
+            userId: res.data.userId,
+            tag: res.data.tag,
+            pickTime: res.data.pickTime,
+            pickLocation: res.data.pickLocation,
+            state: res.data.state,
+            itemInfo: res.data.itemInfo,
+            itemName: res.data.itemName,
+            placement: res.data.placement,
+            imgUrl: res.data.imgUrl
+          });
+          console.log("[findplatform-web] func getItemInfo done.");
+        },
+        
+        fail(res) {
+          console.log("[findplatform-web] func getItemInfo fail.");
+        },
+  
+        complete(res){   
+          console.log('[findplatform-web] func getItemInfo complete.') ;
+          // 再这里调用用户信息，为了规范执行顺序
+          that.getUserInfo(res.data.userId);
+        } 
+      })
+    },
+    /**
+     * 更改物品信息
+     */
+    updateItem: function () {
+      console.log("[findplatform-web] func go start.")
+      var that = this;
+      wx.request({
+        url: 'https://api.foocode.cn/item/v1/updateItem',
+        header: {
+          'content-type': 'application/json'
+        },
+        method: "POST",
+        data: {
+          "tag":that.data.tag,
+          "state":that.data.state,
+          "pickLocation": that.data.pickLocation,
+          "pickTime": that.data.pickTime,
+          "itemInfo":that.data.itemInfo,
+          "itemId":that.data.itemId,
+          "imgUrl":that.data.item.imgUrl,
+          "placement":that.data.item.placement,
+          "userId":that.data.user.userId,
+          "itemName":that.data.item.itemName
+        },
+  
+        success(res) {
+          // console.log(res.data);
+          console.log(that.data.tag)
+          console.log(that.data.state)
+          console.log(that.data.pickLocation)
+          console.log(that.data.pickTime)
+          console.log(that.data.itemInfo)
+          console.log(that.data.itemId)
+          console.log(that.data.imgUrl)
+          console.log(that.data.placement)
+          console.log(that.data.userId)
+          console.log(that.data.itemName)
+          console.log("[findplatform-web] func 111 done.");
+        },
+        
+        fail(res) {
+          console.log("[findplatform-web] func getItemInfo fail.");
+        },
+  
+        complete(res){   
+          console.log('[findplatform-web] func getItemInfo complete.') ;
+        } 
+      })
     },
 
     /**
-     * 生命周期函数--监听页面初次渲染完成
+     * 获取用户信息
      */
-    onReady: function () {
-
+    getUserInfo: function (options) {
+      console.log("[findplatform-web] func getUserInfo start.");
+      var that = this;
+      wx.request({
+        url: 'https://api.foocode.cn/usr/v1/queryUser?id='+options,
+        header: {
+          'content-type': 'application/json'
+        },
+        method: "GET",
+        data: {},
+        success(res) {
+          that.setData({
+            user: res.data
+          });
+          // console.log(res.data);
+          console.log("[findplatform-web] func getUserInfo done.")
+        },
+        fail(res) {
+          console.log("function getUserInfo fail.");
+        },
+        complete(res){  
+          console.log("function getUserInfo complete.");
+        } 
+      })
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
+    tag:function(e){
+      var val=e.detail.value
+      console.log(val)
+      this.setData({
+        tag:val
+      });
     },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
+    pickTime:function(e){
+      var val=e.detail.value
+      console.log(val)
+      this.setData({
+        pickTime:val
+      });
+    },    
+    pickLocation:function(e){
+      var val=e.detail.value
+      console.log(val)
+      this.setData({
+        pickLocation:val
+      });
+    },    
+    state:function(e){
+      var val=e.detail.value
+      console.log(val)
+      this.setData({
+        state:val
+      });
+    },    
+    itemInfo:function(e){
+      var val=e.detail.value
+      console.log(val)
+      this.setData({
+        itemInfo:val
+      });
     },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    change:function(){
+      this.updateItem(),
+      // console.log(this.item.itemId)
+      wx.navigateTo({
+        url: '/pages/item/item_details?url='+this.data.item.itemId
+      })
     }
-})
+  })
