@@ -18,6 +18,10 @@ App({
 
   },
   globalData: {
-    
+    userInfo: null,
+    openid:"",
+    appid: "",
+    appsecret: "",
+    phoneNumber: '',
   }
 });

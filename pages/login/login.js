@@ -1,126 +1,178 @@
-// pages/login/index.js
+const app = getApp();
 Page({
-
-    /**
-     * 页面的初始数据
-     */
-    data: {
-        loginBtnState: true,
-        username:"",
-        password:""
-    },
-    usernameinput:function(e){
-      var val = e.detail.value;
-      if(val != ''){
-          this.setData({
-              username:val
-          });
-          if(this.data.password != ""){
-            this.setData({
-                loginBtnState:false
-            })
-        }
-      }
-      else{
-        this.setData({
-            loginBtnState:true
-        })
-      }
-    },
-    passwordinput:function(e){
-        var val = e.detail.value;
-        if(val != ''){
-            this.setData({
-                password:val
-            });
-            if(this.data.username != ""){
-                this.setData({
-                    loginBtnState:false
-                })
+  data: {
+    //判断小程序的API，回调，参数，组件等是否在当前版本可用。
+    canIUse: wx.canIUse("button.open-type.getUserInfo"),
+    hasUserInfo: false,
+    userInfo: {},
+    openid:'',
+    session_key:'',
+    nickName: '',
+    avatarUrl: ''
+  },
+// 现在暂时没有作用
+  onLoad: function () {
+    var that = this;
+    // 查看是否授权
+    wx.getSetting({
+      success: function (res) {
+        console.log(res);
+        if (res.authSetting["scope.userInfo"]) {
+          wx.getUserInfo({
+            success : function (res) {
             }
-        }
-        else{
-            this.setData({
-                loginBtnState:true
-            })
+          });
+        } 
+      },
+    });
+  },
+
+  // 获取用户头像和昵称
+  getUserProfile: function() {
+    console.log("[findplatform-web] func getUserProfile start.");
+    var that = this;
+    wx.getUserProfile({
+
+      desc: '用于完善资料', 
+      success: (res) => {
+        console.log("[findplatform-web] func getUserProfile success.");
+        console.log(res);
+
+        this.setData({
+          nickName: res.userInfo.nickName,
+          avatarUrl: res.userInfo.avatarUrl
+        });
+
+        var encryptedData = res.encryptedData;
+        var iv = res.iv;
+
+        // 这里进行微信登录操作
+        wx.login({
+          success: res => {
+            console.log("[findplatform-web] wx.login start.");
+            if(res.code){
+              console.log("[findplatform-web] value code==>" + res.code)
+              that.getSessionKey(res.code, encryptedData, iv);
+            }
+          },
+          fail: res =>{
+            console.log("[findplatform-web] wx.login fail !!!" + res)
           }
-    },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    },
-    clickView() {
-        wx.getUserProfile({
-            desc: '用于完善用户信息',
-            success: (res)=> {
-                console.log(res);
-            },
         })
-    },
-    login:function(){
+
+        var that = this;
+        //插入登录的用户的相关信息到数据库
+        wx.request({
+            url:  + 'https://api.foocode.cn/usr/v1/addUser',
+            data: {
+              "id" : "123",
+              "username":"测试用例",
+              "password":"test",
+              "college":"合肥工业大学",
+              "phoneNumber":"15166666666"
+            },
+            header: {
+                'content-type': 'application/json'
+            },
+            success: function (res) {
+                //从数据库获取用户信息
+                that.queryUsreInfo();
+                console.log("插入小程序登录用户信息成功！");
+            }
+        });
+        //授权成功后，跳转进入小程序首页
         wx.switchTab({
-          url: '../index/index',
-        });
-    },
-    register:function(){
-        wx.navigateTo({
-          url: '../register/index',
-        });
-    },
-    repassword:function(){
-        wx.navigateTo({
-          url: '../repassword/index',
-        });
-    }      
-})
+            url: '/pages/index/index'  
+        })
+
+        that.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+
+        app.globalData.userInfo = res.userInfo;
+
+      },
+      fail(res) {
+        //用户按了拒绝按钮
+        console.log("[findplatform-web] func getUserProfile user refuse.");
+        wx.showModal({
+          title:'警告',
+          content:'您点击了拒绝授权，将无法使用小程序，请授权之后再进入!!!',
+          showCancel:false,
+          confirmText:'返回',
+          success:function(res){
+              if (res.confirm) {
+                console.log("[findplatform-web] func getUserProfile user clicked '返回授权'.");
+              } 
+          }
+      })
+        console.log("!!! [findplatform-web] func getUserProfile fail.")
+      },
+      complete(res){   
+        console.log('[findplatform-web] func getUserInfo complete.') ;
+      } 
+    })
+  },
+
+  // 请求获得sessionKey 和 openid
+  getSessionKey: function(js_code, encryptedData, iv) {
+    console.log("[findplatform-web] func getSessionKey start.");
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8080/wxLogin/v1/getSessionKey',
+      data: {
+          'jscode': js_code,
+          'checkCode': 'sign'
+      },
+      method: 'GET', 
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function(res) {
+        console.log("[findplatform-web] func getSessionKey success.");
+
+        console.log("[findplatform-web] value openid==>" +  res.data.openid);
+        console.log("[findplatform-web] value sessionkey==>" +  res.data.session_key);
+        
+        if(res.data == undefined){
+          wx.showToast({
+            icon: "none",
+            title: 'session_key获取失败，请重新登录！',
+          });
+        }
+        else {
+          that.setData({
+            openid: res.data.openid,
+            session_key:res.data.session_key
+          })
+        }
+      },
+      fail: function(res) {
+        console.log("!!![findplatform-web] func getSessionKey fail.");
+        wx.showToast({
+          icon: "none",
+          title: 'session_key获取失败，请重新登录！',
+        })
+      }
+    })
+  }, 
+
+//获取用户信息接口
+  queryUserInfo: function () {
+    wx.request({
+      url: 'https://api.foocode.cn/usr/v1/queryUser',
+      data: {
+        openid: app.globalData.openid
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        getApp().globalData.userInfo = res.data;
+      }
+    })
+  }
+
+});

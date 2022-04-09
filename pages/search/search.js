@@ -11,6 +11,7 @@ Page({
   },
 
   onLoad: function () {
+    console.log("[findplatform-web] Page <search> open.");
     wx.getSystemInfo({
       success: (res) => {
         let ww = res.windowWidth;
@@ -24,7 +25,9 @@ Page({
         });
 
         //加载首组图片
+        console.log("[findplatform-web] func onImageLoad start.")
         this.getItemInfo();
+        console.log("[findplatform-web] func onImageLoad done.")
       }
     })
   },
@@ -40,8 +43,6 @@ Page({
     let images = this.data.images;
     let imageObj = null;
 
-    console.log(e);
-
     for (let i = 0; i < images.length; i++) {
       let img = images[i];
       if (img.id == imageId) {
@@ -49,9 +50,7 @@ Page({
         break;
       }
     }
-
     imageObj.height = imgHeight;
-
     let loadingCount = this.data.loadingCount - 1;
     let col1 = this.data.col1;
     let col2 = this.data.col2;
@@ -73,11 +72,11 @@ Page({
     if (!loadingCount) {
       data.images = [];
     }
-
     this.setData(data);
   },
 
   getItemInfo: function () {
+    console.log("[findplatform-web] func getItemInfo start.")
     var that = this;
     wx.request({
       url: 'https://api.foocode.cn/item/v1/allItem',
@@ -88,7 +87,7 @@ Page({
       data: {},
 
       success(res) {
-        console.log(res.data);
+        // console.log(res.data);
         var baseId = "img-" + (+new Date());
         var images = res.data;
         for (let i = 0; i < images.length; i++) {
@@ -98,10 +97,14 @@ Page({
           loadingCount: images.length,
           images: images
         });
+        console.log("[findplatform-web] func getItemInfo done.")
       },
       fail(res) {
-        console.log("fail");
-      }
+        console.log("!!! [findplatform-web] func getItemInfo fail.")
+      },
+      complete(res){   
+        console.log('[findplatform-web] func getItemInfo complete.') ;
+      } 
     })
   }
 })

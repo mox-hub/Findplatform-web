@@ -13,10 +13,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("[findplatform-web] itemId gotten.");
+    console.log("[findplatform-web] Page <item_details> open.");
     this.setData({
-        itemId:options.url
+      itemId:options.url
     })
+    console.log("[findplatform-web] Data <itemId> gotten.");
     this.getItemInfo();
     // console.log(this);
   },

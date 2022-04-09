@@ -1,49 +1,49 @@
 /* pages/login/index.wxss */
-/* button{
-    margin-top: 40rpx;
-    width: 70%;
-} */
-
 page{
-    height: 100%;    /* 使用page的height可以使页面占全屏 */
     background-color: #fafafa;
-   }
-  .login-container{
-    padding: 0 10%;
-    height: 100%;
-  }
-  .title{
-    font-size: large;
-    text-align: center;
-    padding-top: 10%;
-    font-weight: bold;
-  }
-  .login-box{
-    margin-top: 10%;
-    padding: 10% 5%;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 4px #888888;
-    font-size: larger;
-  }
-  .login-box>input{
-    margin: 5% 0 8% 0;
-    border-bottom: 1rpx solid lightgray;
-  }
-  .login-btn{
-    width: 100%!important;
-    background-color: #2f6afd;
-    color: white;
-    font-weight: normal;
-  }
-   
-  .three-line{
-    margin: 8% 0;
-    text-align: center;
-    font-size: 12px;
-    color: gray;
-  }
-  
-  .findpw{
-    margin-top: 20rpx;
-  }
+}
+.headView {
+  margin: 90rpx 50rpx 90rpx 50rpx;
+}
+    
+.headImageView {
+  display: block;
+  margin-left: 25px;
+  margin-top: 25px;
+  margin-right: 25px;
+  margin-bottom: 0px;
+  height: 50px;
+}
+
+.headImage{
+  display: flex;
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+}
+    
+.titleText {   
+  margin-left: 25px;
+  margin-top: 50px;  
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #020e0f;
+  text-align: center;
+}
+    
+.contentText {
+  margin-left: 25px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+    
+.authBtn {
+  margin-top: 35px;
+  margin-left: 25px;
+  margin-right: 25px;
+  height: 45px;
+  font-size: 17.5px;
+}
