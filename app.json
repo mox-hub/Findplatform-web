@@ -33,26 +33,26 @@
             {
                 "pagePath": "pages/index/index",
                 "text": "首页",
-                "iconPath": "icons/home.png",
-                "selectedIconPath": "icons/home-o.png"
+                "iconPath": "icons/tabbar/home.png",
+                "selectedIconPath": "icons/tabbar/home-o.png"
             },
             {
                 "pagePath": "pages/search/search",
                 "text": "寻找",
-                "iconPath": "icons/search.png",
-                "selectedIconPath": "icons/search-o.png"
+                "iconPath": "icons/tabbar/search.png",
+                "selectedIconPath": "icons/tabbar/search-o.png"
             },
             {
                 "pagePath": "pages/collect/collect",
                 "text": "收藏",
-                "iconPath": "icons/collect.png",
-                "selectedIconPath": "icons/collect-o.png"
+                "iconPath": "icons/tabbar/collect.png",
+                "selectedIconPath": "icons/tabbar/collect-o.png"
             },
             {
                 "pagePath": "pages/user/user",
                 "text": "我的",
-                "iconPath": "icons/me.png",
-                "selectedIconPath": "icons/me-o.png"
+                "iconPath": "icons/tabbar/me.png",
+                "selectedIconPath": "icons/tabbar/me-o.png"
             }
         ]
     },

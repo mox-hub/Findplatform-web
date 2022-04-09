@@ -76,7 +76,7 @@ Page({
      * 更改物品信息
      */
     updateItem: function () {
-      console.log("[findplatform-web] func go start.")
+      console.log("[findplatform-web] func updateItem start.")
       var that = this;
       wx.request({
         url: 'https://api.foocode.cn/item/v1/updateItem',
@@ -91,24 +91,15 @@ Page({
           "pickTime": that.data.pickTime,
           "itemInfo":that.data.itemInfo,
           "itemId":that.data.itemId,
-          "imgUrl":that.data.item.imgUrl,
-          "placement":that.data.item.placement,
-          "userId":that.data.user.userId,
-          "itemName":that.data.item.itemName
+          "imgUrl":that.data.imgUrl,
+          "placement":that.data.placement,
+          "userId":that.data.userId,
+          "itemName":that.data.itemName
         },
   
         success(res) {
-          // console.log(res.data);
-          console.log(that.data.tag)
-          console.log(that.data.state)
-          console.log(that.data.pickLocation)
-          console.log(that.data.pickTime)
-          console.log(that.data.itemInfo)
-          console.log(that.data.itemId)
-          console.log(that.data.imgUrl)
-          console.log(that.data.placement)
-          console.log(that.data.userId)
-          console.log(that.data.itemName)
+          // console.log(res);
+          // console.log(that.data.tag)
           console.log("[findplatform-web] func 111 done.");
         },
         

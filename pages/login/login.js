@@ -120,7 +120,7 @@ Page({
     console.log("[findplatform-web] func getSessionKey start.");
     var that = this;
     wx.request({
-      url: 'http://localhost:8080/wxLogin/v1/getSessionKey',
+      url: 'https://api.foocode.cn/wxLogin/v1/getSessionKey',
       data: {
           'jscode': js_code,
           'checkCode': 'sign'
