@@ -6,7 +6,6 @@ Page({
      */
     data: {
         id:'',
-        user:'',
         BtnState: true,
         password:'',
         college:'',
@@ -36,7 +35,6 @@ Page({
           data: {},
           success(res) {
             that.setData({
-              user: res.data,
               id: res.data.id,
               openid: res.data.openid,
               avatarUrl: res.data.avatarUrl,
@@ -70,7 +68,6 @@ Page({
                 "college":that.data.college,
                 "phoneNumber":that.data.phoneNumber,
 
-                "user": that.data.user,
                 "id": that.data.id,
                 "openid": that.data.openid,
                 "avatarUrl": that.data.avatarUrl,
@@ -94,7 +91,7 @@ Page({
     checkStatus:function(){
         this.updataUser(),
         wx.switchTab({
-          url: './user?='+this.data.user.id,
+          url: './user?='+this.data.id,
           success: function () {
             var page = getCurrentPages().pop();
             if (page == undefined || page == null) return;
