@@ -60,34 +60,9 @@ Page({
           }
         })
 
-        var that = this;
-        //插入登录的用户的相关信息到数据库
-        wx.request({
-            url:  + 'https://api.foocode.cn/usr/v1/addUser',
-            data: {
-              "id" : "123",
-              "username":"测试用例",
-              "password":"test",
-              "college":"合肥工业大学",
-              "phoneNumber":"15166666666"
-            },
-            header: {
-                'content-type': 'application/json'
-            },
-            success: function (res) {
-                //从数据库获取用户信息
-                that.queryUsreInfo();
-                console.log("插入小程序登录用户信息成功！");
-            }
-        });
         //授权成功后，跳转进入小程序首页
         wx.switchTab({
             url: '/pages/index/index'  
-        })
-
-        that.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
         })
 
         app.globalData.userInfo = res.userInfo;
@@ -154,25 +129,60 @@ Page({
           icon: "none",
           title: 'session_key获取失败，请重新登录！',
         })
+      },
+      complete: function(res) {
+        console.log("[findplatform-web] func getSessionKey complete.");
+        that.queryUserInfo(2134);
       }
     })
   }, 
 
 //获取用户信息接口
-  queryUserInfo: function () {
+  queryUserInfo: function (option) {
     wx.request({
-      url: 'https://api.foocode.cn/usr/v1/queryUser',
+      url: 'https://api.foocode.cn/usr/v2/queryUser/openid',
       data: {
-        openid: app.globalData.openid
+        openid: option
       },
+      method: 'GET',
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         console.log(res.data);
-        getApp().globalData.userInfo = res.data;
+        if(res.data.code == 0) {
+          getApp().globalData.userInfo = res.data.data;
+        } else if(res.data.code == -1){
+
+        }      
       }
     })
-  }
+  },
 
+  addNewUser: function() {
+    var that = this;
+    //插入登录的用户的相关信息到数据库
+    wx.request({
+      url:  + 'https://api.foocode.cn/usr/v1/addUser',
+      data: {
+        "id" : "123",
+        "username":"测试用例",
+        "password":"test",
+        "college":"合肥工业大学",
+        "phoneNumber":"15166666666"
+      },
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function (res) {
+        //从数据库获取用户信息
+        that.queryUserInfo();
+        console.log("插入小程序登录用户信息成功！");
+        that.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    });
+  }
 });
