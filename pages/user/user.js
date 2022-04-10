@@ -5,10 +5,14 @@ Page({
    */
   data: {
     open : false,
-    userId : "20220001",
+    userId : '',
     userInfo:'',
   },
   onLoad: function () {
+    console.log(getApp().globalData);
+    this.setData({
+      userId: getApp().globalData.userInfo.userId
+    })
     this.getUserInfo();
   },
 

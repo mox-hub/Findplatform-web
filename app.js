@@ -18,8 +18,9 @@ App({
 
   },
   globalData: {
-    userInfo: null,
+    userInfo: {},
     openid:"",
+    userid:"",
     appid: "",
     appsecret: "",
     phoneNumber: '',

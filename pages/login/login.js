@@ -8,7 +8,8 @@ Page({
     openid:'',
     session_key:'',
     nickName: '',
-    avatarUrl: ''
+    avatarUrl: '',
+    userid:''
   },
 // 现在暂时没有作用
   onLoad: function () {
@@ -62,11 +63,8 @@ Page({
 
         //授权成功后，跳转进入小程序首页
         wx.switchTab({
-            url: '/pages/index/index'  
+            url: '/pages/user/user'
         })
-
-        app.globalData.userInfo = res.userInfo;
-
       },
       fail(res) {
         //用户按了拒绝按钮
@@ -132,13 +130,15 @@ Page({
       },
       complete: function(res) {
         console.log("[findplatform-web] func getSessionKey complete.");
-        that.queryUserInfo(2134);
+        that.queryUserInfo(res.data.openid);
       }
     })
   }, 
 
 //获取用户信息接口
   queryUserInfo: function (option) {
+    console.log("[findplatform-web] func queryUserInfo start.");
+    var that = this;
     wx.request({
       url: 'https://api.foocode.cn/usr/v2/queryUser/openid',
       data: {
@@ -152,37 +152,71 @@ Page({
         console.log(res.data);
         if(res.data.code == 0) {
           getApp().globalData.userInfo = res.data.data;
+          return;
         } else if(res.data.code == -1){
-
+          that.getNewUserId();
         }      
       }
     })
   },
 
-  addNewUser: function() {
+  addNewUser: function(userid) {
+    console.log(userid)
+    console.log("[findplatform-web] func addNewUser start.");
     var that = this;
     //插入登录的用户的相关信息到数据库
     wx.request({
-      url:  + 'https://api.foocode.cn/usr/v1/addUser',
+      url: 'https://api.foocode.cn/usr/v1/addUser',
       data: {
-        "id" : "123",
-        "username":"测试用例",
-        "password":"test",
-        "college":"合肥工业大学",
-        "phoneNumber":"15166666666"
+        "id" : userid,
+        "username": that.data.nickName,
+        "openid" : that.data.openid,
+        "avatarUrl":that.data.avatarUrl,
+        "password":"12",
+        "college":"12",
+        "phoneNumber":"12",
       },
+      method: 'POST',
       header: {
           'content-type': 'application/json'
       },
       success: function (res) {
         //从数据库获取用户信息
-        that.queryUserInfo();
         console.log("插入小程序登录用户信息成功！");
+        that.queryUserInfo(that.data.openid);
         that.setData({
-          userInfo: res.userInfo,
           hasUserInfo: true
+        })
+        //授权成功后，跳转进入小程序首页
+        wx.navigateTo({
+          url: '../user/change_user_info',
         })
       }
     });
+  },
+
+  getNewUserId: function() {
+    console.log("[findplatform-web] func getNewUserId start.");
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8080/usr/v2/newUserId',
+      data: {},
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log("[findplatform-web] func getNewUserId success.");
+        //从数据库获取用户信息
+        console.log(res);
+        getApp().globalData.userid = res.data;
+        that.setData({
+          userid: res.data,
+        })
+      },
+      complete: function(res) {
+        that.addNewUser(res.data);
+      }
+    });
   }
+
 });
