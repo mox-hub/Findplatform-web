@@ -51,7 +51,7 @@
   <view class="weui-cells__title">我的功能</view>
   <view class="weui-cells">
     <navigator class="weui-cell weui-cell_access"  hover-class="weui-cell_active" url="/pages/collect/collect" open-type='switchTab'>
-      <image class="icon" src="/icons/collect-o.png"></image>
+      <image class="icon" src="/icons/tabbar/collect-o.png"></image>
       <view class="weui-cell__bd"><view>我的收藏</view></view>
       <view class="weui-cell__ft"></view>
     </navigator>
