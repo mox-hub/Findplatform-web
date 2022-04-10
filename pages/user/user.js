@@ -40,6 +40,8 @@ Page({
         that.setData({
           userInfo : res.data,
         });
+        console.log(111)
+        console.log(that.data)
         console.log("[findplatform-web] func getUserInfo done.")
       },
       fail(res) {

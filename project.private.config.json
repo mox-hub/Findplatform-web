@@ -125,6 +125,18 @@
           "pathName": "pages/release/release",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/change_user_info",
+          "pathName": "pages/user/change_user_info",
+          "query": "",
+          "scene": null
         }
       ]
     }

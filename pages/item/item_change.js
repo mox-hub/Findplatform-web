@@ -93,7 +93,7 @@ Page({
           "itemId":that.data.itemId,
           "imgUrl":that.data.item.imgUrl,
           "placement":that.data.item.placement,
-          "userId":that.data.user.userId,
+          "userId":that.data.userId,
           "itemName":that.data.item.itemName
         },
   

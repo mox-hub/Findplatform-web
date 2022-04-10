@@ -15,35 +15,35 @@
                 <!-- 输入昵称 -->
                 <view class="weui-cell weui-cell_active">
                     <view class="weui-cell__hd">
-                        <label class="weui-label">昵称</label>
+                        <label class="weui-label">用户密码</label>
                     </view>
                     
                     <view class="weui-cell__bd">
-                        <input class="weui-input" placeholder="填写本人微信号的昵称" placeholder-class="weui-input__placeholder" />
+                        <input bindinput="pw_in" bindblur="pw_va" class="weui-input" placeholder="填写用户密码" placeholder-class="weui-input__placeholder" />
                     </view>
                 </view>
                 <!-- 输入微信号 -->
                 <view class="weui-cell weui-cell_active">
-                    <view class="weui-cell__hd"><label class="weui-label">微信号</label></view>
+                    <view class="weui-cell__hd"><label class="weui-label">所处大学</label></view>
                     <view class="weui-cell__bd">
-                        <input class="weui-input" placeholder="填写本人微信号" placeholder-class="weui-input__placeholder" />
+                        <input bindinput="co_in" bindblur="co_va" class="weui-input" placeholder="填写本人所处大学" placeholder-class="weui-input__placeholder" />
                     </view>
                 </view>
                 <!-- 输入电话号-非验证 -->
                 <view class="weui-cell weui-cell_active">
                     <view class="weui-cell__hd">
-                        <label class="weui-label">联系电话</label>
+                        <label class="weui-label">手机号</label>
                     </view>
                     <view class="weui-cell__bd">
-                        <input class="weui-input" placeholder="填写绑定的电话号码" type="number" placeholder-class="weui-input__placeholder" />
+                        <input bindinput="ph_in" bindblur="ph_va" class="weui-input" placeholder="填写用户手机号" type="number" placeholder-class="weui-input__placeholder" />
                     </view>
                 </view>
             </view>
             <!-- 验证信息部分 -->
-            <view class="weui-cells__title">验证信息</view>
-                <view class="weui-cells weui-cells_form">
+            <!-- <view class="weui-cells__title">验证信息</view>
+                <view class="weui-cells weui-cells_form"> -->
                     <!-- 手机号部分 -->
-                    <view class="weui-cell weui-cell_active">
+                    <!-- <view class="weui-cell weui-cell_active">
                         <view class="weui-cell__hd"><label class="weui-label">手机号</label></view>
                         <view class="weui-cell__bd">
                             <input class="weui-input" type="number" placeholder="请输入手机号" value="12345678907" placeholder-class="weui-input__placeholder" />
@@ -54,23 +54,23 @@
                                 <view class="weui-hidden_abs">帮助</view>
                             </button>
                         </view>
-                    </view>
+                    </view> -->
                     <!-- 验证码部分 -->
-                    <view class="weui-cell weui-cell_active weui-cell_vcode weui-cell_wrap">
+                    <!-- <view class="weui-cell weui-cell_active weui-cell_vcode weui-cell_wrap">
                         <view class="weui-cell__hd"><label class="weui-label">验证码</label></view>
                         <view class="weui-cell__bd cell-vcode">
                             <input bindinput="bindVcodeInput" class="weui-cell__control weui-cell__control_flex weui-input" type="text" placeholder="输入验证码" placeholder-class="weui-input__placeholder" />
                             <view aria-role="button" class="weui-cell__control weui-btn weui-btn_default weui-vcode-btn btn">获取验证码</view>
                         </view>
-                    </view>
-                </view>
-                <view class="weui-cells__tips" ext-class="vcode">
+                    </view> -->
+                <!-- </view> -->
+                <!-- <view class="weui-cells__tips" ext-class="vcode">
                         <navigator class="weui-link" url="/pages/about/about" >收不到验证码</navigator>
-                    </view>
+                    </view> -->
         </view>
     </view>
     <!-- 阅读并同意相关条款 -->
-    <view class="weui-form__tips-area">
+    <!-- <view class="weui-form__tips-area">
         <checkbox-group bindchange="checkboxChange">
             <label aria-role="" class="weui-wa-hotarea weui-agree {{msg ? 'weui-agree_animate' : ''}}">
                 <checkbox aria-role="" value="{{checkValue}}" class="weui-agree__checkbox-check" />
@@ -78,10 +78,10 @@
                 <view class="weui-agree__text"><text aria-hidden="true" id="js_agree_txt">阅读并同意</text><navigator id="js_agree_link">《相关条款》</navigator></view>
             </label>
         </checkbox-group>
-    </view>
+    </view> -->
     <!-- 确定按钮 -->
     <view class="weui-form__opr-area">
-    <button type="primary" disabled="{{vcodeValue ? false : true}}" bindtap="checkStatus">确定</button>
+    <button type="primary" disabled="{{BtnState}}" bindtap="checkStatus">确定</button>
     </view>
     <!-- 相关条款未同意提示 -->
     <view aria-role="alert" hidden="{{msg ? false : true}}" class="weui-hidden_abs">未同意《相关条款》</view>
