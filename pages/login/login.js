@@ -55,16 +55,16 @@ Page({
               console.log("[findplatform-web] value code==>" + res.code)
               that.getSessionKey(res.code, encryptedData, iv);
             }
+            //授权成功后，跳转进入小程序首页
+            wx.switchTab({
+                url: '/pages/user/user?url='+ this.data.userid
+            })
           },
           fail: res =>{
             console.log("[findplatform-web] wx.login fail !!!" + res)
           }
         })
 
-        //授权成功后，跳转进入小程序首页
-        wx.switchTab({
-            url: '/pages/user/user'
-        })
       },
       fail(res) {
         //用户按了拒绝按钮
@@ -183,13 +183,20 @@ Page({
       success: function (res) {
         //从数据库获取用户信息
         console.log("插入小程序登录用户信息成功！");
-        that.queryUserInfo(that.data.openid);
+        getApp().globalData.userid = userid
+        // that.queryUserInfo(that.data.openid);
         that.setData({
-          hasUserInfo: true
+          hasUserInfo: true,
+          id: userid
         })
-        //授权成功后，跳转进入小程序首页
+        //授权成功后，跳转进入小程序首页 
+        // wx.navigateTo({
+        //   url: '../user/change_user_info',
+        // })
+      },
+      complete:function(){
         wx.navigateTo({
-          url: '../user/change_user_info',
+          url: '../user/change_user_info?url='+userid,
         })
       }
     });
@@ -199,7 +206,7 @@ Page({
     console.log("[findplatform-web] func getNewUserId start.");
     var that = this;
     wx.request({
-      url: 'http://localhost:8080/usr/v2/newUserId',
+      url: 'http://api.foocode.cn/usr/v2/newUserId',
       data: {},
       header: {
           'content-type': 'application/json'

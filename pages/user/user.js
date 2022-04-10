@@ -4,6 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    url: '',
     open : false,
     userId : '',
     userInfo:'',
@@ -11,7 +12,7 @@ Page({
   onLoad: function () {
     console.log(getApp().globalData);
     this.setData({
-      userId: getApp().globalData.userInfo.userId
+      userId: url
     })
     this.getUserInfo();
   },
