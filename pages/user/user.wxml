@@ -4,8 +4,8 @@
   <!-- 头像卡片部分 -->
 <view class="header-card">
   <view class="header-avatar-outline">
-<!-- <image class="header-avatar" src="{{avatarUrl}}" /> -->
-    <image class="header-avatar" src="/icons/user/avatar-sample.png" />  
+<image class="header-avatar" src="{{userInfo.avatarUrl}}" />
+    <!-- <image class="header-avatar" src="/icons/user/avatar-sample.png" />   -->
   </view> 
   <view class="haeder-user-info">
     <view class="haeder-user-info-username">
@@ -38,7 +38,7 @@
               <view class="weui-cell__ft">{{userInfo.phoneNumber}}</view>
           </view>
           <!-- 个人信息修改页面跳转 -->
-          <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/user/change_user_info?url={{userInfo.id}}" open-type='navigate'>
+          <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/user/change_user_info?url={{userId}}" open-type='navigate'>
             <image class="icon" src="/icons/user/edit.png"></image>
             <view class="weui-cell__bd" ext-class="text"><view>修改我的信息</view></view>
             <view class="weui-cell__ft"></view>

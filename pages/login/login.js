@@ -55,10 +55,6 @@ Page({
               console.log("[findplatform-web] value code==>" + res.code)
               that.getSessionKey(res.code, encryptedData, iv);
             }
-            //授权成功后，跳转进入小程序首页
-            wx.switchTab({
-                url: '/pages/user/user?url='+ this.data.userid
-            })
           },
           fail: res =>{
             console.log("[findplatform-web] wx.login fail !!!" + res)
@@ -149,10 +145,16 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.data);
         if(res.data.code == 0) {
           getApp().globalData.userInfo = res.data.data;
-          return;
+          console.log(res)
+          var tmp = res.data.data
+          getApp().globalData.userid = tmp.id;
+          console.log(tmp.id);
+          wx.switchTab({
+            url: '/pages/user/user'
+          })
+          
         } else if(res.data.code == -1){
           that.getNewUserId();
         }      
@@ -183,20 +185,17 @@ Page({
       success: function (res) {
         //从数据库获取用户信息
         console.log("插入小程序登录用户信息成功！");
-        getApp().globalData.userid = userid
-        // that.queryUserInfo(that.data.openid);
+        
         that.setData({
           hasUserInfo: true,
           id: userid
         })
-        //授权成功后，跳转进入小程序首页 
-        // wx.navigateTo({
-        //   url: '../user/change_user_info',
-        // })
       },
       complete:function(){
+        //授权成功后，跳转进入小程序首页
+        var user =  getApp().globalData
         wx.navigateTo({
-          url: '../user/change_user_info?url='+userid,
+          url: '../user/change_user_info?url='+user.userid,
         })
       }
     });

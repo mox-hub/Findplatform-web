@@ -5,6 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        url:'',
         id:'',
         BtnState: true,
         password:'',
@@ -91,7 +92,7 @@ Page({
     checkStatus:function(){
         this.updataUser(),
         wx.switchTab({
-          url: './user?='+this.data.id,
+          url: './user',
           success: function () {
             var page = getCurrentPages().pop();
             if (page == undefined || page == null) return;

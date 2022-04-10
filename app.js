@@ -21,8 +21,5 @@ App({
     userInfo: {},
     openid:"",
     userid:"",
-    appid: "",
-    appsecret: "",
-    phoneNumber: '',
   }
 });

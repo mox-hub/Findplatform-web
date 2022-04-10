@@ -40,10 +40,9 @@ page{
 }
 .header-avatar {
   align-items: center;
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
-  width: 100rpx;
-  height: 100rpx;
+  width: 136rpx;
+  height: 136rpx;
+  border-radius: 20rpx;
 }
 .haeder-user-info {
   margin-bottom: 40rpx;

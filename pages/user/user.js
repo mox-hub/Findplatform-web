@@ -6,15 +6,16 @@ Page({
   data: {
     url: '',
     open : false,
-    userId : '',
+    userId : '20220410191308',
     userInfo:'',
   },
   onLoad: function () {
-    console.log(getApp().globalData);
+    var global = getApp().globalData;
+    console.log(global.userid);
     this.setData({
-      userId: url
+      userId: global.userid
     })
-    this.getUserInfo();
+    this.getUserInfo(global.userid);
   },
 
   infoToggle(e) {
@@ -30,11 +31,11 @@ Page({
     })
   },
 
-  getUserInfo: function() {
+  getUserInfo: function(userid) {
     console.log("[findplatform-web] func getUserInfo start.")
     var that = this;
     wx.request({
-      url: 'https://api.foocode.cn/usr/v1/queryUser?id='+that.data.userId,
+      url: 'https://api.foocode.cn/usr/v1/queryUser?id='+userid,
       header: {
         'content-type': 'application/json'
       },
