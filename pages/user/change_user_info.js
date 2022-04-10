@@ -95,6 +95,11 @@ Page({
         this.updataUser(),
         wx.switchTab({
           url: './user?='+this.data.user.id,
+          success: function () {
+            var page = getCurrentPages().pop();
+            if (page == undefined || page == null) return;
+            page.onLoad(); //重新刷新device-info页面
+          }
         })
     },
     pw_in:function(e){
