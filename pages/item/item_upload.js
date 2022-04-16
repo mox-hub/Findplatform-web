@@ -55,6 +55,7 @@ Page({
       cancelTask: function () {},
       itemId:'',
       imgUrl:'',
+      BtnState: true
   },
 
   chooseImage() {
@@ -71,6 +72,7 @@ Page({
           that.setData({
             imageObject : res,
             successState : true,
+            BtnState : false,
           })
           
           if(that.data.successState == true){
@@ -103,6 +105,10 @@ Page({
     console.log("[findplatform-web] func itemSuccess start.")
     var that = this;
     that.getNewItemId();
+  },
+  itemCancel(){
+    console.log("[findplatform-web] func itemCancel start.")
+    wx.navigateBack();
   },
 
   getNewItemId: function() {
@@ -137,8 +143,13 @@ Page({
     var that = this;
     var date = new Date();
     var moment = date.getFullYear() + '-'+ date.getMonth()+1 +'-' +  date.getDate();
-
-    console.log(that.data)
+    var image = that.data.imageObject
+    var itemid = String(that.data.itemId)
+    console.log(that.data.itemId)
+    console.log(itemid)
+    console.log(moment)
+    console.log(image.imageURL)
+    console.log(app.globalData.userid)
     wx.request({
       url: 'https://api.foocode.cn/item/v1/addItem',
       method: 'POST',
@@ -146,16 +157,16 @@ Page({
         'content-type': 'application/json'
       },
       data: {
-        itemId: that.data.itemId,
-        imgUrl: that.data.imageObject.imageURL,
-        tag:"test1",
-        state:0,
-        pickLocation:"classroom",
-        placement:"classroom_1",
-        pickTime:moment,
-        userId:app.globalData.userId,
-        itemName: "123",
-        itemInfo: "123"
+        "itemId": String(that.data.itemId),
+        "imgUrl": image.imageURL,
+        "tag":"test",
+        "state":0,
+        "pickLocation":"classroom",
+        "placement":"classroom_1",
+        "pickTime":moment,
+        "userId":app.globalData.userid,
+        "itemName": "123",
+        "itemInfo": "123",
       },
       success: function(res) {
         console.log("[findplatform-web] func addItem success.")

@@ -70,7 +70,7 @@
         </view>
     </view>
     <!-- 阅读并同意相关条款 -->
-    <!-- <view class="weui-form__tips-area">
+    <view class="weui-form__tips-area">
         <checkbox-group bindchange="checkboxChange">
             <label aria-role="" class="weui-wa-hotarea weui-agree {{msg ? 'weui-agree_animate' : ''}}">
                 <checkbox aria-role="" value="{{checkValue}}" class="weui-agree__checkbox-check" />
@@ -78,7 +78,7 @@
                 <view class="weui-agree__text"><text aria-hidden="true" id="js_agree_txt">阅读并同意</text><navigator id="js_agree_link">《相关条款》</navigator></view>
             </label>
         </checkbox-group>
-    </view> -->
+    </view>
     <!-- 确定按钮 -->
     <view class="weui-form__opr-area">
     <button type="primary" disabled="{{BtnState}}" bindtap="checkStatus">确定</button>

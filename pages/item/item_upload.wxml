@@ -3,17 +3,17 @@
 <page-meta root-font-size="system" />
 <view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
     <view class="page__bd">
-        <view class="weui-cells">
+        <view class="weui-cells page-box">
             <view class="weui-cell weui-cell_uploader">
                 <view class="weui-cell__bd">
                     <view class="weui-uploader">
                         <view class="weui-uploader__hd">
                             <view aria-role="option" class="weui-uploader__overview">
-                                <view class="weui-uploader__title">图片上传</view>
-                                <view class="weui-uploader__info">{{files.length}}/9</view>
+                                <view class="weui-uploader__title uploader-title">图片上传</view>
+                                <view class="weui-uploader__info uploader-info">{{files.length}}/9</view>
                             </view>
                             <view class="weui-uploader__tips">
-                                请尽量让物品出现在图片中心，并且在简单背景下进行拍摄
+                                请尽量让物品出现在图片中心，并且在简单背景下进行拍摄。请等待图片加载完毕后，再点击上传按钮。
                             </view>
                         </view>
                         <view class="weui-uploader__bd">
@@ -36,7 +36,9 @@
                                 <view aria-role="button" aria-label="上传" class="weui-uploader__input" bindtap="chooseImage"></view>
                             </view>
                         </view>
-                        <button class='button' bindtap="itemSuccess">上传</button>
+                        <button class='button-success' type="primary" disabled="{{BtnState}}" bindtap="itemSuccess">确定</button>
+                        <!-- <button class='button-success' bindtap="itemSuccess">上传</button> -->
+                        <button class='button-cancel' bindtap="itemCancel">取消</button>
                     </view>
                 </view>
             </view>

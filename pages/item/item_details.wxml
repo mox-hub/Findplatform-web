@@ -1,67 +1,84 @@
 <!--pages/item/item_details.wxml-->
-<!-- <p>--id:{{id}}</p> -->
 <page-meta root-font-size="system" />
-<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
-	<view class="page__bd">
-		<view class="weui-panel weui-panel_access">
-			<view class="weui-panel__bd">
-				<view aria-labelledby="js_p1m1_bd" class="weui-media-box weui-media-box_appmsg">
-					<view class="weui-media-box__hd">
-						<image class="weui-media-box__thumb" src="{{item.imgUrl}}" alt></image>
+<view class="page">
+	<view class="item-panel">
+	<!-- 首页卡片内容，展示物品大致信息  -->
+		<view class="item-media-box">
+			<!-- 物品图片栏目 -->
+			<view class="item-img-outline">
+				<image class="item-img" src="{{item.imgUrl}}" alt></image>
+			</view>
+			<!-- 物品信息栏目 -->
+			<view class="item-info-box">
+				<view class="item-name-outline">
+					<text class="item-name-addition"># </text> 
+					<text class="item-name">{{item.itemName}}</text>
+				</view>
+				<view class="{{item.state ? 'item-status-on' : 'item-status'}}">
+					<view class="item-state-name"> {{item.state? '已找回' : '未找回'}} </view>
+				</view>
+				<!-- 用户信息栏目 -->
+				<view class="user-info-box">
+					<p class="other-info">来自</p>
+					<view class="user-avator-outline">
+						<image class="user-avator" src="{{user.avatarUrl}}" alt></image>
 					</view>
-					<view aria-hidden="true" id="js_p1m1_bd" class="weui-media-box__bd">
-						<text class="weui-media-box__title">{{item.itemName}}</text>
-
-					</view>
+					<view class="user-name">{{user.username}}</view>
+					<p class="other-info">捡取</p>
 				</view>
 			</view>
-		</view>
-		<view class="weui-panel__ft">
-
 		</view>
 	</view>
-</view>
-<view class="page__bd">
-	<view class="weui-form-preview">
-		<view class="weui-form-preview__hd" aria-role="option">
-			<label class="weui-form-preview__label">发布者</label>
-			<em class="weui-form-preview__value">{{user.username}}</em>
-			<label class="weui-form-preview__label">联系方式</label>
-			<em class="weui-form-preview__value">{{user.phoneNumber}}</em>
-		</view>
-		<view aria-labelledby="p4 js_a11y_comma p5 js_a11y_comma p6" class="weui-form-preview__bd" aria-role="option">
-			<view id="p1" class="weui-form-preview__item">
-				<label class="weui-form-preview__label">颜色</label>
-				<text class="weui-form-preview__value">蓝色</text>
+	<!-- 数据面板 -->
+	<view class="data-panel">
+
+			<!-- 拾取者信息 -->
+			<view class="list-title">
+				<text class="item-name-addition"># </text> 
+				<p>发布者信息</p>
 			</view>
-			<view id="p2" class="weui-form-preview__item">
-				<label class="weui-form-preview__label">物品类别</label>
-				<text class="weui-form-preview__value">{{item.tag}}</text>
-			</view>
-			<view id="p3" class="weui-form-preview__item">
-				<label class="weui-form-preview__label">拾取时间</label>
-				<text class="weui-form-preview__value">{{item.pickTime}}</text>
-			</view>
-			<view id="p4" class="weui-form-preview__item">
-				<label class="weui-form-preview__label">拾取地点</label>
-				<text class="weui-form-preview__value">{{item.pickLocation}}</text>
-				<view class="weui-cells">
-					<navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/location/location" open-type='navigate'>
-						<view class="weui-cell__bd">获取地址</view>
-					</navigator>
+			<view class="weui-form-preview__bd">
+				<view id="username" class="weui-form-preview__item">
+					<label class="weui-form-preview__label info-label">发布者</label>
+					<text class="weui-form-preview__value info-value">{{user.username}}</text>
+				</view>
+				<view id="phone" class="weui-form-preview__item">
+					<label class="weui-form-preview__label info-label">联系方式</label>
+					<text class="weui-form-preview__value info-value">{{user.phoneNumber}}</text>
 				</view>
 			</view>
-			<view id="p5" class="weui-form-preview__item">
-				<label class="weui-form-preview__label">物品状态</label>
-				<text class="weui-form-preview__value">{{item.state}}</text>
+			<view class="list-title">
+				<text class="item-name-addition"># </text> 
+				<p>物品信息</p>
 			</view>
-			<view id="p6" class="weui-form-preview__item">
-				<label class="weui-form-preview__label">描述</label>
-				<text class="weui-form-preview__value">{{item.itemInfo}}</text>
+			<view class="weui-form-preview__bd">
+				<view id="color" class="weui-form-preview__item">
+					<label class="weui-form-preview__label info-label">颜色</label>
+					<text class="weui-form-preview__value info-value">白色</text>
+				</view>
+				<view id="tag" class="weui-form-preview__item">
+					<label class="weui-form-preview__label info-label">物品类别</label>
+					<text class="weui-form-preview__value info-value">{{item.tag}}</text>
+				</view>
+				<view id="picktime" class="weui-form-preview__item">
+					<label class="weui-form-preview__label info-label">拾取时间</label>
+					<text class="weui-form-preview__value info-value">{{item.pickTime}}</text>
+				</view>
+				<view id="picklocation" class="weui-form-preview__item">
+					<label class="weui-form-preview__label info-label">拾取地点</label>
+					<text class="weui-form-preview__value info-value">{{item.pickLocation}}</text>
+					<navigator class="weui-form-preview__item" hover-class="weui-cell_active" url="/pages/location/location" open-type='navigate'>
+						<view class="weui-cell__bd other-info">获取位置信息</view>
+					</navigator>
+				</view>
+				<view id="state" class="weui-form-preview__item">
+					<label class="weui-form-preview__label info-label">物品状态</label>
+					<text class="weui-form-preview__value info-value">{{item.state? '已找回' : '未找回'}}</text>
+				</view>
+				<view id="item" class="weui-form-preview__item">
+					<label class="weui-form-preview__label info-label">物品描述</label>
+					<text class="weui-form-preview__value info-value">{{item.itemInfo}}</text>
+				</view>
 			</view>
-		</view>
-		<view class="weui-form-preview__ft">
-			<!-- <navigator class="weui-form-preview__btn weui-form-preview__btn_default" aria-role="button" url="javascript:">辅助操作</navigator> -->
-		</view>
 	</view>
 </view>

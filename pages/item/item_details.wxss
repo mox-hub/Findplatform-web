@@ -3,29 +3,144 @@ page{
   background-color: #f5f6f8;
 }
 
-.weui-cell_example .weui-cell__hd image {
-  width: 20px;
-  height: 20px;
-  display: block;
-  margin-right: 16px
-}
-
-.weui-media-box_appmsg {
+.item-media-box {
+  height: 400rpx;
   margin-left: 20rpx;
   margin-right: 30rpx;
-  margin-top: 13rpx;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
   border: 5rpx solid;
   border-color: #f0f0f0;
   border-radius: 14rpx;
+  background-color: #ffffff;
   box-shadow: 6rpx 6rpx 6rpx #c2c3c4;
+  display: flex;
 }
-.weui-form-preview{margin-bottom:25px}
 
-.weui-form-preview__bd{
-  font-size: 40rpx;
+.item-img-outline {
+  margin-left: 10rpx;
+  margin-right: 30rpx;
+  margin-top: 40rpx;
+  margin-bottom: 50rpx;
+  width: 310rpx;
+  height: 310rpx;
+  border-radius: 14rpx;
+}
+
+.item-img {
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.item-name-outline {
+  margin-top: 80rpx;
+}
+
+.item-name-addition {
+  font-size: 48rpx;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #87cedf;
+}
+.item-name {
+  font-size: 45rpx;
+  font-weight: 500;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.item-state-name {
+  margin-left: 10rpx;
+  margin-left: 10rpx;
+  padding-left: 10rpx;
+  padding-right: 20rpx;
+}
+
+.item-status{
+  width: 150rpx;
+  margin-top: 20rpx;
+  margin-bottom: 6rpx;
+  padding-left: 12rpx;
+  padding-right: 12rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  background-color: red;
+  color: #fff;
+  border: 1rpx solid;
+  border-color: rgb(197, 11, 11);
+  border-radius: 10rpx;
+
+}
+.item-status-on{
+  width: 150rpx;
+  margin-top: 20rpx;
+  margin-bottom: 6rpx;
+  padding-left: 12rpx;
+  padding-right: 12rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  background-color: #8ad815;
+  color: #fff;
+  border: 1rpx solid;
+  border-color: #81c717;
+  border-radius: 10rpx;
+}
+
+.user-info-box {
+  margin-top: 80rpx;
+  margin-left: 20rpx;
+  display: flex;
+}
+
+.other-info {
+  margin-top: 6rpx;
+  margin-left: 6rpx;
+  margin-right: 6rpx;
+  color: #c2c3c4;
+  font-size:medium;
+}
+
+.user-avator-outline {
+  border-radius: 10rpx;
+}
+
+.user-avator {
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 4rpx;
+  border-radius: 30rpx;
+}
+
+.user-name {
+  font-size: medium;
+  font-style: inherit;
+}
+
+.data-panel {
+  background-color: #ffffff;
+}
+
+.info-label {
+  margin-left: 20rpx;
+  font-size: 35rpx;
+}
+
+.info-value {
+  margin-right: 20rpx;
+  font-size: 38rpx;
+}
+
+.list-title {
+  padding-left: 20rpx;
+  font-size: 34rpx;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+  color: #7f7f7f;
+}
+
+.weui-cell__bd {
+  margin-left: 40rpx;
 }
 
 .modify{
   font-size: 40rpx;
 }
-

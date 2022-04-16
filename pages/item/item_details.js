@@ -73,7 +73,7 @@ Page({
         that.setData({
           user: res.data
         });
-        // console.log(res.data);
+        console.log(res.data);
         console.log("[findplatform-web] func getUserInfo done.")
       },
       fail(res) {

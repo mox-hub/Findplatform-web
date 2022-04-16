@@ -50,19 +50,6 @@ page{
   justify-content: space-between;
 }
 
-.item-info-box .product-price-new{
-  color: #e80080;
-  margin-left:5px;
-  font-weight:900;
-}
-
-.item-info-box .product-price-old{
-  color: #888;
-  text-decoration: line-through;
-  padding-left: 2px;
-}
-
-
 .item-info-box .item-info-time{
   color: #8fbc8b;
   margin-left: 10rpx;
