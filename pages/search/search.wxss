@@ -26,6 +26,7 @@ page{
 }
 
 .item-img-outline {
+  position: relative;
   margin-top: 15rpx;
   margin-left: 10rpx;
   margin-right: 10rpx;
@@ -37,6 +38,17 @@ page{
   border: 5rpx solid;
   border-color: #f5f6f8;
   border-radius: 20rpx;
+}
+
+.item-left-head { 
+  position: absolute;
+  border-top: 60rpx solid #fff;
+  border-right: 60rpx solid transparent;
+}
+
+.item-collect {
+  height: 40rpx;
+  width: 40rpx;
 }
 
 .item-name{

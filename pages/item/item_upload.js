@@ -159,14 +159,14 @@ Page({
       data: {
         "itemId": String(that.data.itemId),
         "imgUrl": image.imageURL,
-        "tag":"test",
+        "tag":"bottle",
         "state":0,
-        "pickLocation":"classroom",
-        "placement":"classroom_1",
+        "pickLocation":"宣城校区学生公寓6号楼",
+        "placement":"学生公寓6号楼",
         "pickTime":moment,
         "userId":app.globalData.userid,
-        "itemName": "123",
-        "itemInfo": "123",
+        "itemName": "黑色水杯",
+        "itemInfo": "黑色，水杯，捡取自宣城校区学生公寓6号楼",
       },
       success: function(res) {
         console.log("[findplatform-web] func addItem success.")

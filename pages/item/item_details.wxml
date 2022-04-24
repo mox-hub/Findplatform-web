@@ -6,7 +6,7 @@
 		<view class="item-media-box">
 			<!-- 物品图片栏目 -->
 			<view class="item-img-outline">
-				<image class="item-img" src="{{item.imgUrl}}" alt></image>
+				<image class="item-img" src="{{item.imgUrl}}?imageView2/1/w/200/h/200/q/75" alt></image>
 			</view>
 			<!-- 物品信息栏目 -->
 			<view class="item-info-box">
@@ -21,7 +21,7 @@
 				<view class="user-info-box">
 					<p class="other-info">来自</p>
 					<view class="user-avator-outline">
-						<image class="user-avator" src="{{user.avatarUrl}}" alt></image>
+						<image class="user-avator" src="{{user.avatarUrl}}?" alt></image>
 					</view>
 					<view class="user-name">{{user.username}}</view>
 					<p class="other-info">捡取</p>
@@ -31,7 +31,6 @@
 	</view>
 	<!-- 数据面板 -->
 	<view class="data-panel">
-
 			<!-- 拾取者信息 -->
 			<view class="list-title">
 				<text class="item-name-addition"># </text> 
@@ -47,6 +46,7 @@
 					<text class="weui-form-preview__value info-value">{{user.phoneNumber}}</text>
 				</view>
 			</view>
+			<!-- 物品信息 -->
 			<view class="list-title">
 				<text class="item-name-addition"># </text> 
 				<p>物品信息</p>
@@ -54,7 +54,7 @@
 			<view class="weui-form-preview__bd">
 				<view id="color" class="weui-form-preview__item">
 					<label class="weui-form-preview__label info-label">颜色</label>
-					<text class="weui-form-preview__value info-value">白色</text>
+					<text class="weui-form-preview__value info-value">黑色</text>
 				</view>
 				<view id="tag" class="weui-form-preview__item">
 					<label class="weui-form-preview__label info-label">物品类别</label>
@@ -80,5 +80,14 @@
 					<text class="weui-form-preview__value info-value">{{item.itemInfo}}</text>
 				</view>
 			</view>
+	</view>
+	<view class="list-title">
+		<text class="item-name-addition"># </text> 
+		<p>操作区域</p>
+	</view>
+	<view class="button-panel">
+		<button class='button-change' type="primary" bindtap="itemChange">修改</button>
+		<view class="button-side"></view>
+		<button class='button-delete' type="warn" bindtap="itemDelete">删除</button>
 	</view>
 </view>

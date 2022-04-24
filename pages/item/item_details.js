@@ -83,5 +83,18 @@ Page({
         console.log("function getUserInfo complete.");
       } 
     })
+  },
+  // 删除物品按钮绑定事件
+  itemDelete: function(options) {
+
+  },
+  //修改物品按钮绑定事件
+  itemChange: function(options) {
+
+  },
+  //返回按钮绑定事件
+  itemReturn: function(options) {
+
   }
+
 })

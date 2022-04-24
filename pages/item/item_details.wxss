@@ -1,5 +1,5 @@
 /* pages/item/item_details.wxss */
-page{
+page {
   background-color: #f5f6f8;
 }
 
@@ -42,10 +42,11 @@ page{
   font-family: Arial, Helvetica, sans-serif;
   color: #87cedf;
 }
+
 .item-name {
   font-size: 45rpx;
   font-weight: 500;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .item-state-name {
@@ -55,7 +56,7 @@ page{
   padding-right: 20rpx;
 }
 
-.item-status{
+.item-status {
   width: 150rpx;
   margin-top: 20rpx;
   margin-bottom: 6rpx;
@@ -70,7 +71,8 @@ page{
   border-radius: 10rpx;
 
 }
-.item-status-on{
+
+.item-status-on {
   width: 150rpx;
   margin-top: 20rpx;
   margin-bottom: 6rpx;
@@ -96,7 +98,7 @@ page{
   margin-left: 6rpx;
   margin-right: 6rpx;
   color: #c2c3c4;
-  font-size:medium;
+  font-size: medium;
 }
 
 .user-avator-outline {
@@ -124,6 +126,7 @@ page{
   font-size: 35rpx;
 }
 
+
 .info-value {
   margin-right: 20rpx;
   font-size: 38rpx;
@@ -132,15 +135,48 @@ page{
 .list-title {
   padding-left: 20rpx;
   font-size: 34rpx;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 600;
   color: #7f7f7f;
+  background-color: #ffffff;
+}
+
+.button-panel {
+  bottom: 10rpx;
+  background: #ffffff;
+  height: 106rpx;
+  width: 95%;
+  margin: 0 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
+.button-side {
+  margin-left: 40rpx;
+}
+
+.button-change {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.button-delete {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.button-return {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
 }
 
 .weui-cell__bd {
   margin-left: 40rpx;
 }
 
-.modify{
+.modify {
   font-size: 40rpx;
 }

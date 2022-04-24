@@ -11,7 +11,10 @@
       <view wx:for="{{col1}}" wx:key="id">
         <navigator class="item-card" url='/pages/item/item_details?url={{item.itemId}}'>
         <view class="item-img-outline">
-          <image class="item-img" src="{{item.imgUrl}}"></image>
+          <!-- <view class="item-left-head">
+            <image class="item-collect" src="/icons/tabbar/collect-o.png"></image>
+          </view> -->
+          <image class="item-img" src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75"></image>
         </view>
         <view class="item-info-box">
             <view class="item-name">
@@ -30,7 +33,7 @@
       <view wx:for="{{col2}}" wx:key="id">
         <navigator class="item-card" url='/pages/item/item_details?url={{item.itemId}}'>
           <view class="item-img-outline">
-            <image class="item-img" src="{{item.imgUrl}}"></image>
+            <image class="item-img" src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75"></image>
           </view>
           <view class="item-info-box">
             <view class="item-name">
