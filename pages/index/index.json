@@ -1,6 +1,4 @@
 {
-  "usingComponents": {
-    "mp-searchbar": "/components/SearchBar/SearchBar"
-  },
+  "usingComponents": {},
   "navigationBarTitleText": "首页"
 }

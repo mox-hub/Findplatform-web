@@ -4,6 +4,10 @@ page{
     background-color: #f5f6f8;
   } 
   /* 单个图片容器的样式 */
+
+.action {
+    width: 150rpx;
+}
 .item-list {
   width: 48.5%;
   margin: 2px;
@@ -13,6 +17,17 @@ page{
   font-size: 24rpx;
 
 }
+
+.cu-card {
+  background-color: #fff;
+}
+
+.nav-list {
+  width: 48.5%;
+  margin: 2px;
+  display: inline-block;
+}
+
 .item-card {
   margin-top: 15rpx;
   margin-bottom: 15rpx;

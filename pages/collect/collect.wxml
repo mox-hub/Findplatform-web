@@ -1,6 +1,6 @@
 <!--pages/collect/collect.wxml-->
 <page-meta root-font-size="system"/>
-<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+<view class="page">
 	<view class="page__bd">
 		<view class="weui-panel weui-panel_access">
 			<view class="weui-panel__hd">我的收藏</view>

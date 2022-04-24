@@ -1,19 +1,25 @@
 <!--pages/search/index.wxml-->
-<view class="index">
-    <!-- search bar -->
-    <mp-searchbar></mp-searchbar>
+<!-- seach-bar 组件 -->
+<view class="box">
+    <view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow-blur round">搜索</button>
+    </view>
+  </view>
 </view>
-
 <!-- 双列滚动浏览 -->
 <scroll-view class= "item" scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="getItemInfo">
+
   <view class="goods" style="width:100%">
     <view class="item-list">
       <view wx:for="{{col1}}" wx:key="id">
+        <!-- 原版 -->
         <navigator class="item-card" url='/pages/item/item_details?url={{item.itemId}}'>
         <view class="item-img-outline">
-          <!-- <view class="item-left-head">
-            <image class="item-collect" src="/icons/tabbar/collect-o.png"></image>
-          </view> -->
           <image class="item-img" src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75"></image>
         </view>
         <view class="item-info-box">
@@ -27,6 +33,29 @@
             <p class="item-info-location">{{item.pickLocation}}</p>  
           </view>
         </navigator>
+        <!-- 修改版 -->  
+          <navigator class="cu-card case shadow-blur" url='/pages/item/item_details?url={{item.itemId}}'>
+            <view class="cu-item shadow">
+              <view class="image">
+                <image src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75" mode="widthFix"></image>
+                <view class="cu-bar">
+                  <text class="text-cut">{{item.itemName}}</text>
+                </view>
+              </view>
+            </view>
+          <view class="cu-list flex">
+              <view class="item-name">
+                {{item.itemName}}
+              </view>
+              <view class="cu-tag round {{item.state ? 'bg-green' : 'bg-red'}} light">
+                {{item.state? '已找回' : '未找回'}}
+              </view>
+            </view>
+            <view class="item-info-box">
+              <p class="item-info-time">{{item.pickTime}}</p>  
+              <p class="item-info-location">{{item.pickLocation}}</p>  
+            </view>
+          </navigator>
       </view>
     </view>
     <view class="item-list">
