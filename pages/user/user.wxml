@@ -5,7 +5,11 @@
 <view class="UCenter-bg">
     <image src="{{userInfo.avatarUrl}}" class="png" mode="widthFix"></image>
     <view class="text-xl margin-top-sm">{{userInfo.username}}
-      <!-- <text class="text-df">123</text> -->
+      <!-- <text class="text-df">ColorUI</text> -->
+      <view class="cu-capsule round">
+        <view class="cu-tag bg-blue ">Color</view>
+        <view class="cu-tag line-blue">v0.7.0</view>
+      </view>
     </view>
     <view class="margin-top-xs">
       <text>寻物ID: {{userInfo.id}}</text>
