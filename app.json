@@ -19,7 +19,7 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#8e9de2",
+        "navigationBarBackgroundColor": "#eaa8b6",
         "navigationBarTitleText": "findPlatform",
         "navigationBarTextStyle": "white",
         "backgroundColor": "#ededed"
