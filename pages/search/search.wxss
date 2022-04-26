@@ -8,6 +8,7 @@ page{
 .action {
     width: 150rpx;
 }
+
 .item-list {
   width: 48.5%;
   margin: 2px;
@@ -15,9 +16,7 @@ page{
   vertical-align: top;
   background-color: #f3f4f6;
   font-size: 24rpx;
-
 }
-
 .cu-card {
   background-color: #fff;
 }
@@ -28,91 +27,10 @@ page{
   display: inline-block;
 }
 
-.item-card {
-  margin-top: 15rpx;
-  margin-bottom: 15rpx;
-  margin-left: 10rpx;
-  margin-right: 10rpx;
-  border: 2rpx solid;
-  border-color: #f0f0f0;
-  border-radius: 20rpx;
-  box-shadow: 8rpx 8rpx 8rpx #c2c3c4;
-  background-color: #fff;
-}
-
-.item-img-outline {
-  position: relative;
-  margin-top: 15rpx;
-  margin-left: 10rpx;
-  margin-right: 10rpx;
-}
-
-.item-img {
-  width:100%;
-  height: 350rpx;
-  border: 5rpx solid;
-  border-color: #f5f6f8;
-  border-radius: 20rpx;
-}
-
-.item-left-head { 
-  position: absolute;
-  border-top: 60rpx solid #fff;
-  border-right: 60rpx solid transparent;
-}
-
-.item-collect {
-  height: 40rpx;
-  width: 40rpx;
-}
-
-.item-name{
-  color: #000;
-  text-align:left;
-  margin-left: 20rpx;
-  margin-bottom: 5rpx; 
-}
-.item-info-box {
-  display: flex;
-  justify-content: space-between;
-}
-
-.item-info-box .item-info-time{
-  color: #8fbc8b;
-  margin-left: 10rpx;
-  font-weight: 800;
-}
-
-.item-info-box .item-info-location{
-  color: black;
-  margin-right: 10rpx;
-}
-
-.item-status{
-  margin-right: 14rpx;
-  margin-bottom: 6rpx;
-  padding-left: 8rpx;
-  padding-right: 8rpx;
-  background-color: red;
-  color: #fff;
-  border: 1rpx solid;
-  border-color: rgb(197, 11, 11);
-  border-radius: 20rpx;
-
-}
-.item-status-on{
-  margin-right: 14rpx;
-  margin-bottom: 6rpx;
-  padding-left: 8rpx;
-  padding-right: 8rpx;
-  background-color: #8ad815;
-  color: #fff;
-  border: 1rpx solid;
-  border-color: #81c717;
-  border-radius: 20rpx;
-
-}
-  
 .item{
   margin-top: 10rpx;
+}
+.cu-list {
+  margin-top: 0rpx;
+  margin-bottom: 0rpx;
 }

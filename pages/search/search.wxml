@@ -17,63 +17,58 @@
   <view class="goods" style="width:100%">
     <view class="item-list">
       <view wx:for="{{col1}}" wx:key="id">
-        <!-- 原版 -->
-        <navigator class="item-card" url='/pages/item/item_details?url={{item.itemId}}'>
-        <view class="item-img-outline">
-          <image class="item-img" src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75"></image>
-        </view>
-        <view class="item-info-box">
-            <view class="item-name">
-              {{item.itemName}}
-            </view>
-            <p class="{{item.state ? 'item-status-on' : 'item-status'}}">{{item.state? '已找回' : '未找回'}}</p>      
-          </view>
-          <view class="item-info-box">
-            <p class="item-info-time">{{item.pickTime}}</p>  
-            <p class="item-info-location">{{item.pickLocation}}</p>  
-          </view>
-        </navigator>
-        <!-- 修改版 -->  
-          <navigator class="cu-card case shadow-blur" url='/pages/item/item_details?url={{item.itemId}}'>
-            <view class="cu-item shadow">
+        <!-- 物品卡片 -->  
+          <navigator class="cu-card case margin-bottom-sm shadow-warp radius" url='/pages/item/item_details?url={{item.itemId}}'>
+            <!-- 图像框 -->
+            <view class="cu-item shadow radius">
               <view class="image">
                 <image src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75" mode="widthFix"></image>
-                <view class="cu-bar">
-                  <text class="text-cut">{{item.itemName}}</text>
+                <view class="cu-tag {{item.state ? 'bg-green' : 'bg-red'}} light radius">
+                  {{item.state? '已找回' : '未找回'}}
                 </view>
               </view>
             </view>
-          <view class="cu-list flex">
-              <view class="item-name">
-                {{item.itemName}}
-              </view>
-              <view class="cu-tag round {{item.state ? 'bg-green' : 'bg-red'}} light">
-                {{item.state? '已找回' : '未找回'}}
+            <!-- 信息详情 -->
+            <view class="cu-list flex justify-around text-center">
+              <view class="text-lg">{{item.itemName}}</view>
+              <view class="cu-tag round bg-blue light">
+                {{item.tag}}
               </view>
             </view>
-            <view class="item-info-box">
-              <p class="item-info-time">{{item.pickTime}}</p>  
-              <p class="item-info-location">{{item.pickLocation}}</p>  
+            <view class="cu-list flex">
+              <view class="text-df text-green flex-sub flex justify-center">{{item.pickTime}}</view>
+              <text class="cuIcon-locationfill text-orange"></text>
+              <view class="text-sm text-grey flex-sub flex justify-start">{{item.pickLocation}}</view>
             </view>
-          </navigator>
+        </navigator>
       </view>
     </view>
+
     <view class="item-list">
       <view wx:for="{{col2}}" wx:key="id">
-        <navigator class="item-card" url='/pages/item/item_details?url={{item.itemId}}'>
-          <view class="item-img-outline">
-            <image class="item-img" src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75"></image>
-          </view>
-          <view class="item-info-box">
-            <view class="item-name">
-              {{item.itemName}}
+        <!-- 物品卡片 -->  
+        <navigator class="cu-card case margin-bottom-sm shadow-warp radius" url='/pages/item/item_details?url={{item.itemId}}'>
+            <!-- 图像框 -->
+            <view class="cu-item shadow radius">
+              <view class="image">
+                <image src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75" mode="widthFix"></image>
+                <view class="cu-tag {{item.state ? 'bg-green' : 'bg-red'}} light radius">
+                  {{item.state? '已找回' : '未找回'}}
+                </view>
+              </view>
             </view>
-            <p class="{{item.state ? 'item-status-on' : 'item-status'}}">{{item.state? '已找回' : '未找回'}}</p>      
-          </view>
-          <view class="item-info-box">
-            <p class="item-info-time">{{item.pickTime}}</p>  
-            <p class="item-info-location">{{item.pickLocation}}</p>  
-          </view>
+            <!-- 信息详情 -->
+            <view class="cu-list flex justify-around text-center">
+              <view class="text-lg">{{item.itemName}}</view>
+              <view class="cu-tag round bg-blue light">
+                {{item.tag}}
+              </view>
+            </view>
+            <view class="cu-list flex">
+              <view class="text-df text-green flex-sub flex justify-center">{{item.pickTime}}</view>
+              <text class="cuIcon-locationfill text-orange"></text>
+              <view class="text-sm text-grey flex-sub flex justify-start">{{item.pickLocation}}</view>
+            </view>
         </navigator>
       </view>
     </view>
