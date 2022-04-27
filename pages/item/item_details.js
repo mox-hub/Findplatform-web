@@ -84,6 +84,12 @@ Page({
       } 
     })
   },
+
+  getLoacation: function(options) {
+    wx.navigateTo({
+      url: '/pages/location/location',
+    })
+  },
   // 删除物品按钮绑定事件
   itemDelete: function(options) {
 

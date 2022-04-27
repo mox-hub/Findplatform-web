@@ -117,30 +117,6 @@ page {
   font-style: inherit;
 }
 
-.data-panel {
-  background-color: #ffffff;
-}
-
-.info-label {
-  margin-left: 20rpx;
-  font-size: 35rpx;
-}
-
-
-.info-value {
-  margin-right: 20rpx;
-  font-size: 38rpx;
-}
-
-.list-title {
-  padding-left: 20rpx;
-  font-size: 34rpx;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: 600;
-  color: #7f7f7f;
-  background-color: #ffffff;
-}
-
 .button-panel {
   bottom: 10rpx;
   background: #ffffff;
@@ -171,12 +147,4 @@ page {
 .button-return {
   margin-top: 20rpx;
   margin-bottom: 20rpx;
-}
-
-.weui-cell__bd {
-  margin-left: 40rpx;
-}
-
-.modify {
-  font-size: 40rpx;
 }

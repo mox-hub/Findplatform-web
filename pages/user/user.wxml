@@ -68,7 +68,7 @@
     <!-- 修改我的信息 -->
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/user/change_user_info?url={{userId}}" hover-class="none" open-type='navigate'>
-        <image src="/icons/user/edit.png" class="png" mode="aspectFit"></image>
+        <image src="/images/user/edit.png" class="png" mode="aspectFit"></image>
         <text class="text-grey">修改我的信息</text>
       </navigator>
     </view>
@@ -91,7 +91,7 @@
     </view>
     <!-- 我的发布 -->
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/release/release" hover-class="none" open-type='navigate'>
+      <navigator class="content" url="/pages/publish/publish" hover-class="none" open-type='navigate'>
         <image src="/images/tabbar/collect-cur.png" class="png" mode="aspectFit"></image>
         <text class="text-grey">我的发布</text>
       </navigator>
@@ -106,14 +106,14 @@
     <!-- 关于我们 -->
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/about" hover-class="none">
-        <image src="/icons/user/release.png" class="png" mode="aspectFit"></image>
+        <image src="/images/user/release.png" class="png" mode="aspectFit"></image>
         <text class="text-grey">关于我们</text>
       </navigator>
     </view>
     <!-- 提交反馈 -->
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/about" hover-class="none">
-        <image src="/icons/user/release.png" class="png" mode="aspectFit"></image>
+        <image src="/images/user/release.png" class="png" mode="aspectFit"></image>
         <text class="text-grey">提交反馈</text>
       </navigator>
     </view>

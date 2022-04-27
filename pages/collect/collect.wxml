@@ -1,6 +1,4 @@
 <!--pages/collect/collect.wxml-->
-
-
 <view class="cu-list card-menu menu-avatar">
 	<view class="cu-bar justify-left bg-white">
       <view class="action sub-title">
