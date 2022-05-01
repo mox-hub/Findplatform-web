@@ -4,6 +4,8 @@ Page({
      * 页面的初始数据
      */
     data: {
+        url:'',
+        mode:'default',
         itemId:'',
         item:'',
         user:'',
@@ -14,7 +16,17 @@ Page({
         itemInfo:'',
         itemName:'',
         placement:'',
-        imgUrl:''
+        imgUrl:'',
+        numList: [{
+          name: '开始'
+        }, {
+          name: '拍照'
+        }, {
+          name: '修改'
+        }, {
+          name: '完成'
+        }, ],
+        num: 2,
     },
     
     /**
@@ -23,7 +35,8 @@ Page({
     onLoad: function (options) {
       console.log("[findplatform-web] itemId gotten.");
       this.setData({
-          itemId:options.url
+          itemId:options.url,
+          mode: options.mode
       })
       this.getItemInfo();
       // console.log(this);
@@ -45,7 +58,7 @@ Page({
         },
   
         success(res) {
-          // console.log(res.data);
+          console.log(res.data);
           that.setData({
             item: res.data,
             userId: res.data.userId,
@@ -72,10 +85,82 @@ Page({
         } 
       })
     },
+
+    /**
+     * 获取用户信息
+     */
+    getUserInfo: function (options) {
+      console.log("[findplatform-web] func getUserInfo start.");
+      var that = this;
+      wx.request({
+        url: 'https://api.foocode.cn/usr/v1/queryUser?id='+options,
+        header: {
+          'content-type': 'application/json'
+        },
+        method: "GET",
+        data: {},
+        success(res) {
+          that.setData({
+            user: res.data
+          });
+          // console.log(res.data);
+          console.log("[findplatform-web] func getUserInfo done.")
+        },
+        fail(res) {
+          console.log("function getUserInfo fail.");
+        },
+        complete(res){  
+          console.log("function getUserInfo complete.");
+        } 
+      })
+    },
+    itemName:function(e){
+      var val=e.detail.value
+      console.log(val)
+      this.setData({
+        itemName:val
+      });
+    },
+    tag:function(e){
+      var val=e.detail.value
+      console.log(val)
+      this.setData({
+        tag:val
+      });
+    },
+    pickTime:function(e){
+      var val=e.detail.value
+      console.log(val)
+      this.setData({
+        pickTime:val
+      });
+    },    
+    pickLocation:function(e){
+      var val=e.detail.value
+      console.log(val)
+      this.setData({
+        pickLocation:val
+      });
+    },    
+    state:function(e){
+      var val=e.detail.value
+      console.log(val)
+      this.setData({
+        state:val
+      });
+    },    
+    itemInfo: function(e){
+      var val=e.detail.value
+      console.log(val)
+      this.setData({
+        itemInfo:val
+      });
+    },
+
     /**
      * 更改物品信息
      */
-    updateItem: function () {
+    updateItem: function() {
       console.log("[findplatform-web] func updateItem start.")
       var that = this;
       wx.request({
@@ -112,75 +197,32 @@ Page({
         } 
       })
     },
-
     /**
-     * 获取用户信息
+     * 删除物品
      */
-    getUserInfo: function (options) {
-      console.log("[findplatform-web] func getUserInfo start.");
-      var that = this;
-      wx.request({
-        url: 'https://api.foocode.cn/usr/v1/queryUser?id='+options,
-        header: {
-          'content-type': 'application/json'
-        },
-        method: "GET",
-        data: {},
-        success(res) {
-          that.setData({
-            user: res.data
-          });
-          // console.log(res.data);
-          console.log("[findplatform-web] func getUserInfo done.")
-        },
-        fail(res) {
-          console.log("function getUserInfo fail.");
-        },
-        complete(res){  
-          console.log("function getUserInfo complete.");
-        } 
-      })
+    delateItem: function() {
+      console.log("[findplatform-web] func delateItem start.")
     },
-    tag:function(e){
-      var val=e.detail.value
-      console.log(val)
-      this.setData({
-        tag:val
-      });
-    },
-    pickTime:function(e){
-      var val=e.detail.value
-      console.log(val)
-      this.setData({
-        pickTime:val
-      });
-    },    
-    pickLocation:function(e){
-      var val=e.detail.value
-      console.log(val)
-      this.setData({
-        pickLocation:val
-      });
-    },    
-    state:function(e){
-      var val=e.detail.value
-      console.log(val)
-      this.setData({
-        state:val
-      });
-    },    
-    itemInfo:function(e){
-      var val=e.detail.value
-      console.log(val)
-      this.setData({
-        itemInfo:val
-      });
-    },
-    change:function(){
+    /**
+     * 物品修改并跳转
+     */
+    itemChange: function(){
       this.updateItem(),
       // console.log(this.item.itemId)
       wx.navigateTo({
         url: '/pages/item/item_details?url='+this.data.item.itemId
       })
-    }
+    },
+
+    /**
+     * 物品取消上传或者删除
+     */
+    itemDelete :function() {
+      this.delateItem(),
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+    },
+
+
   })

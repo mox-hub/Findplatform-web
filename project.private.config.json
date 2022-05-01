@@ -13,136 +13,95 @@
     "miniprogram": {
       "list": [
         {
-          "name": "登录页面",
+          "name": "login",
           "pathName": "pages/login/login",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "直接首页",
+          "name": "index",
           "pathName": "pages/index/index",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "用户界面",
+          "name": "user",
           "pathName": "pages/user/user",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "pages/user/change_user_info",
+          "name": "change_user_info",
           "pathName": "pages/user/change_user_info",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "收藏页面",
+          "name": "collect",
           "pathName": "pages/collect/collect",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "搜索页面",
+          "name": "search",
           "pathName": "pages/search/search",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "关于页面",
+          "name": "about",
           "pathName": "pages/about/about",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "",
+          "name": "item_upload",
           "pathName": "pages/item/item_upload",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "物品编辑页面",
+          "name": "item_change | upload模式",
           "pathName": "pages/item/item_change",
-          "query": "",
+          "query": "mode=upload&url=202204101609",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "pages/about/feedback",
+          "name": "feedback",
           "pathName": "pages/about/feedback",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "pages/msg/msg_success",
-          "pathName": "pages/msg/msg_success",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "地图页面",
+          "name": "location",
           "pathName": "pages/location/location",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "pages/location/location",
-          "pathName": "pages/location/location",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/login/login",
-          "pathName": "pages/login/login",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/release/release",
-          "pathName": "pages/release/release",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/login/login",
-          "pathName": "pages/login/login",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/item/item_change",
+          "name": "item_change | edit模式",
           "pathName": "pages/item/item_change",
-          "query": "",
+          "query": "mode=edit&url=202204101609",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "pages/release/release",
-          "pathName": "pages/release/release",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/login/login",
+          "name": "login",
           "pathName": "pages/login/login",
           "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/user/change_user_info",
-          "pathName": "pages/user/change_user_info",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/login/login",
-          "pathName": "pages/login/login",
-          "query": "",
-          "scene": null
+          "scene": null,
+          "launchMode": "default"
         }
       ]
     }

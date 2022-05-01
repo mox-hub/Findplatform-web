@@ -3,120 +3,6 @@ page {
   background-color: #f5f6f8;
 }
 
-.item-media-box {
-  height: 400rpx;
-  margin-left: 20rpx;
-  margin-right: 30rpx;
-  margin-top: 10rpx;
-  margin-bottom: 20rpx;
-  border: 5rpx solid;
-  border-color: #f0f0f0;
-  border-radius: 14rpx;
-  background-color: #ffffff;
-  box-shadow: 6rpx 6rpx 6rpx #c2c3c4;
-  display: flex;
-}
-
-.item-img-outline {
-  margin-left: 10rpx;
-  margin-right: 30rpx;
-  margin-top: 40rpx;
-  margin-bottom: 50rpx;
-  width: 310rpx;
-  height: 310rpx;
-  border-radius: 14rpx;
-}
-
-.item-img {
-  width: 300rpx;
-  height: 300rpx;
-}
-
-.item-name-outline {
-  margin-top: 80rpx;
-}
-
-.item-name-addition {
-  font-size: 48rpx;
-  font-weight: 600;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #87cedf;
-}
-
-.item-name {
-  font-size: 45rpx;
-  font-weight: 500;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.item-state-name {
-  margin-left: 10rpx;
-  margin-left: 10rpx;
-  padding-left: 10rpx;
-  padding-right: 20rpx;
-}
-
-.item-status {
-  width: 150rpx;
-  margin-top: 20rpx;
-  margin-bottom: 6rpx;
-  padding-left: 12rpx;
-  padding-right: 12rpx;
-  padding-top: 5rpx;
-  padding-bottom: 5rpx;
-  background-color: red;
-  color: #fff;
-  border: 1rpx solid;
-  border-color: rgb(197, 11, 11);
-  border-radius: 10rpx;
-
-}
-
-.item-status-on {
-  width: 150rpx;
-  margin-top: 20rpx;
-  margin-bottom: 6rpx;
-  padding-left: 12rpx;
-  padding-right: 12rpx;
-  padding-top: 5rpx;
-  padding-bottom: 5rpx;
-  background-color: #8ad815;
-  color: #fff;
-  border: 1rpx solid;
-  border-color: #81c717;
-  border-radius: 10rpx;
-}
-
-.user-info-box {
-  margin-top: 80rpx;
-  margin-left: 20rpx;
-  display: flex;
-}
-
-.other-info {
-  margin-top: 6rpx;
-  margin-left: 6rpx;
-  margin-right: 6rpx;
-  color: #c2c3c4;
-  font-size: medium;
-}
-
-.user-avator-outline {
-  border-radius: 10rpx;
-}
-
-.user-avator {
-  width: 60rpx;
-  height: 60rpx;
-  margin-left: 4rpx;
-  border-radius: 30rpx;
-}
-
-.user-name {
-  font-size: medium;
-  font-style: inherit;
-}
-
 .button-panel {
   bottom: 10rpx;
   background: #ffffff;
@@ -147,4 +33,8 @@ page {
 .button-return {
   margin-top: 20rpx;
   margin-bottom: 20rpx;
+}
+
+.justify-end-m {
+  float: right;
 }

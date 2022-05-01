@@ -9,10 +9,7 @@
         "pages/item/item_change",
         "pages/login/login",
         "pages/location/location",
-        "pages/msg/msg_success",
-        "pages/msg/msg_warn",
         "pages/publish/publish",
-        "pages/release/release",
         "pages/search/search",
         "pages/user/change_user_info",
         "pages/user/user"

@@ -1,47 +1,60 @@
 <!--pages/item/item_upload.wxml-->
-
-<page-meta root-font-size="system" />
-<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
-    <view class="page__bd">
-        <view class="weui-cells page-box">
-            <view class="weui-cell weui-cell_uploader">
-                <view class="weui-cell__bd">
-                    <view class="weui-uploader">
-                        <view class="weui-uploader__hd">
-                            <view aria-role="option" class="weui-uploader__overview">
-                                <view class="weui-uploader__title uploader-title">图片上传</view>
-                                <view class="weui-uploader__info uploader-info">{{files.length}}/9</view>
-                            </view>
-                            <view class="weui-uploader__tips">
-                                请尽量让物品出现在图片中心，并且在简单背景下进行拍摄。请等待图片加载完毕后，再点击上传按钮。
-                            </view>
-                        </view>
-                        <view class="weui-uploader__bd">
-                            <view class="weui-uploader__files" id="uploaderFiles">
-                                <block wx:for="{{files}}" wx:key="*this">
-                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
-                                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
-                                    </view>
-                                </block>
-                                <view wx:if="{{successState == 'false'}}">
-                                    <view class="weui-uploader__file weui-uploader__file_status">
-                                        <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />
-                                        <view aria-role="alert" class="weui-uploader__file-content">
-                                            <icon aria-label="错误" type="warn" size="23" color="#F43530"></icon>
-                                        </view>
-                                    </view>
-                                </view>
-                            </view>
-                            <view class="weui-uploader__input-box">
-                                <view aria-role="button" aria-label="上传" class="weui-uploader__input" bindtap="chooseImage"></view>
-                            </view>
-                        </view>
-                        <button class='button-success' type="primary" disabled="{{BtnState}}" bindtap="itemSuccess">确定</button>
-                        <!-- <button class='button-success' bindtap="itemSuccess">上传</button> -->
-                        <button class='button-cancel' bindtap="itemCancel">取消</button>
-                    </view>
-                </view>
-            </view>
+<view class="cu-bar justify-left bg-white padding-top">
+    <view class="action sub-title">
+        <text class="text-xl text-bold text-green">物品上传</text>
+        <text class="bg-green" style="width:2rem"></text>
+    </view>
+</view>
+<!-- <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+        <text class="cuIcon-title text-orange"></text> 数字完成
+    </view>
+    <view class="action">
+        <button class="cu-btn bg-green shadow" bindtap="numSteps">下一步</button>
+    </view>
+</view> -->
+<view class="bg-white">
+    <view class="cu-steps">
+        <view class="cu-item {{index>num?'':'text-blue'}}" wx:for="{{numList}}" wx:key>
+            <text class="num {{index==2?'err':''}}" data-index="{{index + 1}}"></text> {{item.name}}
         </view>
     </view>
 </view>
+
+<view class="cu-bar bg-white padding-top">
+    <view class="action text-xl">
+        图片上传区域
+    </view>
+    <view class="action text-grey">
+        {{imgList.length}}/4
+    </view>
+</view>
+<view class="cu-bar bg-white padding-bottom">
+    <text class="cuIcon-warnfill text-grey margin"></text>
+    <view class="action text-sm text-grey">
+        请尽量让物品出现在图片中心，并且在简单背景下进行拍摄。请等待图片加载完毕后，再点击上传按钮。
+    </view>
+</view>
+
+<view class="cu-form-group padding-bottom">
+    <view class="grid col-4 grid-square flex-sub">
+        <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+            <image src='{{imgList[index]}}' mode='aspectFill'></image>
+            <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                <text class="cuIcon-close"></text>
+            </view>
+        </view>
+        <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+            <text class="cuIcon-cameraadd"></text>
+        </view>
+    </view>
+</view>
+<view class="bg-white cu-tabbar-height"></view>
+<view class="bg-white cu-tabbar-height"></view>
+<view class="bg-white cu-tabbar-height"></view>
+
+<view class="cu-item bg-white padding-bottom">
+    <button class='cu-btn bg-green lg flex justify-center shadow' type="primary" disabled="{{BtnState}}" bindtap="itemSuccess">确定</button>
+    <button class='cu-btn bg-grey lg flex justify-center shadow margin-top' bindtap="itemCancel">取消</button>
+</view>
+<view class="bg-white cu-tabbar-height"></view>

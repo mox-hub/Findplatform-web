@@ -1,33 +1,33 @@
 // pages/user/index.js
+var global = getApp().globalData;
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    url: '',
-    open : false,
-    userId : '20220410191308',
+    isShow : false,
+    userId : '',
     userInfo:'',
   },
+
+  /**
+   * 页面加载逻辑
+   */
   onLoad: function () {
-    var global = getApp().globalData;
-    console.log(global.userid);
+    // console.log(global.userid);
     this.setData({
       userId: global.userid
     })
     this.getUserInfo(global.userid);
   },
-
-  infoToggle(e) {
-    var that = this;
-    if(that.open == true){
-      that.open = false;
-    }else {
-      that.open = true;
-      console.log(that);
-    }
+  /**
+   * 设置显示个人信息
+   */
+  SetInfoShow(e) {
+    console.log("[findplatform-web] func SetInfoShow start.")
+    console.log(e.detail.value);
     this.setData({
-      open:that.open
+      isShow: e.detail.value
     })
   },
 
@@ -46,7 +46,6 @@ Page({
         that.setData({
           userInfo : res.data,
         });
-        console.log(111)
         console.log(that.data)
         console.log("[findplatform-web] func getUserInfo done.")
       },
@@ -58,6 +57,18 @@ Page({
         console.log('[findplatform-web] func getUserInfo complete.') ;
       } 
     })
-  }
+  },
+  // 复制地址链接
+  CopyLink(e) {
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.link,
+      success: res => {
+        wx.showToast({
+          title: '已复制',
+          duration: 1000,
+        })
+      }
+    })
+  },
 })
  

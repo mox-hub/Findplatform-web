@@ -1,5 +1,4 @@
 /* pages/user/user.wxss */
-
 page{
   background-color: #f5f6f8;
 }
@@ -9,6 +8,7 @@ page{
 }
 
 .UCenter-bg {
+  /* 此图片为个人卡片背景图，请更换为自己的图片或者本地图片 */
   background-image: url(https://img.moxhub.cn/tmp/IswYuQi6v6ib9de727fb2375ef2a3df96cc1e1046d43.png);
   background-size: cover;
   height: 550rpx;
@@ -22,6 +22,7 @@ page{
   color: black;
   font-weight: 300;
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  border-radius: 20rpx;
 }
 
 .UCenter-bg text {

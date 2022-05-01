@@ -1,9 +1,5 @@
 /* pages/item/item_upload.wxss */
 
-.button-success{
-  margin-top: 500rpx;
-}
-
 .button-cancel {
   margin-top: 20rpx;
 }
@@ -14,4 +10,9 @@
 
 .uploader-info {
   margin-bottom: 10rpx;
+}
+
+.steps-bottom.cu-steps .cu-item .num::before {
+  content: "\e668";
+  font-family: 'iconfont';
 }

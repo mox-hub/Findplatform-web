@@ -1,8 +1,10 @@
 const qiniuUploader = require("../../utils/qiniuUploader");
+var QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
+
 // index.js
 //获取应用实例
 var app = getApp()
-
+var qqmapsdk;
 
 // 初始化七牛云相关配置
 function initQiniu() {
@@ -55,17 +57,49 @@ Page({
       cancelTask: function () {},
       itemId:'',
       imgUrl:'',
-      BtnState: true
+      curLat:'',
+      curLon:'',
+      BtnState: true,
+      imgList: [],
+      numList: [{
+        name: '开始'
+      }, {
+        name: '拍照'
+      }, {
+        name: '错误'
+      }, {
+        name: '完成'
+      }, ],
+      address: '',
+      city: '',
+      num: 0,
   },
 
-  chooseImage() {
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    qqmapsdk = new QQMapWX({
+      key: 'PYRBZ-LJ5CW-QIURH-RXG37-E6UDQ-4NBFY' //这里自己的key秘钥进行填充
+    });
+    this.getUserLocation()
+  },
+
+  numSteps() {
+    this.setData({
+      num: this.data.num == this.data.numList.length - 1 ? 0 : this.data.num + 1
+    })
+  },
+
+  ChooseImage() {
     const that = this;
     initQiniu();
     wx.chooseImage({
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      count: 4, //默认9
+      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], //从相册选择
 
-      success:function(res) {
+        success:function(res) {
           var filePath = res.tempFilePaths[0];
           // 交给七牛上传
           qiniuUploader.upload(filePath, (res) => {
@@ -77,7 +111,8 @@ Page({
           
           if(that.data.successState == true){
             that.setData({
-              files: that.data.files.concat(filePath),
+              imgList: that.data.imgList.concat(filePath),
+              num : 1,
             });
           }
         }, (error) => {
@@ -95,17 +130,36 @@ Page({
       }
     });
   },
-  previewImage(e) {
+  ViewImage(e) {
     wx.previewImage({
-      current: e.currentTarget.id, // 当前显示图片的http链接
-      urls: this.data.files, // 需要预览的图片http链接列表
+      urls: this.data.imgList,
+      current: e.currentTarget.dataset.url
     });
   },
+  DelImg(e) {
+    var that = this;
+    wx.showModal({
+      title: '拾物者',
+      content: '确定要删除这张照片吗？',
+      cancelText: '不了',
+      confirmText: '确定',
+      success: res => {
+        if (res.confirm) {
+          that.data.imgList.splice(e.currentTarget.dataset.index, 1);
+          that.setData({
+            imgList: that.data.imgList
+          })
+        }
+      }
+    })
+  },
+
   itemSuccess(){
     console.log("[findplatform-web] func itemSuccess start.")
     var that = this;
     that.getNewItemId();
   },
+
   itemCancel(){
     console.log("[findplatform-web] func itemCancel start.")
     wx.navigateBack();
@@ -170,31 +224,117 @@ Page({
       },
       success: function(res) {
         console.log("[findplatform-web] func addItem success.")
-
         wx.navigateTo({
-          url: '../item/item_details?url='+that.data.itemId,
+          url: '../item/item_change?url='+that.data.itemId+'&mode=upload',
         })
       },
       fail:function(res){
         console.log("-------fail------")
       }
     })
-  }
+  },
+
+  //地图定位
+  getUserLocation: function() {
+    console.log("getUserLocation")
+    let vm = this;
+    wx.getSetting({
+      success: (res) => {
+        console.log(JSON.stringify(res))
+        // res.authSetting['scope.userLocation'] == undefined    表示 初始化进入该页面
+        // res.authSetting['scope.userLocation'] == false    表示 非初始化进入该页面,且未授权
+        // res.authSetting['scope.userLocation'] == true    表示 地理位置授权
+        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {
+          wx.showModal({
+            title: '请求授权当前位置',
+            content: '需要获取您的地理位置，请确认授权',
+            success: function(res) {
+              if (res.cancel) {
+                wx.showToast({
+                  title: '拒绝授权',
+                  icon: 'none',
+                  duration: 1000
+                })
+              } else if (res.confirm) {
+                wx.openSetting({
+                  success: function(dataAu) {
+                    if (dataAu.authSetting["scope.userLocation"] == true) {
+                      wx.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 1000
+                      })
+                      //再次授权，调用wx.getLocation的API
+                      vm.getLocation();
+                    } else {
+                      wx.showToast({
+                        title: '授权失败',
+                        icon: 'none',
+                        duration: 1000
+                      })
+                    }
+                  }
+                })
+              }
+            }
+          })
+        } else if (res.authSetting['scope.userLocation'] == undefined) {
+          //调用wx.getLocation的API
+          vm.getLocation();
+        } else {
+          //调用wx.getLocation的API
+          vm.getLocation();
+        }
+      }
+    })
+  },
+  // 微信获得经纬度
+  getLocation: function() {
+    let vm = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function(res) {
+        console.log(JSON.stringify(res))
+        var latitude = res.latitude
+        var longitude = res.longitude
+        var speed = res.speed
+        var accuracy = res.accuracy;
+        vm.getLocal(latitude, longitude)
+      },
+      fail: function(res) {
+        console.log('fail' + JSON.stringify(res))
+      }
+    })
+  },
+  // 获取当前地理位置
+  getLocal: function(latitude, longitude) {
+    let vm = this;
+    qqmapsdk.reverseGeocoder({
+      location: {
+        latitude: latitude,
+        longitude: longitude
+      },
+      success: function(res) {
+        console.log(res);
+        let province = res.result.ad_info.province
+        let city = res.result.ad_info.city
+        vm.setData({
+          address: res.result.address,
+          // province: province,
+          // city: city, //城市
+          // latitude: latitude,
+          // longitude: longitude
+        })
+        console.log(vm.data.address)
+      },
+      fail: function(res) {
+        console.log(res);
+      },
+      complete: function(res) {
+        // console.log(res);
+      }
+    });
+  },
 });
 
-
-// 图片上传（从相册）方法
-function didPressChooesImage(that) {
-    // 详情请见demo部分 index.js
-}
-
-// 文件上传（从客户端会话）方法，支持图片、视频、其余文件 (PDF(.pdf), Word(.doc/.docx), Excel(.xls/.xlsx), PowerPoint(.ppt/.pptx)等文件格式)
-function didPressChooesMessageFile(that) {
-    // 详情请见demo部分 index.js
-}
-
-// 在线查看文件，支持的文件格式：pdf, doc, docx, xls, xlsx, ppt, pptx。关于wx.openDocument方法，详情请参考微信官方文档：https://developers.weixin.qq.com/miniprogram/dev/api/file/wx.openDocument.html
-function didPressViewFileOnline(that) {
-    // 详情请见demo部分 index.js
-}
 

@@ -17,11 +17,11 @@
 							<text class="bg-green" style="width:4rem"></text>
 						</view>
 					</view>
-
-					<view class="cu-item flex align-center justify-end" style="width: 300rpx;">
+          <!-- 拾取者信息 -->
+					<view class="cu-item flex align-center justify-end-m" style="width: 300rpx;">
 						<view class="text-grey text-df">来自 </view>
 						<view class="cu-avatar round lg" style="background-image:url({{user.avatarUrl}});"></view>
-						<view class="content flex-sub" style="">
+						<view class="content flex-sub">
 							<view class="text-black text-df">{{user.username}}</view>
 							<view class="text-gray text-sm flex justify-between">{{item.pickTime}}</view>
 						</view>
