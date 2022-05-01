@@ -13,6 +13,7 @@
 bin/
 gen/
 out/
+.history/
 
 # Gradle files
 .gradle/
@@ -75,3 +76,6 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+# wx-tools ignore
+project.private.config.json

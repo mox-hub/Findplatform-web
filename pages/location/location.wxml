@@ -1,0 +1,2 @@
+<!--pages/location/location.wxml-->
+<map id="myMap" class="maMap" subkey="PYRBZ-LJ5CW-QIURH-RXG37-E6UDQ-4NBFY"/>

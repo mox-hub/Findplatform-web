@@ -1,0 +1,38 @@
+<!--pages/about/about.wxml-->
+<page-meta root-font-size="system"/>
+
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+  <view class="weui-article">
+      <view aria-role="heading" aria-level="4" class="weui-article__h1">关于我们</view>
+      <view class="weui-article__section">
+        <view class="article-img-outline">
+          <image class="weui-article__img article-img" src="../../images/findPlatForm.png" mode="aspectFit" />
+        </view>
+        <view class="weui-article__section">
+            <view class="weui-article__h3">AI寻物</view>
+              <view class="weui-article__p">
+                  <text class="article-text">AI智能寻物是大学生创新创业项目，采用YOLO图像识别+寻物平台的奇妙组合，团队致力于解决生活中存在的小问题，让科技便捷生活。</text>
+              </view>
+        </view>
+        <view class="weui-article__section">
+            <view class="weui-article__h3">关于我们</view>
+              <view class="weui-article__p">
+                  <text class="article-text">我们是合肥工业大学宣城校区，计算机与信息系2019级在读学生。</text>
+              </view>
+        </view>
+      <view class="weui-article__section">
+            <view class="weui-article__h3">为什么做AI寻物</view>
+              <view class="weui-article__p">
+                  <text class="article-text">AI智能寻物是大学生创新创业项目，设计团队在考虑到生活中的一些寻物平台存在输入繁琐、检索困难等问题，于是决定利用专业知识，解决这些问题，力求做到科技便捷生活。</text>
+              </view>
+        </view>
+      </view>
+    <!-- 底栏 -->
+    <view class="weui-footer">
+      <view class="weui-footer__links">
+        <navigator class="weui-footer__link weui-wa-hotarea" url="https://gitee.com/hfutcs-330">不醒人室</navigator>
+      </view>
+      <view class="weui-footer__text">Copyright &copy; 2022-至今 foocode.cn</view>
+    </view>
+  </view>
+</view>

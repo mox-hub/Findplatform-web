@@ -1,0 +1,25 @@
+<!--pages/publish/publish.wxml-->
+<view class="cu-list card-menu menu-avatar">
+	<view class="cu-bar justify-left bg-white">
+      <view class="action sub-title">
+        <text class="text-xl text-bold text-green">我的发布</text>
+        <text class="bg-green" style="width:2rem"></text>
+      </view>
+  </view>
+	<navigator class="cu-item cur margin-bottom-ls radius" wx:for="{{item}}" wx:key="itemId" url='/pages/item/item_details?url={{item.itemId}}'>
+		<view class="cu-avatar radius lg" style="background-image:url({{item.imgUrl}});">
+		</view>
+		<view class="content">
+			<view>
+				<text class="text-cut">{{item.itemName}}</text>
+				<view class="cu-tag round {{item.state ? 'bg-green' : 'bg-red'}} sm">{{item.state? '已找回' : '未找回'}}</view>
+			</view>
+			<view class="text-gray text-sm flex">
+				<text class="text-cut"> {{item.itemInfo}}<text class="cuIcon-locationfill text-orange margin-right-xs"></text>{{item.pickLocation}}</text>
+			</view>
+		</view>
+		<view class="action">
+			<view class="text-grey text-xs">{{item.pickTime}}</view>
+		</view>
+	</navigator>
+</view>

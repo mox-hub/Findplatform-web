@@ -1,0 +1,40 @@
+/* pages/item/item_details.wxss */
+page {
+  background-color: #f5f6f8;
+}
+
+.button-panel {
+  bottom: 10rpx;
+  background: #ffffff;
+  height: 106rpx;
+  width: 95%;
+  margin: 0 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
+.button-side {
+  margin-left: 40rpx;
+}
+
+.button-change {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.button-delete {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.button-return {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.justify-end-m {
+  float: right;
+}

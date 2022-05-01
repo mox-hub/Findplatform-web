@@ -1,0 +1,36 @@
+/* pages/search/index.wxss */
+page{  
+    height: 100%;  
+    background-color: #f5f6f8;
+  } 
+  /* 单个图片容器的样式 */
+
+.action {
+    width: 150rpx;
+}
+
+.item-list {
+  width: 48.5%;
+  margin: 2px;
+  display: inline-block;
+  vertical-align: top;
+  background-color: #f3f4f6;
+  font-size: 24rpx;
+}
+.cu-card {
+  background-color: #fff;
+}
+
+.nav-list {
+  width: 48.5%;
+  margin: 2px;
+  display: inline-block;
+}
+
+.item{
+  margin-top: 10rpx;
+}
+.cu-list {
+  margin-top: 0rpx;
+  margin-bottom: 0rpx;
+}

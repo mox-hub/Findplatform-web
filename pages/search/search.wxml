@@ -1,0 +1,79 @@
+<!--pages/search/index.wxml-->
+<!-- seach-bar 组件 -->
+<view class="box">
+    <view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow-blur round">搜索</button>
+    </view>
+  </view>
+</view>
+<!-- 双列滚动浏览 -->
+<scroll-view class= "item" scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="getItemInfo">
+
+  <view class="goods" style="width:100%">
+    <view class="item-list">
+      <view wx:for="{{col1}}" wx:key="id">
+        <!-- 物品卡片 -->  
+          <navigator class="cu-card case margin-bottom-sm shadow-warp radius" url='/pages/item/item_details?url={{item.itemId}}'>
+            <!-- 图像框 -->
+            <view class="cu-item shadow radius">
+              <view class="image">
+                <image src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75" mode="widthFix"></image>
+                <view class="cu-tag {{item.state ? 'bg-green' : 'bg-red'}} light radius">
+                  {{item.state? '已找回' : '未找回'}}
+                </view>
+              </view>
+            </view>
+            <!-- 信息详情 -->
+            <view class="cu-list flex justify-around text-center">
+              <view class="text-lg">{{item.itemName}}</view>
+              <view class="cu-tag round bg-blue light">
+                {{item.tag}}
+              </view>
+            </view>
+            <view class="cu-list flex">
+              <view class="text-df text-green flex-sub flex justify-center">{{item.pickTime}}</view>
+              <text class="cuIcon-locationfill text-orange"></text>
+              <view class="text-sm text-grey flex-sub flex justify-start">{{item.pickLocation}}</view>
+            </view>
+        </navigator>
+      </view>
+    </view>
+
+    <view class="item-list">
+      <view wx:for="{{col2}}" wx:key="id">
+        <!-- 物品卡片 -->  
+        <navigator class="cu-card case margin-bottom-sm shadow-warp radius" url='/pages/item/item_details?url={{item.itemId}}'>
+            <!-- 图像框 -->
+            <view class="cu-item shadow radius">
+              <view class="image">
+                <image src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75" mode="widthFix"></image>
+                <view class="cu-tag {{item.state ? 'bg-green' : 'bg-red'}} light radius">
+                  {{item.state? '已找回' : '未找回'}}
+                </view>
+              </view>
+            </view>
+            <!-- 信息详情 -->
+            <view class="cu-list flex justify-around text-center">
+              <view class="text-lg">{{item.itemName}}</view>
+              <view class="cu-tag round bg-blue light">
+                {{item.tag}}
+              </view>
+            </view>
+            <view class="cu-list flex">
+              <view class="text-df text-green flex-sub flex justify-center">{{item.pickTime}}</view>
+              <text class="cuIcon-locationfill text-orange"></text>
+              <view class="text-sm text-grey flex-sub flex justify-start">{{item.pickLocation}}</view>
+            </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view style="display:none">
+  <image wx:for="{{images}}" wx:key="id" id="{{item.id}}" src="{{item.imgUrl}}" bindload="onImageLoad"></image>
+</view> 

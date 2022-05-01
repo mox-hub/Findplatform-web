@@ -1,0 +1,21 @@
+<!--pages/index/index.wxml-->
+<!-- seach-bar 组件 -->
+<view class="box">
+    <view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow-blur round">搜索</button>
+    </view>
+  </view>
+</view>
+
+<!-- 两个首页卡片 -->
+<view class="cu-card">
+    <view class="cu-item shadow-blur {{item.background}}" bindtap="toChild" data-url="{{item.url}}" wx:for="{{list}}" wx:key="item">
+      <view class="cardTitle">{{item.title}}</view>
+      <image class="cardImg"src="{{item.img}}"></image>
+    </view>
+</view>

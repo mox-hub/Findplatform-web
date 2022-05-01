@@ -1,0 +1,142 @@
+<!--pages/user/index.wxml-->
+<view class="container">
+  <!-- 头像卡片部分 -->
+  <view class="UCenter-bg"> 
+    <!-- 用户头像 -->
+    <image src="{{userInfo.avatarUrl}}" class="png" mode="widthFix"></image>
+    <!-- 用户昵称 -->
+    <view class="text-xl margin-top-sm">
+      {{userInfo.username}}
+    </view>
+    <!-- 使用ui及开发版本 -->
+    <view class="cu-capsule round align-start">
+      <view class="cu-tag bg-blue sm">ColorUI</view>
+      <view class="cu-tag line-blue sm">v0.7.0</view>
+    </view>
+    <!-- 寻物ID -->
+    <view class="margin-top-xs">
+      <text>寻物ID: {{userInfo.id}}</text>
+    </view>
+    <image src="/images/user/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <!-- 个人信息模块 -->
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item">
+      <view class="content padding-tb-sm">
+        <view>
+          <text class="cuIcon-clothesfill text-green margin-right-xs"></text>个人信息</view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-infofill margin-right-xs"></text>点击按钮查看个人信息</view>
+      </view>
+      <view class="action">
+        <switch class="switch sm" bindchange="SetInfoShow"></switch>
+      </view>
+    </view>
+  </view>
+  <!-- 个人信息隐藏模块 -->
+  <view class="cu-list menu card-menu margin-bottom-xl shadow-lg radius {{isShow ? '' : 'cu-item-show'}}">
+    <!-- 昵称 -->
+    <view class="cu-item">
+      <view class="content">
+        <text class="cuIcon-list text-green"></text>
+        <text class="text-grey">昵称</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{userInfo.username}}</text>
+      </view>
+    </view>
+    <!-- 学校 -->
+    <view class="cu-item">
+      <view class="content">
+        <text class="cuIcon-list text-green"></text>
+        <text class="text-grey">学校</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{userInfo.college}}</text>
+      </view>
+    </view>
+    <!-- 手机 -->
+    <view class="cu-item">
+      <view class="content">
+        <text class="cuIcon-list text-green"></text>
+        <text class="text-grey">手机</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{userInfo.phoneNumber}}</text>
+      </view>
+    </view>
+    <!-- 修改我的信息 -->
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/user/change_user_info?url={{userId}}" hover-class="none" open-type='navigate'>
+        <text class="cuIcon-edit text-green margin-right-sm"></text>
+        <text class="text-grey">修改我的信息</text>
+      </navigator>
+    </view>
+  </view>
+  <!-- 功能模块 -->
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <!-- 副标题：我的功能 -->
+    <view class="cu-bar justify-left bg-white">
+      <view class="action sub-title">
+        <text class="text-xl text-bold text-green">我的功能</text>
+        <text class="bg-green" style="width:2rem"></text>
+      </view>
+    </view>
+    <!-- 我的收藏 -->
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/collect/collect" hover-class="none" open-type='switchTab'>
+        <text class="cuIcon-likefill text-grey margin-right-sm"></text>
+        <text class="text-grey">我的收藏</text>
+      </navigator>
+    </view>
+    <!-- 我的发布 -->
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/publish/publish" hover-class="none" open-type='navigate'>
+        <text class="cuIcon-writefill text-grey margin-right-sm"></text>
+        <text class="text-grey">我的发布</text>
+      </navigator>
+    </view>
+    <!-- 副标题：关于我们 -->
+    <view class="cu-bar justify-left bg-white">
+      <view class="action sub-title">
+        <text class="text-xl text-bold text-green">关于我们</text>
+        <text class="bg-green" style="width:2rem"></text>
+      </view>
+    </view>
+    <!-- 关于我们 -->
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about" hover-class="none">
+        <text class="cuIcon-newshotfill text-grey margin-right-sm"></text>
+        <text class="text-grey">关于我们</text>
+      </navigator>
+    </view>
+    <!-- 提交反馈 -->
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about" hover-class="none">
+        <text class="cuIcon-emojifill text-grey margin-right-sm"></text>
+        <text class="text-grey">提交反馈</text>
+      </navigator>
+    </view>
+    <!-- Github -->
+    <view class="cu-item arrow">
+      <view class="content" bindtap="CopyLink" data-link="https://github.com/mox-hub/Findplatform-web/">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">GitHub</text>
+      </view>
+    </view>
+  </view>
+  <!-- 一些间距 -->
+  <view class="cu-tabbar-height"></view>
+
+  <!-- 底栏 footer -->
+  <view class="cu-item">
+      <view class="text-blue text-ls flex justify-center">
+        <navigator class="text-blue" bindtap="CopyLink" data-link="https://gitee.com/hfutcs-330">不醒人室</navigator>
+      </view>
+      <view class="text-sm text-grey flex justify-center">Copyright &copy; 2022-至今 foocode.cn</view>
+  </view>
+  <!-- 一些间距 -->
+  <view class="cu-tabbar-height"></view>
+
+</view>
+

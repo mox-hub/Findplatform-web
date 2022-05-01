@@ -1,0 +1,9 @@
+/* pages/user/change.wxss */
+.weui-link {
+    margin-right: 20rpx;
+}
+
+.cell-vcode {
+    display: flex;
+    flex-direction: column;
+}
