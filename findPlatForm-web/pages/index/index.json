@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "SearchBar":"../../components/SearchBar/SearchBar"
-  },
-  "navigationBarTitleText": "findPlatform-home"
-}
