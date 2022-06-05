@@ -1,153 +1,87 @@
 <!--pages/item/item_details.wxml-->
-<page-meta root-font-size="system" />
-<view class="page">
+<ui-sys title="详细信息">
 	<!-- 首页卡片内容，展示物品大致信息  -->
-	<view class="cu-card case shadow-blur ">
-		<view class="cu-item shadow">
-			<view class="flex">		
-				<view class="flex-sub image margin">
-					<image src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75" mode="widthFix"></image>
-					<view class="cu-tag round bg-{{item.state? 'green' : 'red'}} light">{{item.state? '已找回' : '未找回'}}</view>
-				</view>
-				<view class="flex-twice">
-					<!-- 物品标题 -->
-					<view class="cu-bar justify-center bg-white margin-top-xl margin-bottom-lg">
-						<view class="action sub-title">
-							<text class="text-xl text-bold text-green">{{item.itemName}}</text>
-							<text class="bg-green" style="width:4rem"></text>
-						</view>
-					</view>
-          <!-- 拾取者信息 -->
-					<view class="cu-item flex align-center justify-end-m" style="width: 300rpx;">
-						<view class="text-grey text-df">来自 </view>
-						<view class="cu-avatar round lg" style="background-image:url({{user.avatarUrl}});"></view>
-						<view class="content flex-sub">
-							<view class="text-black text-df">{{user.username}}</view>
-							<view class="text-gray text-sm flex justify-between">{{item.pickTime}}</view>
-						</view>
-					</view>
+  <ui-card ui="shadow m-4 radius">
+    <view class="ui-grid">
+      <ui-img ui="radius border ui-col-6 m-3" src="{{item.imgUrl}}" height="260rpx" width="260rpx"/>
+      <!-- 物品简要信息 -->
+      <view class="item-info ml-3">
+          <ui-title class="text-nowrap m-4" title="{{item.itemName}}" hasLine/>
+            <view class="p-3 ui-BG radius border">
+                <ui-tag info="{{user.username}}" src="{{user.avatarUrl}}"/>
+            </view>
+      </view>
+    </view>
+  </ui-card>
 
-				</view>
-			</view>
-		</view>
-	</view>
   <!-- 物品数据面板 -->
-  <view class="cu-list menu card-menu margin-bottom-xl shadow-lg radius">
-	    <!-- 副标题：发布者信息 -->
-			<view class="cu-bar justify-left bg-white">
-      <view class="action sub-title">
-        <text class="text-xl text-bold text-green">发布者信息</text>
-        <text class="bg-green" style="width:2rem"></text>
-      </view>
-    </view>
+  <ui-menu ui="border radius m-4 shadow">
+
+    <!-- 副标题：发布者信息 -->
+    <ui-title class="text-nowrap" title="发布者信息" desc="user" depth="2"  isIcon/>
+
     <!-- 发布者 -->
-    <view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-peoplefill text-grey"></text>
-        <text class="text-grey">发布者</text>
+    <ui-menu-item title="发布者" icon="cuIcon-peoplefill text-blue" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">{{user.username}}</text>
       </view>
-      <view class="action">
-        <text class="text-grey text-xl">{{user.username}}</text>
-      </view>
-    </view>
+    </ui-menu-item>
+
     <!-- 联系方式 -->
-    <view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-mobilefill text-grey"></text>
-        <text class="text-grey">联系方式</text>
+    <ui-menu-item title="联系方式" icon="cuIcon-list text-blue" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">{{user.phoneNumber}}</text>
       </view>
-      <view class="action">
-        <text class="text-grey text-xl">{{user.phoneNumber}}</text>
-      </view>
-    </view>
-		<!-- 副标题：物品信息 -->
-		<view class="cu-bar justify-left bg-white">
-      <view class="action sub-title">
-        <text class="text-xl text-bold text-green">物品信息</text>
-        <text class="bg-green" style="width:2rem"></text>
-      </view>
-    </view>
+    </ui-menu-item>
+
+    <!-- 副标题：物品信息 -->
+    <ui-title class="text-nowrap" title="物品信息" desc="details" depth="2" isIcon/>
+
     <!-- 颜色 -->
-    <view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-colorlens text-grey"></text>
-        <text class="text-grey">颜色</text>
+    <ui-menu-item title="颜色" icon="cuIcon-peoplefill text-blue" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">黑色</text>
       </view>
-      <view class="action">
-        <text class="text-grey text-xl">黑色</text>
-      </view>
-    </view>
-		<!-- 物品类别 -->
-		<view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-tagfill text-grey"></text>
-        <text class="text-grey">物品类别</text>
-      </view>
-      <view class="action">
-				<view class="cu-tag round bg-blue light">{{item.tag}}</view>
-      </view>
-    </view>
-		<!-- 拾取时间 -->
-		<view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-timefill text-grey"></text>
-        <text class="text-grey">拾取时间</text>
-      </view>
-      <view class="action">
-        <text class="text-grey text-xl">{{item.pickTime}}</text>
-      </view>
-    </view>
-		<!-- 拾取地点 -->
-		<view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-locationfill text-grey"></text>
-        <text class="text-grey">拾取地点</text>
-      </view>
-      <view class="action">
-        <text class="text-grey text-xl">{{item.pickLocation}}</text>
-      </view>
-    </view>
-		<!-- 拾取地点页面跳转 -->
-    <view class="cu-item arrow">
-      <navigator class="content" hover-class="none" url="/pages/location/location" open-type="redirect">
-        <text class="cuIcon-locationfill text-orange"></text>
-        <text class="text-olive">查看拾取地点</text>
-      </navigator>
-    </view>
-		<!-- 物品状态 -->
-		<view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-warnfill text-grey"></text>
-        <text class="text-grey">物品状态</text>
-      </view>
-      <view class="action">
-				<view class="cu-tag round bg-{{item.state? 'green' : 'red'}} light">{{item.state? '已找回' : '未找回'}}</view>
-      </view>
-    </view>
-		<!-- 物品描述 -->
-		<view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-messagefill text-grey"></text>
-        <text class="text-grey">物品描述</text>
-      </view>
-      <view class="action">
-        <text class="text-grey text-sm">{{item.itemInfo}}</text>
-      </view>
-    </view>
+    </ui-menu-item>    
 
-  </view>
+    <!-- 物品类别 -->
+    <ui-menu-item title="物品类别" icon="cuIcon-peoplefill text-blue" isAction>
+      <view slot="action">
+        <ui-tag bg="bg-blue-thin" info="{{item.tag}}" ui="round"/>
+      </view>
+    </ui-menu-item>    
 
-	<!-- 操作区域 -->
-	<view class="cu-bar justify-left bg-white">
-		<view class="action sub-title">
-			<text class="text-xl text-bold text-green">操作区域</text>
-			<text class="bg-green" style="width:2rem"></text>
-		</view>
-	</view>
+    <!-- 拾取时间 -->
+    <ui-menu-item title="拾取时间" icon="cuIcon-peoplefill text-blue" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">{{item.pickTime}}</text>
+      </view>
+    </ui-menu-item>
 
-	<view class="button-panel">
-		<button class='button-change' type="primary" bindtap="itemChange">修改</button>
-		<view class="button-side"></view>
-		<button class='button-delete' type="warn" bindtap="itemDelete">删除</button>
-	</view>
-</view>
+    <!-- 拾取地点 -->
+    <ui-menu-item title="拾取地点" icon="cuIcon-peoplefill text-blue" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">{{item.pickLocation}}</text>
+      </view>
+    </ui-menu-item>
+
+    <!-- 查看拾取地点 -->
+    <ui-menu-item arrow title="查看拾取地点" icon="cuIcon-locationfill text-orange" isAction data-url="/pages/location/location" bindtap="tapToUrl">
+    </ui-menu-item>
+
+    <!-- 物品状态 -->
+    <ui-menu-item title="物品状态" icon="cuIcon-peoplefill text-blue" isAction>
+      <view slot="action">
+        <ui-tag bg="bg-{{item.state? 'green' : 'red'}}-thin" info="{{item.state? '已找回' : '未找回'}}" ui="radius"/>
+      </view>
+    </ui-menu-item>
+
+    <!-- 物品描述 -->
+    <ui-menu-item title="物品描述" icon="cuIcon-peoplefill text-blue" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm text-justify">{{item.pickLocation}}</text>
+      </view>
+    </ui-menu-item>
+
+  </ui-menu>
+</ui-sys>

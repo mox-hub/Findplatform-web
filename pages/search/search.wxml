@@ -1,79 +1,42 @@
 <!--pages/search/index.wxml-->
 <!-- seach-bar 组件 -->
-<view class="box">
-    <view class="cu-bar search bg-white">
-    <view class="search-form round">
-      <text class="cuIcon-search"></text>
-      <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
-    </view>
-    <view class="action">
-      <button class="cu-btn bg-green shadow-blur round">搜索</button>
-    </view>
-  </view>
-</view>
-<!-- 双列滚动浏览 -->
-<scroll-view class= "item" scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="getItemInfo">
-
-  <view class="goods" style="width:100%">
-    <view class="item-list">
-      <view wx:for="{{col1}}" wx:key="id">
-        <!-- 物品卡片 -->  
-          <navigator class="cu-card case margin-bottom-sm shadow-warp radius" url='/pages/item/item_details?url={{item.itemId}}'>
-            <!-- 图像框 -->
-            <view class="cu-item shadow radius">
-              <view class="image">
-                <image src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75" mode="widthFix"></image>
-                <view class="cu-tag {{item.state ? 'bg-green' : 'bg-red'}} light radius">
-                  {{item.state? '已找回' : '未找回'}}
-                </view>
-              </view>
-            </view>
-            <!-- 信息详情 -->
-            <view class="cu-list flex justify-around text-center">
-              <view class="text-lg">{{item.itemName}}</view>
-              <view class="cu-tag round bg-blue light">
-                {{item.tag}}
-              </view>
-            </view>
-            <view class="cu-list flex">
-              <view class="text-df text-green flex-sub flex justify-center">{{item.pickTime}}</view>
-              <text class="cuIcon-locationfill text-orange"></text>
-              <view class="text-sm text-grey flex-sub flex justify-start">{{item.pickLocation}}</view>
-            </view>
-        </navigator>
+<ui-sys title="寻找" tabbar>
+  <!-- 搜索框 -->
+  <view class="box">
+    <view class="cu-bar search">
+      <view class="search-form round">
+        <text class="cuIcon-search"></text>
+        <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
       </view>
-    </view>
-
-    <view class="item-list">
-      <view wx:for="{{col2}}" wx:key="id">
-        <!-- 物品卡片 -->  
-        <navigator class="cu-card case margin-bottom-sm shadow-warp radius" url='/pages/item/item_details?url={{item.itemId}}'>
-            <!-- 图像框 -->
-            <view class="cu-item shadow radius">
-              <view class="image">
-                <image src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75" mode="widthFix"></image>
-                <view class="cu-tag {{item.state ? 'bg-green' : 'bg-red'}} light radius">
-                  {{item.state? '已找回' : '未找回'}}
-                </view>
-              </view>
-            </view>
-            <!-- 信息详情 -->
-            <view class="cu-list flex justify-around text-center">
-              <view class="text-lg">{{item.itemName}}</view>
-              <view class="cu-tag round bg-blue light">
-                {{item.tag}}
-              </view>
-            </view>
-            <view class="cu-list flex">
-              <view class="text-df text-green flex-sub flex justify-center">{{item.pickTime}}</view>
-              <text class="cuIcon-locationfill text-orange"></text>
-              <view class="text-sm text-grey flex-sub flex justify-start">{{item.pickLocation}}</view>
-            </view>
-        </navigator>
+      <view class="action">
+        <button class="cu-btn bg-green shadow-blur round">搜索</button>
       </view>
-    </view>
+    </view> 
   </view>
-</scroll-view>
-<view style="display:none">
-  <image wx:for="{{images}}" wx:key="id" id="{{item.id}}" src="{{item.imgUrl}}" bindload="onImageLoad"></image>
-</view> 
+
+  <!-- 双列索引 -->
+  <scroll-view class= "item" scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="getItemInfo">
+    <view class="ui-grid ui-cols-2 mt-4">
+        <view class="ui-item" wx:for="{{col1}}" wx:key="index">    
+          <navigator url='/pages/item/item_details?url={{item.itemId}}'>
+            <ui-card ui="card-item shadow m-3 radius">
+              <ui-img ui="ui-img-my radius border" src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75" height="400rpx"/>
+                <view class="ui-grid">
+                  <ui-title class="text-nowrap ui-col-6 ml-3" title="{{item.itemName}}" isIcon/>
+                  <ui-tag ui="sm round bg-blue ui-col-10 fr ml-3 mt-3" info="{{item.tag}}"/>
+                </view>
+                
+                <view class="desc text-right pr-3">
+                  <text class="cuIcon-locationfill text-orange"></text>
+                  {{item.pickLocation}}</view>
+                <view class="desc text-olive text-right pr-3 py-2">{{item.pickTime}}</view>
+            </ui-card>
+          </navigator>
+        </view>
+    </view>
+  </scroll-view>
+  <!-- 刷新加载 -->
+  <view style="display:none">
+    <image wx:for="{{images}}" wx:key="id" id="{{item.id}}" src="{{item.imgUrl}}" bindload="onImageLoad"></image>
+  </view> 
+</ui-sys>

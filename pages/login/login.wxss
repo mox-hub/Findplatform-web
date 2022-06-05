@@ -2,26 +2,7 @@
 page{
     background-color: #fafafa;
 }
-.headView {
-  margin: 90rpx 50rpx 90rpx 50rpx;
-}
-    
-.headImageView {
-  display: block;
-  margin-left: 25px;
-  margin-top: 25px;
-  margin-right: 25px;
-  margin-bottom: 0px;
-  height: 50px;
-}
 
-.headImage{
-  display: flex;
-  margin: 0 auto;
-  width: 80px;
-  height: 80px;
-}
-    
 .titleText {   
   margin-left: 25px;
   margin-top: 50px;  
@@ -46,4 +27,27 @@ page{
   margin-right: 25px;
   height: 45px;
   font-size: 17.5px;
+}
+
+.cu-image {
+  display: block;
+  margin-left: 25px;
+  margin-top: 200rpx;
+  margin-right: 25px;
+  margin-bottom: 0px;
+  height: 200rpx;
+}
+
+.image {
+  display: flex;
+  margin: 0 auto;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.cu-btn {
+  margin: auto;
+  margin-top: 35px;
+  height: 80rpx;
+  font-size: 16px;
 }

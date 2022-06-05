@@ -3,6 +3,10 @@ page {
   background-color: #f5f6f8;
 }
 
+.image {
+  border-radius: 20rpx;
+}
+
 .button-panel {
   bottom: 10rpx;
   background: #ffffff;

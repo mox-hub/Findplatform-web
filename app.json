@@ -12,21 +12,60 @@
         "pages/publish/publish",
         "pages/search/search",
         "pages/user/change_user_info",
-        "pages/user/user"
+        "pages/user/user",
+        "pages/setting/setting"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#eaa8b6",
         "navigationBarTitleText": "findPlatform",
         "navigationBarTextStyle": "white",
-        "backgroundColor": "#ededed"
+        "backgroundColor": "#ededed",
+        "navigationStyle": "custom"
+
     },
+
+    "usingComponents": {
+        "ui-sys": "mp-cu/colorUI/components/ui-sys/ui-sys",
+        "ui-title": "mp-cu/colorUI/components/ui-title/ui-title",
+        "ui-code": "mp-cu/colorUI/components/ui-code/ui-code",
+        "ui-loading": "mp-cu/colorUI/components/ui-loading/ui-loading",
+        "ui-menu": "mp-cu/colorUI/components/ui-menu/ui-menu",
+        "ui-menu-item": "mp-cu/colorUI/components/ui-menu-item/ui-menu-item",
+        "ui-avatar": "mp-cu/colorUI/components/ui-avatar/ui-avatar",
+        "ui-avatar-stack": "mp-cu/colorUI/components/ui-avatar-stack/ui-avatar-stack",
+        "ui-modal": "mp-cu/colorUI/components/ui-modal/ui-modal",
+        "ui-toast": "mp-cu/colorUI/components/ui-toast/ui-toast",
+        "ui-switch": "mp-cu/colorUI/components/ui-switch/ui-switch",
+        "ui-radio-group": "mp-cu/colorUI/components/ui-radio-group/ui-radio-group",
+        "ui-radio": "mp-cu/colorUI/components/ui-radio/ui-radio",
+        "ui-card": "mp-cu/colorUI/components/ui-card/ui-card",
+        "ui-fixed": "mp-cu/colorUI/components/ui-fixed/ui-fixed",
+        "ui-img": "mp-cu/colorUI/components/ui-img/ui-img",
+        "ui-navbar": "/mp-cu/colorUI/components/ui-navbar/ui-navbar",
+        "ui-swiper": "/mp-cu/colorUI/components/ui-swiper/ui-swiper",
+        "ui-text-size": "/mp-cu/colorUI/components/ui-text-size/ui-text-size",
+        "ui-tag": "/mp-cu/colorUI/components/ui-tag/ui-tag",
+        "ui-progress": "/mp-cu/colorUI/components/ui-progress/ui-progress",
+        "ui-tab": "/mp-cu/colorUI/components/ui-tab/ui-tab",
+        "ui-popover" : "/mp-cu/colorUI/components/ui-popover/ui-popover",
+        "ui-steps" : "/mp-cu/colorUI/components/ui-steps/ui-steps",
+        "ui-form" : "/mp-cu/colorUI/components/ui-form/ui-form",
+        "ui-form-group" : "/mp-cu/colorUI/components/ui-form-group/ui-form-group",
+        "ui-input-box" : "/mp-cu/colorUI/components/ui-input-box/ui-input-box",
+        "ui-checkbox" : "/mp-cu/colorUI/components/ui-checkbox/ui-checkbox",
+        "ui-checkbox-group" : "/mp-cu/colorUI/components/ui-checkbox-group/ui-checkbox-group",
+        "ui-change-theme": "/mp-cu/colorUI/components/ui-change-theme/ui-change-theme",
+        "ui-parameter" : "/mp-sdk/components/ui-parameter/ui-parameter"
+    },
+    
     "tabBar": {
-        "color": "#999",
-        "selectedColor": "#ff2d4a",
-        "backgroundColor": "#f5f6f8",
+        "color": "#959595",
+        "selectedColor": "#eaa8b6",
+        "borderStyle": "white",
+        "backgroundColor": "#ffffff",
         "position": "bottom",
-        "borderStyle": "black",
+
         "list": [
             {
                 "pagePath": "pages/index/index",
@@ -54,8 +93,8 @@
             }
         ]
     },
+    "darkmode": true,
     "lazyCodeLoading": "requiredComponents",
-    "style": "v2",
     "sitemapLocation": "sitemap.json",
     "permission": {
         "scope.userLocation": {

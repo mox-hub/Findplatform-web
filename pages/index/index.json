@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "ui-change-theme": "/mp-cu/colorUI/components/ui-change-theme/ui-change-theme",
+    "app-nav-li": "/mp-sdk/components/app-nav-li/app-nav-li"
+  },
   "navigationBarTitleText": "首页"
 }

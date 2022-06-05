@@ -3,7 +3,6 @@ page{
     height: 100%;  
     background-color: #f5f6f8;
   } 
-  /* 单个图片容器的样式 */
 
 .action {
     width: 150rpx;
@@ -17,9 +16,6 @@ page{
   background-color: #f3f4f6;
   font-size: 24rpx;
 }
-.cu-card {
-  background-color: #fff;
-}
 
 .nav-list {
   width: 48.5%;
@@ -27,10 +23,14 @@ page{
   display: inline-block;
 }
 
-.item{
-  margin-top: 10rpx;
-}
 .cu-list {
   margin-top: 0rpx;
   margin-bottom: 0rpx;
+}
+
+.card-item {
+  width: 340rpx;
+}
+.ui-img-my {
+  height: 600rpx;
 }

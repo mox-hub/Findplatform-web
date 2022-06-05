@@ -58,6 +58,12 @@ Page({
       } 
     })
   },
+
+  tapToUrl(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
+    })
+  },
   // 复制地址链接
   CopyLink(e) {
     wx.setClipboardData({

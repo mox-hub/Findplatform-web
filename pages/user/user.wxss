@@ -3,8 +3,10 @@ page{
   background-color: #f5f6f8;
 }
 
-.cu-item-show {
+.ui-menu-show {
   height: 0rpx;
+  opacity: 0;
+
 }
 
 .UCenter-bg {
@@ -43,4 +45,13 @@ page{
   z-index: 99;
   mix-blend-mode: screen;  
   height: 100rpx;   
+}
+
+.kefubtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 4em;
+  width: 100%;
+  opacity: 0;
 }

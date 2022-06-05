@@ -7,7 +7,36 @@ Page({
     loadingCount: 0,
     images: [],
     col1: [],
-    col2: []
+    cardCur: 0,
+    swiperList: [{
+      id: 0,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
+    }, {
+      id: 1,
+        type: 'image',
+        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+    }, {
+      id: 2,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
+    }, {
+      id: 3,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
+    }, {
+      id: 4,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
+    }, {
+      id: 5,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
+    }, {
+      id: 6,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
+    }],
   },
 
   onLoad: function () {
@@ -53,19 +82,11 @@ Page({
     imageObj.height = imgHeight;
     let loadingCount = this.data.loadingCount - 1;
     let col1 = this.data.col1;
-    let col2 = this.data.col2;
-
-    //判断当前图片添加到左列还是右列
-    if (col1.length <= col2.length) {
-      col1.push(imageObj);
-    } else {
-      col2.push(imageObj);
-    }
+    col1.push(imageObj);
 
     let data = {
       loadingCount: loadingCount,
       col1: col1,
-      col2: col2
     };
 
     //当前这组图片已加载完毕，则清空图片临时加载区域的内容

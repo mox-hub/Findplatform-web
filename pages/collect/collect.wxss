@@ -1,5 +1,1 @@
 /* pages/collect/collect.wxss */
-
-page{
-  background-color: #f5f6f8;
-}

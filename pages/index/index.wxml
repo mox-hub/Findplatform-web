@@ -1,21 +1,30 @@
 <!--pages/index/index.wxml-->
-<!-- seach-bar 组件 -->
-<view class="box">
-    <view class="cu-bar search bg-white">
-    <view class="search-form round">
-      <text class="cuIcon-search"></text>
-      <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
-    </view>
-    <view class="action">
-      <button class="cu-btn bg-green shadow-blur round">搜索</button>
-    </view>
-  </view>
-</view>
+<ui-sys img="/images/4put2.png" tabbar footer>
+  <!-- 首页轮播图 -->
+  <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
+    <swiper-item wx:for="{{swiperList}}" wx:key='item' class="{{cardCur==index?'cur':''}}">
+      <view class="swiper-item">
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+      </view>
+    </swiper-item>
+  </swiper>
 
-<!-- 两个首页卡片 -->
-<view class="cu-card">
-    <view class="cu-item shadow-blur {{item.background}}" bindtap="toChild" data-url="{{item.url}}" wx:for="{{list}}" wx:key="item">
-      <view class="cardTitle">{{item.title}}</view>
-      <image class="cardImg"src="{{item.img}}"></image>
-    </view>
-</view>
+  <!-- 两个身份卡片 -->
+  <ui-title class="text-nowrap" title="身份" desc="character" depth="2" isIcon/>
+  <view class="ui-container">
+    <block wx:for="{{navData}}" wx:key="index">
+        <view class="ui-grid ui-cols-2">
+            <block wx:for="{{item.sub}}" wx:for-index="sub_index" wx:key="sub_index">
+                <view class="ui-item p-3">
+                    <app-nav-li data="{{item}}"/>
+                </view>
+            </block>
+        </view>
+    </block>
+  </view>
+  <!-- 指南 -->
+  <ui-title class="text-nowrap" title="指南" desc="guide" depth="2" isIcon/>
+  <ui-change-theme ui="radius border"/>
+</ui-sys>
+
