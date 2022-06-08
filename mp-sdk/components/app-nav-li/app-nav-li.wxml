@@ -1,5 +1,5 @@
 <view class="doc-card">
-    <navigator url="/pages/{{data.name}}/{{data.name}}" class="flex radius doc-card-navigator {{'bg-'+data.color+'-gradient'}}">
+    <navigator url="/pages/{{data.url}}" class="flex radius doc-card-navigator {{'bg-'+data.color+'-gradient'}}" open-type="{{data.type}}">
         <view class="flex-sub p-4 doc-text">
             <view class="doc-title">{{ data.title }}</view>
             <view class="text-lg text-Abc text-lighter doc-name">{{ data.name }}</view>

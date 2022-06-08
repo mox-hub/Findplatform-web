@@ -1,0 +1,6 @@
+<!--components/footer.wxml-->
+<view class="my-5"></view>
+<view class='text-center my-2'>
+  <navigator class="text-blue" bindtap="CopyLink" data-link="https://gitee.com/hfutcs-330">不醒人室</navigator>
+</view>
+<view class='text-center text-grey text-sm mb-5'>Copyright &copy; 2022-至今 foocode.cn</view>

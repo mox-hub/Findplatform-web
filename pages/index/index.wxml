@@ -1,5 +1,5 @@
 <!--pages/index/index.wxml-->
-<ui-sys img="/images/4put2.png" tabbar footer>
+<ui-sys img="/images/4put2.png" tabbar>
   <!-- 首页轮播图 -->
   <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
     <swiper-item wx:for="{{swiperList}}" wx:key='item' class="{{cardCur==index?'cur':''}}">
@@ -26,5 +26,7 @@
   <!-- 指南 -->
   <ui-title class="text-nowrap" title="指南" desc="guide" depth="2" isIcon/>
   <ui-change-theme ui="radius border"/>
+
+  <find-footer></find-footer>
 </ui-sys>
 

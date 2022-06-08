@@ -11,6 +11,7 @@ page{
 
 .UCenter-bg {
   /* 此图片为个人卡片背景图，请更换为自己的图片或者本地图片 */
+  margin-top: 200rpx;
   background-image: url(https://img.moxhub.cn/tmp/IswYuQi6v6ib9de727fb2375ef2a3df96cc1e1046d43.png);
   background-size: cover;
   height: 550rpx;
@@ -54,4 +55,9 @@ page{
   min-height: 4em;
   width: 100%;
   opacity: 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
 }

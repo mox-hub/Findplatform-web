@@ -1,0 +1,7 @@
+<!--pages/open_source/open_source.wxml-->
+<ui-sys img="/images/4put2.png" title="开源鸣谢">
+  <view class="ui-BG radius m-3 p-3">
+    <ui-title title="ColorUI" desc="MIT License" depth="2" isIcon/>
+    <text class="text-justify">{{ colorUILicense }}</text>
+  </view>
+</ui-sys>

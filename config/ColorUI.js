@@ -11,29 +11,29 @@ export const colorUI = new ColorUI({
         homePath: '/pages/index/index',
         tabBar: [{
             title: '首页',
-            icon: '/images/tabbar/home.png',
-            curIcon: '/images/tabbar/home-cur.png',
+            icon: '_icon-home-o',
+            curIcon: '_icon-home',
             url: '/pages/index/index',
             type: 'tab'
         },
         {
             title: '寻找',
-            icon: '/images/tabbar/search.png',
-            curIcon: '/images/tabbar/search-cur.png',
+            icon: 'cicon-explore-o',
+            curIcon: 'cicon-explore',
             url: '/pages/search/search',
             type: 'tab'
         },
         {
             title: '收藏',
-            icon: '/images/tabbar/collect.png',
-            curIcon: '/images/tabbar/collect-cur.png',
+            icon: 'cicon-favorite-o',
+            curIcon: 'cicon-favorite',
             url: '/pages/collect/collect',
             type: 'tab'
         },
         {
             title: '我的',
-            icon: '/images/tabbar/me.png',
-            curIcon: '/images/tabbar/me-cur.png',
+            icon: 'cicon-my-o',
+            curIcon: 'cicon-my',
             url: '/pages/user/user',
             type: 'tab'
         }],

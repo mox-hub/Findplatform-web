@@ -61,15 +61,24 @@ Page({
       curLon:'',
       BtnState: true,
       imgList: [],
-      numList: [{
-        name: '开始'
-      }, {
-        name: '拍照'
-      }, {
-        name: '错误'
-      }, {
-        name: '完成'
-      }, ],
+      numList: [
+        {
+            icon: '_icon-home',
+            title: '开始',
+        },
+        {
+            icon: '_icon-waiting',
+            title: '等待',
+        },
+        {
+            icon: '_icon-close-round',
+            title: '错误',
+        },
+        {
+            icon: '_icon-check-round',
+            title: '完成',
+        }
+    ],
       address: '',
       city: '',
       num: 0,

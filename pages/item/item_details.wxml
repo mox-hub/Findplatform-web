@@ -82,6 +82,9 @@
         <text class="text-grey text-sm text-justify">{{item.pickLocation}}</text>
       </view>
     </ui-menu-item>
-
   </ui-menu>
+  <view class="ui-container p-5">
+    <button class="ui-btn block bg-green shadow shadow-green my-3">保存</button>
+    <button class="ui-btn block bg-blue shadow shadow-blue my-3">提交</button>
+  </view>
 </ui-sys>

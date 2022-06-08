@@ -1,12 +1,11 @@
 <!--pages/login/index.wxml-->
-<view class="page" wx:if="{{canIUse}}">
-  <view class='cu-item'>
-    <view class='cu-image'>
-      <image class='image' src='../../images/findPlatForm.png' mode='scaleToFill'></image>
-    </view>
-    <view class='text-center text-black text-lg margin'>申请获取以下权限</view>
-    <view class='text-center text-grey'>获得你的公开信息(昵称,头像等)</view>
-    <button class="flex cu-btn bg-green shadow margin justify-center" type='primary'  bindtap='getUserProfile'>授权登录</button>
+<ui-sys title="登录">
+  <image class='image my-5 round border ui-BG' src='../../images/findPlatForm.png' mode='scaleToFill'></image> 
+  <view class='text-center text-lg my-3'>AI 寻物</view>
+  <view class='text-center text-lg margin'>申请获取以下权限</view>
+  <view class='text-center text-grey'>获得你的公开信息(昵称,头像等)</view>
+  <view class="p-4">
+    <button class="ui-btn block bg-blue shadow shadow-blue" type='primary'  bindtap='getUserProfile'>授权登录</button>
   </view>
-</view>
-<view wx:else>请升级微信版本</view>
+</ui-sys>
+

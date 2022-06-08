@@ -152,7 +152,12 @@ Page({
           getApp().globalData.userid = tmp.id;
           console.log(tmp.id);
           wx.switchTab({
-            url: '/pages/user/user'
+            url: '/pages/user/user',
+            success: function(e) {
+              var page = getCurrentPages().pop();
+              if (page == undefined || page == null) return;
+              page.onLoad();
+            }
           })
           
         } else if(res.data.code == -1){

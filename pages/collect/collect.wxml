@@ -26,4 +26,6 @@
 			</view>
 		</navigator>
 	</view>
+  <!-- footer -->
+  <find-footer></find-footer>
 </ui-sys>
