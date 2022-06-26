@@ -23,6 +23,8 @@ Page({
     }],
   },
   onLoad: function(options){
+    let sys_info = this.data.sys_info;
+    console.log(sys_info)
   },
 });
 

@@ -3,88 +3,112 @@
 	<!-- 首页卡片内容，展示物品大致信息  -->
   <ui-card ui="shadow m-4 radius">
     <view class="ui-grid">
-      <ui-img ui="radius border ui-col-6 m-3" src="{{item.imgUrl}}" height="260rpx" width="260rpx"/>
+      <ui-img preview ui="radius border ui-col-6 m-3" src="{{item.imgUrl}}" height="260rpx" width="260rpx"/>
       <!-- 物品简要信息 -->
       <view class="item-info ml-3">
           <ui-title class="text-nowrap m-4" title="{{item.itemName}}" hasLine/>
-            <view class="p-3 ui-BG radius border">
-                <ui-tag info="{{user.username}}" src="{{user.avatarUrl}}"/>
-            </view>
+          <view class="p-3 ui-BG radius border" bindtap="showUserCard">
+              <ui-tag info="{{user.username}}" src="{{user.avatarUrl}}"/>
+          </view>
       </view>
     </view>
   </ui-card>
 
   <!-- 物品数据面板 -->
   <ui-menu ui="border radius m-4 shadow">
-
-    <!-- 副标题：发布者信息 -->
-    <ui-title class="text-nowrap" title="发布者信息" desc="user" depth="2"  isIcon/>
-
-    <!-- 发布者 -->
-    <ui-menu-item title="发布者" icon="cuIcon-peoplefill text-blue" isAction>
-      <view slot="action">
-        <text class="text-grey text-sm">{{user.username}}</text>
-      </view>
-    </ui-menu-item>
-
-    <!-- 联系方式 -->
-    <ui-menu-item title="联系方式" icon="cuIcon-list text-blue" isAction>
-      <view slot="action">
-        <text class="text-grey text-sm">{{user.phoneNumber}}</text>
-      </view>
-    </ui-menu-item>
-
+    <ui-popover tips="这里是提示文本">
     <!-- 副标题：物品信息 -->
     <ui-title class="text-nowrap" title="物品信息" desc="details" depth="2" isIcon/>
+  </ui-popover>
+
+    <!-- 物品ID -->
+    <ui-menu-item title="物品ID" icon="cicon-image-text ui-TC-Main" isAction>
+      <view slot="action">
+        <text class="text-grey">{{item.itemId}}</text>
+      </view>
+    </ui-menu-item> 
+
+    <!-- 物品名称 -->
+    <ui-menu-item title="物品名称" icon="cicon-bookmark ui-TC-Main" isAction>
+      <view slot="action">
+        <text class="text-grey">{{item.itemName}}</text>
+      </view>
+    </ui-menu-item>   
 
     <!-- 颜色 -->
-    <ui-menu-item title="颜色" icon="cuIcon-peoplefill text-blue" isAction>
+    <ui-menu-item title="物品颜色" icon="cicon-palette ui-TC-Main" isAction>
       <view slot="action">
-        <text class="text-grey text-sm">黑色</text>
+        <text class="text-grey">黑色</text>
       </view>
     </ui-menu-item>    
 
     <!-- 物品类别 -->
-    <ui-menu-item title="物品类别" icon="cuIcon-peoplefill text-blue" isAction>
+    <ui-menu-item title="物品类别" icon="cicon-tag ui-TC-Main" isAction>
       <view slot="action">
         <ui-tag bg="bg-blue-thin" info="{{item.tag}}" ui="round"/>
       </view>
     </ui-menu-item>    
 
     <!-- 拾取时间 -->
-    <ui-menu-item title="拾取时间" icon="cuIcon-peoplefill text-blue" isAction>
+    <ui-menu-item title="拾取时间" icon="cicon-time ui-TC-Main" isAction>
       <view slot="action">
-        <text class="text-grey text-sm">{{item.pickTime}}</text>
+        <text class="text-grey">{{item.pickTime}}</text>
       </view>
     </ui-menu-item>
 
     <!-- 拾取地点 -->
-    <ui-menu-item title="拾取地点" icon="cuIcon-peoplefill text-blue" isAction>
+    <ui-menu-item title="拾取地点" icon="cicon-place ui-TC-Main" isAction>
       <view slot="action">
-        <text class="text-grey text-sm">{{item.pickLocation}}</text>
+        <text class="text-grey">{{item.pickLocation}}</text>
       </view>
     </ui-menu-item>
 
     <!-- 查看拾取地点 -->
-    <ui-menu-item arrow title="查看拾取地点" icon="cuIcon-locationfill text-orange" isAction data-url="/pages/location/location" bindtap="tapToUrl">
+    <ui-menu-item arrow title="查看拾取地点" icon="cicon-place text-orange" isAction data-url="/pages/location/location" bindtap="tapToUrl">
     </ui-menu-item>
 
     <!-- 物品状态 -->
-    <ui-menu-item title="物品状态" icon="cuIcon-peoplefill text-blue" isAction>
+    <ui-menu-item title="物品状态" icon="cicon-kinds ui-TC-Main" isAction>
       <view slot="action">
         <ui-tag bg="bg-{{item.state? 'green' : 'red'}}-thin" info="{{item.state? '已找回' : '未找回'}}" ui="radius"/>
       </view>
     </ui-menu-item>
 
     <!-- 物品描述 -->
-    <ui-menu-item title="物品描述" icon="cuIcon-peoplefill text-blue" isAction>
+    <ui-menu-item title="物品描述" icon="cicon-quill ui-TC-Main" isAction>
       <view slot="action">
-        <text class="text-grey text-sm text-justify">{{item.pickLocation}}</text>
+        <text class="text-grey text-justify" auto-height>{{item.itemInfo}}</text>
       </view>
     </ui-menu-item>
   </ui-menu>
-  <view class="ui-container p-5">
+
+  <!-- 操作域 -->
+  <view wx:if="{{mode === 'collect'}}" class="ui-container p-5">
     <button class="ui-btn block bg-green shadow shadow-green my-3">保存</button>
     <button class="ui-btn block bg-blue shadow shadow-blue my-3">提交</button>
   </view>
+  
+  <find-footer></find-footer>
+  
+  <!-- 弹窗域 -->
+  <ui-modal show="{{userCardShow}}" showCancel="{{false}}">
+    <view class="flex-center">
+      <ui-img ui="round border mt-5 mb-4" src="{{user.avatarUrl}}" height="200rpx" width="200rpx"/>
+    </view>
+    <ui-menu ui="border radius m-3 shadow">
+    <!-- 发布者 -->
+    <ui-menu-item title="发布者" icon="cicon-my ui-TC-Main" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">{{user.username}}</text>
+      </view>
+    </ui-menu-item>
+    <!-- 联系方式 -->
+    <ui-menu-item title="联系方式" icon="cicon-phone-call ui-TC-Main" bindtap="CopyPhone" data-link="{{user.phoneNumber}}"  isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">{{user.phoneNumber}}</text>
+      </view>
+    </ui-menu-item>
+  </ui-menu>
+  </ui-modal>
+
 </ui-sys>

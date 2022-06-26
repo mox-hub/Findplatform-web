@@ -10,9 +10,7 @@ Page({
     userInfo:'',
   },
 
-  /**
-   * 页面加载逻辑
-   */
+  // 页面加载逻辑
   onLoad: function () {
     // console.log(global.userid);
     this.setData({
@@ -20,9 +18,8 @@ Page({
     })
     this.getUserInfo(global.userid);
   },
-  /**
-   * 设置显示个人信息
-   */
+
+  //设置显示个人信息
   SetInfoShow(e) {
     console.log("[findplatform-web] func SetInfoShow start.")
     console.log(e.detail.value);
@@ -31,6 +28,7 @@ Page({
     })
   },
 
+  // 获取用户信息
   getUserInfo: function(userid) {
     console.log("[findplatform-web] func getUserInfo start.")
     var that = this;
@@ -59,11 +57,13 @@ Page({
     })
   },
 
+  // 路径跳转
   tapToUrl(e) {
     wx.navigateTo({
       url: e.currentTarget.dataset.url
     })
   },
+
   // 复制地址链接
   CopyLink(e) {
     wx.setClipboardData({

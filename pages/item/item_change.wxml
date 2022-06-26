@@ -1,146 +1,132 @@
 <!--pages/item/item_change.wxml-->
-<!--pages/item/item_details.wxml-->
-<page-meta root-font-size="system" />
-<view class="page">
-	<view class="cu-bar justify-left bg-white padding-top padding-bottom">
-    <view class="action sub-title">
-        <text class="text-xl text-bold text-green">物品信息修改</text>
-        <text class="bg-green" style="width:2rem"></text>
-    </view>
-	</view>
-
-	<!-- 物品上传进度 -->
-	<view class="bg-white padding bottom {{(mode == 'upload')? '' : 'steps-not-show'}}">
-    <view class="cu-steps">
-        <view class="cu-item {{index>num?'':'text-blue'}}" wx:for="{{numList}}" wx:key>
-            <text class="num {{index==2?'err':''}}" data-index="{{index + 1}}"></text> {{item.name}}
-        </view>
-    </view>
+<ui-sys title="物品修改">
+  <!-- step步骤条 -->
+  <ui-title class="text-nowrap" title="物品修改" desc="user" depth="2" isIcon/>
+	<view class="ui-BG padding bottom {{(mode == 'upload')? '' : 'steps-not-show'}}">
+    <ui-steps cur="{{num}}" info="{{numList}}" number err="{{3}}"/>
 	</view>	
+
 	<!-- 首页卡片内容，展示物品大致信息  -->
-	<view class="cu-card case shadow-blur {{(mode == 'edit')? '' : 'card-not-show'}}">
-		<view class="cu-item shadow">
-			<view class="flex">		
-				<view class="flex-sub image margin">
-					<image src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75" mode="widthFix"></image>
-					<view class="cu-tag round bg-{{item.state? 'green' : 'red'}} light">{{item.state? '已找回' : '未找回'}}</view>
-				</view>
-				<view class="flex-twice">
-					<view class="cu-bar justify-center bg-white margin-top-xl margin-bottom-lg">
-						<view class="action sub-title">
-							<text class="text-xl text-bold text-green">{{item.itemName}}</text>
-							<text class="bg-green" style="width:4rem"></text>
-						</view>
-					</view>
-					<view class="cu-item flex align-center justify-end-m" style="width: 300rpx;">
-						<view class="text-grey text-df">来自 </view>
-						<view class="cu-avatar round lg" style="background-image:url({{user.avatarUrl}});"></view>
-						<view class="content flex-sub">
-							<view class="text-black text-df">{{user.username}}</view>
-							<view class="text-gray text-sm flex justify-between">{{item.pickTime}}</view>
-						</view>
-					</view>
-				</view>
-			</view>
-		</view>
-	</view>
-  <!-- 物品数据面板 -->
-  <view class="cu-list menu card-menu margin-bottom-xl shadow-lg radius">
-		<!-- 副标题：发布者信息 -->
-		<view class="cu-bar justify-left bg-white">
-      <view class="action sub-title">
-        <text class="text-xl text-bold text-green">发布者信息</text>
-        <text class="bg-green" style="width:2rem"></text>
+  <ui-card ui="shadow m-4 radius {{(mode == 'edit')? '' : 'card-not-show'}}">
+    <view class="ui-grid">
+      <ui-img ui="radius border ui-col-6 m-3" src="{{item.imgUrl}}" height="260rpx" width="260rpx"/>
+      <!-- 物品简要信息 -->
+      <view class="item-info ml-3">
+        <ui-title class="text-nowrap m-4" title="{{item.itemName}}" hasLine/>
+          <view class="p-3 ui-BG radius border">
+              <ui-tag info="{{user.username}}" src="{{user.avatarUrl}}"/>
+          </view>
       </view>
     </view>
+  </ui-card>
+
+  <!-- 个人信息卡片 -->
+  <ui-menu ui="border radius m-4 shadow {{(mode == 'upload')? '' : 'card-not-show'}}">
+    <!-- 副标题：发布者信息 -->
+    <ui-title class="text-nowrap" title="发布者信息" desc="userInfo" depth="2"  isIcon/>
     <!-- 发布者 -->
-    <view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-peoplefill text-grey"></text>
-        <text class="text-grey">发布者</text>
+    <ui-menu-item title="发布者" icon="cicon-my ui-TC-Main" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">{{user.username}}</text>
       </view>
-      <view class="action">
-        <text class="text-grey text-xl">{{user.username}}</text>
-      </view>
-    </view>
+    </ui-menu-item>
     <!-- 联系方式 -->
-    <view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-mobilefill text-grey"></text>
-        <text class="text-grey">联系方式</text>
+    <ui-menu-item title="联系方式" icon="cicon-phone-call ui-TC-Main" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">{{user.phoneNumber}}</text>
       </view>
-      <view class="action">
-        <text class="text-grey text-xl">{{user.phoneNumber}}</text>
+    </ui-menu-item>
+  </ui-menu>
+
+  <!-- 物品数据面板 -->
+  <ui-form ui="ui-BG border radius m-4 shadow">
+    <!-- 副标题：物品信息修改 -->
+    <ui-title class="text-nowrap" title="物品信息修改" desc="ChangeDetails" depth="2" isIcon/>
+
+    <!-- 物品ID -->
+    <ui-form-group required  title="物品ID" icon="cicon-image-text ui-TC-Main" disabled>
+      <ui-input-box ui="text-right">
+          <input class="ui-input-wrapper" placeholder="{{item.itemId}}"/>
+      </ui-input-box>
+    </ui-form-group>
+    <!-- 物品名称 -->
+    <ui-form-group required  title="物品名称" icon="cicon-bookmark ui-TC-Main">
+      <ui-input-box ui="text-right">
+          <input class="ui-input-wrapper" placeholder="{{item.itemName}}"/>
+      </ui-input-box>
+    </ui-form-group>
+    <!-- 颜  色 -->
+    <ui-form-group required title="物品颜色" icon="cicon-palette ui-TC-Main">
+        <ui-input-box ui="text-right">
+            <input bindblur="itemColor" class="ui-input-wrapper" placeholder="请输入颜色"/>
+        </ui-input-box>
+    </ui-form-group>
+    <!-- 类  别 -->
+    <ui-form-group required title="物品类别" icon="cicon-tag ui-TC-Main">
+        <ui-input-box ui="text-right">
+            <input bindblur="tag" class="ui-input-wrapper" placeholder="{{item.tag}}"/>
+        </ui-input-box>
+    </ui-form-group>
+    <!-- 拾取时间 -->
+    <ui-form-group required title="拾取时间" icon="cicon-time ui-TC-Main" isAction>
+      <view slot="action">
+        <picker mode="date" value="{{item.pickTime}}" start="2015-09-01" end="2099-09-01" bindchange="DateChange">
+          <view class="picker">
+            {{item.pickTime}}
+          </view>
+        </picker>
       </view>
-    </view>
-		<!-- 副标题：物品信息修改 -->
-		<view class="cu-bar justify-left bg-white">
-      <view class="action sub-title">
-        <text class="text-xl text-bold text-green">物品信息修改</text>
-        <text class="bg-green" style="width:2rem"></text>
+    </ui-form-group>
+    <!-- 拾取地点 -->
+    <ui-form-group required  title="拾取地点" icon="cicon-place ui-TC-Main" disabled>
+      <ui-input-box ui="text-right">
+          <input class="ui-input-wrapper" placeholder="{{item.pickLocation}}"/>
+      </ui-input-box>
+    </ui-form-group>
+
+    <!-- 查看拾取地点 -->
+    <ui-menu-item arrow title="选择拾取地点" icon="cicon-place text-orange" isAction data-url="/pages/location/location" bindtap="tapToUrl">
+    </ui-menu-item>
+
+    <!-- 物品状态 -->
+    <ui-form-group required title="物品状态" icon="cicon-kinds ui-TC-Main" isAction>
+      <view slot="action">
+        <switch></switch>
       </view>
-			<!-- <view class="action">
-				<text class="text-lg text-bold text-grey margin-top-xs">(可修改)</text>
-			</view> -->
-    </view>
-		<form>
-			<!-- 修改物品名称 -->
-			<view class="cu-form-group">
-				<view class="title">物品名称</view>
-				<input bindblur="itemName" placeholder="{{item.itemName}}"></input>
-			</view>
-			<!-- 修改颜色 -->
-			<view class="cu-form-group">
-				<view class="title">颜  色</view>
-				<input placeholder="紫色"></input>
-			</view>
-			<!-- 修改物品类别 -->
-			<view class="cu-form-group">
-				<view class="title">物品类别</view>
-				<input bindblur="tag" placeholder="{{item.tag}}"></input>
-			</view>
-			<!-- 修改日期 -->
-			<view class="cu-form-group">
-				<view class="title">日期选择</view>
-				<picker mode="date" value="{{item.pickTime}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
-					<view class="picker">
-						{{item.pickTime}}
-					</view>
-				</picker>
-			</view>
-			<!-- 修改地址 -->
-			<view class="cu-form-group">
-				<view class="title">地址选择</view>
-				<picker mode="region" bindchange="RegionChange" value="{{pickLocation}}" custom-item="{{customItem}}">
-					<view class="picker">
-						{{region[0]}}，{{region[1]}}，{{region[2]}}
-					</view>
-				</picker>
-			</view>
-			<!-- 修改物品状态 -->
-			<view class="cu-form-group">
-				<view class="title">物品状态</view>
-				<switch></switch>
-			</view>
-			<!-- 修改物品描述 -->
-			<view class="cu-form-group align-start">
-				<view class="title">物品描述</view>
-				<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="{{item.itemInfo}}"></textarea>
-			</view>
-		</form>
+    </ui-form-group>
+
+    <!-- 物品描述 -->
+    <ui-form-group title="物品描述" icon="cicon-quill ui-TC-Main" titleTop>
+        <ui-input-box isType="textarea">
+            <textarea class="ui-textarea-wrapper" bindinput="textareaBInput" maxlength="100" placeholder="{{item.itemInfo}}" auto-height ></textarea>
+        </ui-input-box>
+    </ui-form-group>
+
+  </ui-form>
+
+  <!-- 按钮操作区域 -->
+  <view class="ui-container p-5">
+    <button class="ui-btn block bg-green shadow shadow-green mb-4" type="primary" disabled="{{BtnState}}" bindtap="itemChange">{{(mode == 'upload')? '完成' : '修改'}}</button>
+    <button class="ui-btn block bg-red shadow shadow-red mt-3" bindtap="itemDelete">删除</button>
   </view>
-
-	<!-- 操作区域 -->
-	<view class="cu-bar justify-left bg-white">
-		<view class="action sub-title">
-			<text class="text-xl text-bold text-green">操作区域</text>
-			<text class="bg-green" style="width:2rem"></text>
-		</view>
-	</view>
-
-	<view class="button-panel">
-		<button class='button-change' type="primary" bindtap="itemChange">{{(mode == 'upload')? '完成' : '修改'}}</button>
-		<view class="button-side"></view>
-		<button class='button-delete' type="warn" bindtap="itemDelete">删除</button>
-	</view>
-</view>
+  <!-- 弹窗域 -->
+  <ui-modal show="{{userCardShow}}" showCancel="{{false}}">
+    <view class="flex-center">
+      <ui-img ui="round border mt-5 mb-4" src="{{user.avatarUrl}}" height="200rpx" width="200rpx"/>
+    </view>
+    <ui-menu ui="border radius m-3 shadow">
+    <!-- 发布者 -->
+    <ui-menu-item title="发布者" icon="cicon-my ui-TC-Main" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">{{user.username}}</text>
+      </view>
+    </ui-menu-item>
+    <!-- 联系方式 -->
+    <ui-menu-item title="联系方式" icon="cicon-phone-call ui-TC-Main" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">{{user.phoneNumber}}</text>
+      </view>
+    </ui-menu-item>
+  </ui-menu>
+  </ui-modal>
+</ui-sys>

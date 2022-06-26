@@ -25,7 +25,7 @@
   </view>
   <!-- 指南 -->
   <ui-title class="text-nowrap" title="指南" desc="guide" depth="2" isIcon/>
-  <ui-change-theme ui="radius border"/>
+  
 
   <find-footer></find-footer>
 </ui-sys>

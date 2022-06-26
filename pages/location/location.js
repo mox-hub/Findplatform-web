@@ -1,171 +1,62 @@
-var QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
-var qqmapsdk;
+"use strict";
+const chooseLocation = requirePlugin('chooseLocation');
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    address: '',
-    city: '',
-
+    address: "",
+    locationName: "",
+    latitude: 0,
+    longitude: 0,
+    style: 1,
+    markers: [],
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-    qqmapsdk = new QQMapWX({
-      key: 'PYRBZ-LJ5CW-QIURH-RXG37-E6UDQ-4NBFY' //这里自己的key秘钥进行填充
-    });
-    this.getUserLocation()
+  onLoad: function(){
+    this.setData({
+      style: 2
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
+  onShow: function () {
+    // 从地图选点插件返回后，在页面的onShow生命周期函数中能够调用插件接口，取得选点结果对象
+    // 如果点击确认选点按钮，则返回选点结果对象，否则返回null
+    const location = chooseLocation.getLocation();
+    if(location){
+      console.log(location);
+      var marker = {
+        id: 1,
+        latitude: location.latitude,
+        longitude: location.longitude,
+        width: 30,
+        height: 40,
 
-  },
-	//地图定位
-  getUserLocation: function() {
-    let vm = this;
-    wx.getSetting({
-      success: (res) => {
-        console.log(JSON.stringify(res))
-        // res.authSetting['scope.userLocation'] == undefined    表示 初始化进入该页面
-        // res.authSetting['scope.userLocation'] == false    表示 非初始化进入该页面,且未授权
-        // res.authSetting['scope.userLocation'] == true    表示 地理位置授权
-        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {
-          wx.showModal({
-            title: '请求授权当前位置',
-            content: '需要获取您的地理位置，请确认授权',
-            success: function(res) {
-              if (res.cancel) {
-                wx.showToast({
-                  title: '拒绝授权',
-                  icon: 'none',
-                  duration: 1000
-                })
-              } else if (res.confirm) {
-                wx.openSetting({
-                  success: function(dataAu) {
-                    if (dataAu.authSetting["scope.userLocation"] == true) {
-                      wx.showToast({
-                        title: '授权成功',
-                        icon: 'success',
-                        duration: 1000
-                      })
-                      //再次授权，调用wx.getLocation的API
-                      vm.getLocation();
-                    } else {
-                      wx.showToast({
-                        title: '授权失败',
-                        icon: 'none',
-                        duration: 1000
-                      })
-                    }
-                  }
-                })
-              }
-            }
-          })
-        } else if (res.authSetting['scope.userLocation'] == undefined) {
-          //调用wx.getLocation的API
-          vm.getLocation();
-        } else {
-          //调用wx.getLocation的API
-          vm.getLocation();
+        callout: {
+          content: "物品所在位置",
+          fontsize: 16,
+          textAlign:'center',
+          padding: 10
         }
+
       }
-    })
+      var markers = new Array();
+      markers.push(marker);
+      this.setData({
+          markers: markers,
+          address: location.address?location.address : "",
+          locationName: location.name?location.name : "",
+          latitude: location.latitude?location.latitude:"",
+          longitude: location.longitude?location.longitude:"", 
+      });
+    }
   },
-  // 微信获得经纬度
-  getLocation: function() {
-    let vm = this;
-    wx.getLocation({
-      type: 'wgs84',
-      success: function(res) {
-        console.log(JSON.stringify(res))
-        var latitude = res.latitude
-        var longitude = res.longitude
-        var speed = res.speed
-        var accuracy = res.accuracy;
-        vm.getLocal(latitude, longitude)
-      },
-      fail: function(res) {
-        console.log('fail' + JSON.stringify(res))
-      }
-    })
-  },
-  // 获取当前地理位置
-  getLocal: function(latitude, longitude) {
-    let vm = this;
-    qqmapsdk.reverseGeocoder({
-      location: {
-        latitude: latitude,
-        longitude: longitude
-      },
-      success: function(res) {
-        console.log(res);
-        let province = res.result.ad_info.province
-        let city = res.result.ad_info.city
-        vm.setData({
-					address: res.result.address,
-          // province: province,
-          // city: city, //城市
-          // latitude: latitude,
-          // longitude: longitude
-        })
-        console.log(vm.data.address)
-      },
-      fail: function(res) {
-        console.log(res);
-      },
-      complete: function(res) {
-        // console.log(res);
-      }
+  //显示地图
+  showMap() {
+
+    //使用在腾讯位置服务申请的key（必填）
+    const key = "PYRBZ-LJ5CW-QIURH-RXG37-E6UDQ-4NBFY"; 
+    //调用插件的app的名称（必填）
+    const referer = "findplatform"; 
+    wx.navigateTo({
+        url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer
     });
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
   }
-})
+});

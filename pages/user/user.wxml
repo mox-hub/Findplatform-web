@@ -35,7 +35,7 @@
   </view>
 
   <!-- 个人信息模块 -->
-  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+  <view wx:if="{{userInfo.id}}" class="cu-list menu card-menu shadow radius">
     <view class="cu-item">
       <view class="content padding-tb-sm">
         <view>
@@ -50,27 +50,29 @@
   </view>
 
   <!-- 个人信息隐藏模块 -->
-  <ui-menu ui="border radius m-4 shadow-blur {{isShow ? '' : 'ui-menu-show'}}">
+  <ui-menu ui="border radius m-4 shadow {{isShow ? '' : 'ui-menu-show'}}">
+    <!-- 副标题：关于 -->
+    <ui-title class="text-nowrap" title="个人" desc="Me" depth="2" isIcon/>
     <!-- 昵称 -->
-    <ui-menu-item title="昵称" icon="cicon-avatar text-blue" isAction>
+    <ui-menu-item title="昵称" icon="cicon-avatar ui-TC-Main" isAction>
       <view slot="action">
         <text class="text-grey text-sm">{{userInfo.username}}</text>
       </view>
     </ui-menu-item>
     <!-- 学校 -->
-    <ui-menu-item title="学校" icon="cicon-guanli text-blue" isAction>
+    <ui-menu-item title="学校" icon="cicon-guanli ui-TC-Main" isAction>
       <view slot="action">
         <text class="text-grey text-sm">{{userInfo.college}}</text>
       </view>
     </ui-menu-item>
     <!-- 手机 -->
-    <ui-menu-item title="手机" icon="cicon-phone-call text-blue" isAction>
+    <ui-menu-item title="手机" icon="cicon-phone-call ui-TC-Main" isAction>
       <view slot="action">
         <text class="text-grey text-sm">{{userInfo.phoneNumber}}</text>
       </view>
     </ui-menu-item>
 
-    <ui-menu-item arrow title="修改我的信息" icon="_icon-edit text-blue" isAction data-url="/pages/user/change_user_info?url={{userId}}" bindtap="tapToUrl">
+    <ui-menu-item arrow title="修改我的信息" icon="_icon-edit ui-TC-Main" isAction data-url="/pages/user/change_user_info?url={{userId}}" bindtap="tapToUrl">
     </ui-menu-item>
   </ui-menu>
 

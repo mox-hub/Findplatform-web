@@ -1,2 +1,30 @@
 <!--pages/location/location.wxml-->
-<map id="myMap" class="maMap" subkey="PYRBZ-LJ5CW-QIURH-RXG37-E6UDQ-4NBFY"/>
+<ui-navbar/>
+<ui-sys>
+  <ui-card ui="shadow m-4 radius">
+    <map style="height: 800rpx;" 
+        latitude="{{latitude}}" 
+        longitude="{{longitude}}" 
+        markers="{{markers}}"
+        layer-style="{{style}}">
+        
+    </map>
+  </ui-card>
+  <!-- 物品数据面板 -->
+  <ui-menu ui="border radius m-4 shadow">
+    <!-- 拾取时间 -->
+    <ui-menu-item title="拾取地址" icon="cuIcon-peoplefill text-blue" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">{{address?address:"暂无"}}</text>
+      </view>
+    </ui-menu-item>
+    <!-- 拾取地点 -->
+    <ui-menu-item title="详细地址" icon="cuIcon-peoplefill text-blue" isAction>
+      <view slot="action">
+        <text class="text-grey text-sm">{{locationName?locationName:"暂无"}}</text>
+      </view>
+    </ui-menu-item>
+  </ui-menu>
+  <button bindtap="showMap">选择位置</button>
+
+</ui-sys>

@@ -41,6 +41,8 @@ Page({
 
   onLoad: function () {
     console.log("[findplatform-web] Page <search> open.");
+    let sys_info = this.data.sys_info;
+    console.log(sys_info)
     wx.getSystemInfo({
       success: (res) => {
         let ww = res.windowWidth;
@@ -60,7 +62,8 @@ Page({
       }
     })
   },
-
+  
+  // 物品图片加载
   onImageLoad: function (e) {
     let imageId = e.currentTarget.id;
     let oImgW = e.detail.width; //图片原始宽度
@@ -95,7 +98,7 @@ Page({
     }
     this.setData(data);
   },
-
+  // 获取物品信息
   getItemInfo: function () {
     console.log("[findplatform-web] func getItemInfo start.")
     var that = this;

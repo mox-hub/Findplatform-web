@@ -4,9 +4,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-      itemId:'',
-      item:'',
-      user:'',
+    mode: '',
+    itemId:'',
+    item:'',
+    user:'',
+    userCardShow: false,
   },
   
   /**
@@ -15,7 +17,8 @@ Page({
   onLoad: function (options) {
     console.log("[findplatform-web] Page <item_details> open.");
     this.setData({
-      itemId:options.url
+      itemId:options.url,
+      mode:options.mode
     })
     console.log("[findplatform-web] Data <itemId> gotten.");
     this.getItemInfo();
@@ -90,6 +93,17 @@ Page({
       url: '/pages/location/location',
     })
   },
+
+  tapToUrl(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
+    })
+  },
+  showUserCard: function() {
+    this.setData({
+      userCardShow: true
+    })
+  },
   // 删除物品按钮绑定事件
   itemDelete: function(options) {
 
@@ -101,6 +115,19 @@ Page({
   //返回按钮绑定事件
   itemReturn: function(options) {
 
-  }
+  },
+
+  // 复制地址链接
+  CopyPhone(e) {
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.link,
+      success: res => {
+        wx.showToast({
+          title: '已复制电话',
+          duration: 1000,
+        })
+      }
+    })
+  },
 
 })
