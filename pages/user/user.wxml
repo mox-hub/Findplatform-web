@@ -4,15 +4,15 @@
   <!-- 头像卡片部分 -->
   <view class="UCenter-bg margin"> 
     <!-- 用户登录显示 -->
-    <view wx:if="{{userInfo.id}}" class="login">    
+    <view wx:if="{{userInfo.id}}" class="login text-center">    
       <!-- 用户头像 -->
-      <image src="{{userInfo.avatarUrl}}" class="center" mode="widthFix"></image>
+      <image src="{{userInfo.avatarUrl}}" class="text-center" mode="widthFix"></image>
       <!-- 用户昵称 -->
-      <view class="text-xl text-center margin-top-sm">
+      <view class="text-xl margin-top-sm">
         {{userInfo.username}}
       </view>
       <!-- 使用ui及开发版本 -->
-      <view class="cu-capsule round center align-start">
+      <view class="cu-capsule round align-start">
         <view class="cu-tag bg-blue sm">ColorUI</view>
         <view class="cu-tag line-blue sm">v0.8.0</view>
       </view>
