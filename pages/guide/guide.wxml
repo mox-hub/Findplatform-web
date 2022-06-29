@@ -1,0 +1,5 @@
+<!--pages/guide/guide.wxml-->
+<ui-sys title="指南">
+  <ui-title class="text-nowrap" title="AI寻物使用指南" titleColor="text-red" tpl="center-column" hasDot/>
+  
+</ui-sys>

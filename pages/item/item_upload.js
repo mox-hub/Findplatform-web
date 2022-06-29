@@ -1,8 +1,7 @@
+
+const { colorUISdk } = require("../../config/mp-sdk");
 const qiniuUploader = require("../../utils/qiniuUploader");
 var QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
-
-// index.js
-//获取应用实例
 var app = getApp()
 var qqmapsdk;
 
@@ -37,6 +36,7 @@ function initQiniu() {
 }
 
 Page({
+  // 数据对象
   data: {
       files:[],
       //图片上传成功参数
@@ -78,29 +78,30 @@ Page({
             icon: '_icon-check-round',
             title: '完成',
         }
-    ],
+      ],
       address: '',
       city: '',
       num: 0,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  // 生命周期函数--监听页面加载
   onLoad: function(options) {
+
     qqmapsdk = new QQMapWX({
-      key: 'PYRBZ-LJ5CW-QIURH-RXG37-E6UDQ-4NBFY' //这里自己的key秘钥进行填充
+      key: 'PYRBZ-LJ5CW-QIURH-RXG37-E6UDQ-4NBFY'
     });
     this.getUserLocation()
-  },
 
-  numSteps() {
+  },
+  // 步进计数器
+  numSteps: function() {
     this.setData({
       num: this.data.num == this.data.numList.length - 1 ? 0 : this.data.num + 1
     })
   },
 
-  ChooseImage() {
+  // 选择图片
+  ChooseImage: function() {
     const that = this;
     initQiniu();
     wx.chooseImage({
@@ -108,7 +109,7 @@ Page({
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], //从相册选择
 
-        success:function(res) {
+      success:function(res) {
           var filePath = res.tempFilePaths[0];
           // 交给七牛上传
           qiniuUploader.upload(filePath, (res) => {
@@ -130,6 +131,7 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
 
       },
+
       fail:function(res){
         if(res.files == ''){
           that.setData({
@@ -137,15 +139,20 @@ Page({
           })
         }
       }
+
     });
   },
-  ViewImage(e) {
+
+  // 图片预览
+  ViewImage: function(e) {
     wx.previewImage({
       urls: this.data.imgList,
       current: e.currentTarget.dataset.url
     });
   },
-  DelImg(e) {
+
+  // 删除图片
+  DelImg: function(e) {
     var that = this;
     wx.showModal({
       title: '拾物者',
@@ -163,19 +170,22 @@ Page({
     })
   },
 
-  itemSuccess(){
+  // 按钮：保存操作
+  btnSave: function(){
     console.log("[findplatform-web] func itemSuccess start.")
     var that = this;
     that.getNewItemId();
   },
 
-  itemCancel(){
+   // 按钮：取消操作 
+  btnCancel(){
     console.log("[findplatform-web] func itemCancel start.")
     wx.navigateBack();
   },
-
+  
+  // [get] 获取一个新的物品id
   getNewItemId: function() {
-    console.log("[findplatform-web] func getNewItemId start.")
+    console.info("[findplatform-web] func getNewItemId start.")
     var that = this;
     wx.request({
       url: 'https://api.foocode.cn/item/v2/newItemId',
@@ -201,11 +211,17 @@ Page({
     })
   },
 
+  // [get] 获取图像识别结果
+  getItemInfo: function() {
+    
+  },
+  
+  // [post] 请求添加一个新物品
   addItem: function() {
     console.log("[findplatform-web] func addItem start.")
     var that = this;
-    var date = new Date();
-    var moment = date.getFullYear() + '-'+ date.getMonth()+1 +'-' +  date.getDate();
+
+    var moment = colorUISdk.isDate.year + '-'+ colorUISdk.isDate.month +'-' +  colorUISdk.isDate.date;
     var image = that.data.imageObject
     var itemid = String(that.data.itemId)
     console.log(that.data.itemId)
@@ -245,7 +261,7 @@ Page({
 
   //地图定位
   getUserLocation: function() {
-    console.log("getUserLocation")
+    console.info("getUserLocation")
     let vm = this;
     wx.getSetting({
       success: (res) => {
@@ -297,6 +313,7 @@ Page({
       }
     })
   },
+
   // 微信获得经纬度
   getLocation: function() {
     let vm = this;
@@ -315,6 +332,7 @@ Page({
       }
     })
   },
+  
   // 获取当前地理位置
   getLocal: function(latitude, longitude) {
     let vm = this;

@@ -16,10 +16,8 @@
 
   <!-- 物品数据面板 -->
   <ui-menu ui="border radius m-4 shadow">
-    <ui-popover tips="这里是提示文本">
     <!-- 副标题：物品信息 -->
     <ui-title class="text-nowrap" title="物品信息" desc="details" depth="2" isIcon/>
-  </ui-popover>
 
     <!-- 物品ID -->
     <ui-menu-item title="物品ID" icon="cicon-image-text ui-TC-Main" isAction>
@@ -63,8 +61,15 @@
       </view>
     </ui-menu-item>
 
+    <!-- 拾取地点名称 -->
+    <ui-menu-item title="名称" icon="cicon-place ui-TC-Main" isAction>
+      <view slot="action">
+        <text class="text-grey" auto-height>{{item.placement}}</text>
+      </view>
+    </ui-menu-item>
+
     <!-- 查看拾取地点 -->
-    <ui-menu-item arrow title="查看拾取地点" icon="cicon-place text-orange" isAction data-url="/pages/location/location" bindtap="tapToUrl">
+    <ui-menu-item arrow title="查看拾取地点" icon="cicon-place text-orange" isAction data-url="/pages/location/location?id={{item.itemId}}" bindtap="tapToUrl">
     </ui-menu-item>
 
     <!-- 物品状态 -->

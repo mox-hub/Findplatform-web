@@ -74,5 +74,11 @@ Component({
         })
       }
     },
+    // 路径跳转
+    tapToUrl(e) {
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url
+      })
+    },
   }
 })

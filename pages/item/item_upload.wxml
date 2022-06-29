@@ -38,8 +38,8 @@
   </view>
   <!-- 按钮操作区域 -->
   <view class="ui-container p-5">
-    <button class="ui-btn block bg-green shadow shadow-green mb-4" type="primary" disabled="{{BtnState}}" bindtap="itemSuccess">保存</button>
-    <button class="ui-btn block bg-blue shadow shadow-blue mt-3" bindtap="itemCancel">提交</button>
+    <button class="ui-btn block bg-green shadow shadow-green mb-4" type="primary" disabled="{{BtnState}}" bindtap="btnSave">保存</button>
+    <button class="ui-btn block bg-red shadow shadow-red mt-3" bindtap="btnCancel">取消</button>
   </view>
 
 </ui-sys>

@@ -6,6 +6,7 @@ App({
   
   colorUI,//挂载到app上
   colorUISdk,
+  
   onLaunch: function(options){
     
   },
