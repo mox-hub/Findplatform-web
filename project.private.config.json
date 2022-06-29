@@ -104,6 +104,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/user/change_user_info",
+          "query": "url=20220410191090",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

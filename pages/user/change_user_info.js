@@ -106,25 +106,7 @@ Page({
             this.setData({
                 password1:val
             });
-            if(this.data.college1 != '' && this.data.phoneNumber1 != ''){
-              this.setData({
-                  BtnState:false
-              })
-          }
-        }
-        else{
-          this.setData({
-            BtnState:true
-          })
-        }
-      },
-      co_in:function(e){
-        var val = e.detail.value;
-        if(val != ''){
-            this.setData({
-                college1:val
-            });
-            if(this.data.password1 != '' && this.data.phoneNumber1 != ''){
+            if(this.data.phoneNumber1 != ''){
               this.setData({
                   BtnState:false
               })
@@ -142,7 +124,7 @@ Page({
             this.setData({
                 phoneNumber1:val
             });
-            if(this.data.password1 != '' && this.data.college1 != ''){
+            if(this.data.password1 != '' ){
               this.setData({
                   BtnState:false
               })
@@ -170,6 +152,12 @@ Page({
         var val = e.detail.value;
         this.setData({
             phoneNumber:val
+        })
+      },
+      na_va:function(e){
+        var val = e.detail.value;
+        this.setData({
+            username:val
         })
       }
 })

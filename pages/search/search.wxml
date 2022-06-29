@@ -22,7 +22,7 @@
               <ui-img ui="ui-img-my radius border" src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75" height="400rpx"/>
                 <view class="ui-grid">
                   <ui-title class="text-nowrap ui-col-6 ml-3" title="{{item.itemName}}" isIcon/>
-                  <ui-tag ui="sm bg-blue ui-col-10 ml-2 mt-3" info="{{item.tag}}"/>
+                  <ui-tag ui="sm bg-blue ui-col-10 ml-2 mt-3" info="{{item.tagId}}"/>
                 </view>
                 
                 <view class="desc text-right pr-3">
