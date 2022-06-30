@@ -6,13 +6,14 @@
     <view class="cu-bar search">
       <view class="search-form round ui-BG">
         <text class="cuIcon-search"></text>
-        <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
+        <input type="text" placeholder="搜索物品" confirm-type="search"></input>
       </view>
       <view class="action">
         <button class="cu-btn bg-green shadow-blur round">搜索</button>
       </view>
     </view> 
   </view>
+
   <!-- 双列索引 -->
   <scroll-view class= "item" scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="getItemInfo">
     <view class="ui-grid ui-cols-2 mt-4">
@@ -22,9 +23,9 @@
               <ui-img ui="ui-img-my radius border" src="{{item.imgUrl}}?imageView2/1/w/300/h/350/q/75" height="400rpx"/>
                 <view class="ui-grid">
                   <ui-title class="text-nowrap ui-col-6 ml-3" title="{{item.itemName}}" isIcon/>
-                  <ui-tag ui="sm bg-blue ui-col-10 ml-2 mt-3" info="{{item.tagId}}"/>
+                  <ui-tag ui="sm bg-blue ui-col-10 ml-2 mt-3" info="{{item.tagNameZh}}"/>
                 </view>
-                
+
                 <view class="desc text-right pr-3">
                   <text class="cuIcon-locationfill text-orange"></text>
                   {{item.pickLocation}}</view>

@@ -64,7 +64,7 @@
     <!-- 类  别 -->
     <ui-form-group required title="物品类别" icon="cicon-tag ui-TC-Main">
         <ui-input-box ui="text-right">
-            <input bindblur="tag" class="ui-input-wrapper" placeholder="{{item.tag}}"/>
+            <input bindblur="tag" class="ui-input-wrapper" placeholder="{{item.tagId}}"/>
         </ui-input-box>
     </ui-form-group>
     <!-- 拾取时间 -->
@@ -85,7 +85,7 @@
     </ui-form-group>
 
     <!-- 查看拾取地点 -->
-    <ui-menu-item arrow title="选择拾取地点" icon="cicon-place text-orange" isAction data-url="/pages/location/location" bindtap="tapToUrl">
+    <ui-menu-item arrow title="选择拾取地点" icon="cicon-place text-orange" isAction data-url="/pages/location/location?id={{item.itemId}}" bindtap="tapToUrl">
     </ui-menu-item>
 
     <!-- 物品状态 -->

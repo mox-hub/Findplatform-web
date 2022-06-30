@@ -43,7 +43,7 @@
     <!-- 物品类别 -->
     <ui-menu-item title="物品类别" icon="cicon-tag ui-TC-Main" isAction>
       <view slot="action">
-        <ui-tag bg="bg-blue-thin" info="{{item.tagId}}" ui="round"/>
+        <ui-tag bg="bg-blue-thin" info="{{item.tagNameZh}}" ui="round"/>
       </view>
     </ui-menu-item>    
 

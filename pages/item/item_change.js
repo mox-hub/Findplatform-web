@@ -223,7 +223,6 @@ Page({
      */
     itemChange: function(){
       this.updateItem(),
-      // console.log(this.item.itemId)
       wx.navigateTo({
         url: '/pages/item/item_details?url='+this.data.item.itemId
       })

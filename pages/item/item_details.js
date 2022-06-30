@@ -33,7 +33,7 @@ Page({
     console.log("[findplatform-web] func getItemInfo start.")
     var that = this;
     wx.request({
-      url: 'https://api.foocode.cn/item/v1/queryItem/id?item_id=' + that.data.itemId,
+      url: 'https://api.foocode.cn/item/v2/queryItem/id?item_id=' + that.data.itemId,
       header: {
         'content-type': 'application/json'
       },

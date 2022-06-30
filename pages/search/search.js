@@ -103,7 +103,7 @@ Page({
     console.log("[findplatform-web] func getItemInfo start.")
     var that = this;
     wx.request({
-      url: 'https://api.foocode.cn/item/v1/allItem',
+      url: 'https://api.foocode.cn/item/v2/allItem',
       header: {
         'content-type': 'application/json'
       },
@@ -111,7 +111,7 @@ Page({
       data: {},
 
       success(res) {
-        // console.log(res.data);
+        console.log(res.data);
         var baseId = "img-" + (+new Date());
         var images = res.data;
         for (let i = 0; i < images.length; i++) {

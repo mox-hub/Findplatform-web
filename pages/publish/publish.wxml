@@ -11,7 +11,7 @@
       <view class="ui-grid">
         <ui-img preview ui="radius border m-3" src="{{item.imgUrl}}" height="160rpx" width="160rpx"/>
         <!-- 物品简要信息 -->
-        <view data-id="{{item.itemId}}" data-url='/pages/item/item_details?url={{item.itemId}}' bindtouchstart="touchStart" bindtouchend="touchEnd" bindtap="tapToUrl" bindlongtap="itemLongTap">        
+        <view data-id="{{item.itemId}}" data-url='/pages/item/item_change?url={{item.itemId}}&mode=edit' bindtouchstart="touchStart" bindtouchend="touchEnd" bindtap="tapToUrl" bindlongtap="itemLongTap">        
           <view class="item-info" style="width: 500rpx;">
             <view class="ui-grid">
               <ui-title class="text-nowrap ml-2" title="{{item.itemName}}" hasLine/>

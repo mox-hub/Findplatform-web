@@ -31,7 +31,7 @@
       </view>
     </view>
 
-    <image src="/images/user/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+    <!-- <image src="/images/user/wave.gif" mode="scaleToFill" class="gif-wave"></image> -->
   </view>
 
   <!-- 个人信息模块 -->

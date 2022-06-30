@@ -79,7 +79,11 @@ Page({
             title: '完成',
         }
       ],
-      address: '',
+      pickLocation: '',
+      placement:'',
+      tag:'',
+      tagId:'',
+      color:'',
       city: '',
       num: 0,
   },
@@ -187,6 +191,7 @@ Page({
   getNewItemId: function() {
     console.info("[findplatform-web] func getNewItemId start.")
     var that = this;
+    var image = that.data.imageObject
     wx.request({
       url: 'https://api.foocode.cn/item/v2/newItemId',
       method: 'GET',
@@ -206,14 +211,67 @@ Page({
       },
       complete:function(res) {
         console.log("[findplatform-web] func getNewItemId complete.")
-        that.addItem()
+        console.log(image.imageURL)
+        that.getItemInfo(image.imageURL)
       }
     })
   },
 
   // [get] 获取图像识别结果
-  getItemInfo: function() {
-    
+  getItemInfo: function(option) {
+    var that = this;
+    wx.request({
+      url: 'https://api.foocode.cn/img/v1/getItemInfo?imgUrl=' + option,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+
+      data: {},
+      success: function(res) {
+        console.log(res.data);
+        that.setData({
+          tag: res.data.tag_zh,
+          tagEN: res.data.tag_en,
+          color: res.data.color,
+        })
+      },
+
+      fail:function(res){
+        console.warn("[findplatform-web] func getItemInfo complete.")
+      },
+      complete:function(res) {
+        console.log("[findplatform-web] func getItemInfo complete.")
+        that.getTagId(res.data.tag_en);
+      }
+    })
+  },
+
+  getTagId: function(option) {
+    console.log("[findplatform-web] func getTagId complete.")
+    var that = this;
+    wx.request({
+      url: 'https://api.foocode.cn/tag/v2/getTagByNameEn?en=' + option,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {},
+      success: function(res) {
+        console.log(res.data);
+        that.setData({
+          tagId: res.data.data.tagId,
+        })
+      },
+
+      fail:function(res){
+        console.warn("[findplatform-web] func getTagId complete.")
+      },
+      complete:function(res) {
+        console.log("[findplatform-web] func getTagId complete.")
+        that.addItem();
+      }
+    })
   },
   
   // [post] 请求添加一个新物品
@@ -224,11 +282,6 @@ Page({
     var moment = colorUISdk.isDate.year + '-'+ colorUISdk.isDate.month +'-' +  colorUISdk.isDate.date;
     var image = that.data.imageObject
     var itemid = String(that.data.itemId)
-    console.log(that.data.itemId)
-    console.log(itemid)
-    console.log(moment)
-    console.log(image.imageURL)
-    console.log(app.globalData.userid)
     wx.request({
       url: 'https://api.foocode.cn/item/v1/addItem',
       method: 'POST',
@@ -238,14 +291,14 @@ Page({
       data: {
         "itemId": String(that.data.itemId),
         "imgUrl": image.imageURL,
-        "tag":"bottle",
+        "tagId":that.data.tagId,
         "state":0,
-        "pickLocation":"宣城校区学生公寓6号楼",
-        "placement":"学生公寓6号楼",
+        "pickLocation": that.data.pickLocation,
+        "placement": that.data.placement,
         "pickTime":moment,
         "userId":app.globalData.userid,
-        "itemName": "黑色水杯",
-        "itemInfo": "黑色，水杯，捡取自宣城校区学生公寓6号楼",
+        "itemName": that.data.color + that.data.tag,
+        "itemInfo":  that.data.color + that.data.tag + "捡取自"+ that.data.placement,
       },
       success: function(res) {
         console.log("[findplatform-web] func addItem success.")
@@ -346,13 +399,9 @@ Page({
         let province = res.result.ad_info.province
         let city = res.result.ad_info.city
         vm.setData({
-          address: res.result.address,
-          // province: province,
-          // city: city, //城市
-          // latitude: latitude,
-          // longitude: longitude
+          pickLocation: res.result.address,
+          placement: res.result.formatted_addresses.recommend
         })
-        console.log(vm.data.address)
       },
       fail: function(res) {
         console.log(res);
