@@ -159,5 +159,10 @@ Page({
         this.setData({
             username:val
         })
+      },
+      back:function(){
+        wx.switchTab({
+          url: '../user/user',
+        })
       }
 })

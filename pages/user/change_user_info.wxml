@@ -122,7 +122,7 @@
     <button type="primary" disabled="{{BtnState}}" class="ui-btn block bg-blue shadow shadow-blue" bindtap="checkStatus">确认修改</button>
 </view>
 <view class="p-4">
-    <button class="ui-btn block shadow-lg">返回</button>
+    <button class="ui-btn block shadow-lg" bindtap="back">返回</button>
 </view>
   <find-footer></find-footer>
 </ui-sys>

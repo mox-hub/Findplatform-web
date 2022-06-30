@@ -1,5 +1,46 @@
 <!--pages/guide/guide.wxml-->
 <ui-sys title="指南">
   <ui-title class="text-nowrap" title="AI寻物使用指南" titleColor="text-red" tpl="center-column" hasDot/>
-  
+  <ui-title title="拾物者指南" hasDot/>
+  <ui-card ui="shadow m-4 radius" imgHeight="320rpx" img="/images/guide/01.png" >
+  <view class="action text-xl">
+    登陆后回到首页，下拉，看到身份选项卡，若是拾物者则点击“拾物者”标签进入对应界面。
+        </view>
+  </ui-card>
+  <ui-card ui="shadow m-4 radius" imgHeight="500rpx" img="/images/guide/03.png" >
+  <view class="action text-xl">
+    进入拾物者界面后，点击相机图片，拍摄或上传物品图片。
+        </view>
+  </ui-card>
+  <ui-card ui="shadow m-4 radius" imgHeight="1000rpx" img="/images/guide/04.png" >
+  <view class="action text-xl">
+    图片上传成功后，点击“保存”则会上传到服务器。
+        </view>
+  </ui-card>
+  <ui-card ui="shadow m-4 radius" imgHeight="1000rpx" img="/images/guide/05.png" >
+  <view class="action text-xl">
+    拍摄的物品图片也可点击叉号来删除。
+        </view>
+  </ui-card>
+  <ui-card ui="shadow m-4 radius" imgHeight="320rpx" img="/images/guide/06.png" >
+  <view class="action text-xl">
+    上传成功，提示灯会延申到“完成”，若失败则会到“错误”
+        </view>
+  </ui-card>
+  <ui-card ui="shadow m-4 radius" imgHeight="1000rpx" img="/images/guide/07.png" >
+  <view class="action text-xl">
+    图片上传成功后，则可以手动修改标签。
+        </view>
+  </ui-card>
+  <ui-title title="失物者指南" hasDot/>
+  <ui-card ui="shadow m-4 radius" imgHeight="320rpx" img="/images/guide/02.png" >
+  <view class="action text-xl">
+    登陆后回到首页，下拉，看到身份选项卡，若是失物者则点击“失物者”标签进入对应界面。
+        </view>
+  </ui-card>
+  <ui-card ui="shadow m-4 radius" imgHeight="1100rpx" img="/images/guide/08.png" >
+  <view class="action text-xl">
+    跳转到失物者界面后，则可看到不同的物品大致信息，去寻找或搜索自己正在寻找的物品。
+        </view>
+  </ui-card>
 </ui-sys>
