@@ -13,7 +13,8 @@ Page({
         phoneNumber:'',
         password1:'',
         college1:'',
-        phoneNumber1:''
+        phoneNumber1:'',
+        avatarUrl:'',
     },
     onLoad:function(e){
         this.setData({

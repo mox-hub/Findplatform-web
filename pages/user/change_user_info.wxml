@@ -3,8 +3,12 @@
   <!-- 物品数据面板 -->
   <ui-form ui="ui-BG border radius m-4 shadow">
     <!-- 副标题：物品信息修改 -->
-    <ui-title class="text-nowrap" title="个人信息修改" desc="ChangeInformation" depth="2" isIcon/>
-    <ui-title title="我们将保护你的个人信息"  align="center" hasDot/>
+    <ui-title class="text-nowrap" title="个人信息修改" desc="ChangeInfo" depth="2" isIcon/>
+    <view style="display: flex;">
+      <ui-img ui="radius border my-3" src="{{avatarUrl}}" height="180rpx" width="180rpx" style="margin-left: 250rpx;"/> 
+    </view>
+
+    <ui-title title="我们将保护你的个人信息"  align="center" hasDot depth="4"/>
     <ui-form ui="ui-BG mt-4">
     <ui-form-group icon="cicon-avatar">
         <ui-input-box>
