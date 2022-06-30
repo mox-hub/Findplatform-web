@@ -278,8 +278,10 @@ Page({
   addItem: function() {
     console.log("[findplatform-web] func addItem start.")
     var that = this;
+    var month = (colorUISdk.isDate.month * 1 + 1);
+    var date = (colorUISdk.isDate.date * 1 + 1);
 
-    var moment = colorUISdk.isDate.year + '-'+ colorUISdk.isDate.month +'-' +  colorUISdk.isDate.date;
+    var moment = colorUISdk.isDate.year + '-' + month + '-' + date;
     var image = that.data.imageObject
     var itemid = String(that.data.itemId)
     wx.request({

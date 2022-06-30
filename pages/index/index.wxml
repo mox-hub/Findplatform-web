@@ -4,22 +4,13 @@
   <!-- 首页轮播图 -->
   <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
     <swiper-item wx:for="{{swiperList}}" wx:key='item' class="{{cardCur==index?'cur':''}}">
-      <view class="swiper-item">
-        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
-      </view>
+        <view class="swiper-item"  data-url="{{item.data}}" bindtap="tapToUrl">
+          <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+          <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+        </view>
     </swiper-item>
   </swiper>
 
-  <!-- <view class="p-3 text-center">
-    <ui-tab tab="{{['选项卡1','选项卡2','选项卡3','选项卡4']}}" tpl="btn" mark="ui-BG radius" ui="radius ui-BG-4" inline/>
-  </view> -->
-
-  <!-- 指南 -->
-  <ui-title class="text-nowrap" title="指南" desc="guide" depth="2" isIcon/>
-  <ui-card ui="shadow m-4 radius" imgHeight="250rpx" img="/images/findPlatForm.png" bindtap="tapToUrl" data-url="/pages/guide/guide">
-    <ui-title class="text-nowrap" title="AI寻物使用指南" titleColor="text-red" tpl="center-column" hasDot/>
-  </ui-card>
   
   <!-- 两个身份卡片 -->
   <ui-title class="text-nowrap" title="身份" desc="character" depth="2" isIcon/>
@@ -40,6 +31,12 @@
         </view>
     </block>
   </view>
+
+  <!-- 指南 -->
+  <ui-title class="text-nowrap" title="指南" desc="guide" depth="2" isIcon/>
+  <ui-card ui="shadow m-4 radius" imgHeight="400rpx" img="https://img.moxhub.cn/tmp/TN5NZd5maXe158b919622d2a5c70f212d83aac9006ca.jpg" bindtap="tapToUrl" data-url="/pages/guide/guide">
+    <ui-title class="text-nowrap" title="AI寻物使用指南" titleColor="text-red" tpl="center-column" hasDot/>
+  </ui-card>
 
   <find-footer></find-footer>
 </ui-sys>
