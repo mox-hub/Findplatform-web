@@ -1,4 +1,5 @@
 // pages/item/item_details.js
+var global = getApp().globalData;
 Page({
   /**
    * 页面的初始数据
@@ -104,6 +105,35 @@ Page({
       userCardShow: true
     })
   },
+
+  btnItemCollect: function() {
+    // /collect/v2/addCollect
+    var that = this;
+    wx.request({
+      url: 'https://api.foocode.cn/collect/v2/addCollect',
+      header: {
+        'content-type': 'application/json'
+      },
+      method: "POST",
+      data: {      
+        "collectUid": global.userid,
+        "itemId": that.data.itemId,
+      },
+      success(res) {
+        that.$success({
+          title : '收藏成功'
+        })
+        console.log("[findplatform-web] func getUserInfo done.")
+      },
+      fail(res) {
+        console.log("function getUserInfo fail.");
+      },
+      complete(res) {
+        console.log("function getUserInfo complete.");
+      }
+    })
+  },
+  
   // 删除物品按钮绑定事件
   itemDelete: function (options) {
 

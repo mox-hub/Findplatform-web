@@ -43,7 +43,7 @@
     <!-- 物品类别 -->
     <ui-menu-item title="物品类别" icon="cicon-tag ui-TC-Main" isAction>
       <view slot="action">
-        <ui-tag bg="bg-blue-thin" info="{{item.tag}}" ui="round"/>
+        <ui-tag bg="bg-blue-thin" info="{{item.tagId}}" ui="round"/>
       </view>
     </ui-menu-item>    
 
@@ -88,6 +88,11 @@
   </ui-menu>
 
   <!-- 操作域 -->
+
+  <view wx:if="{{mode === 'search'}}" class="ui-container p-5">
+    <button class="ui-btn block bg-pink-gradient shadow shadow-pink" bindtap="btnItemCollect">收藏</button>
+  </view>
+  
   <view wx:if="{{mode === 'collect'}}" class="ui-container p-5">
     <button class="ui-btn block bg-green shadow shadow-green my-3">保存</button>
     <button class="ui-btn block bg-blue shadow shadow-blue my-3">提交</button>

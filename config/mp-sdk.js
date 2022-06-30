@@ -4,7 +4,7 @@ export const colorUISdk = new ColorUISdk({
     //当前环境，produce，dev，host
     env: 'dev',
     //实际项目版本
-    version: '0.8.0',
+    version: '0.8.2',
     api: {
         //生产环境
         produce: {

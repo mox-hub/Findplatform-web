@@ -1,31 +1,28 @@
 <!--pages/collect/collect.wxml-->
 <ui-sys tabbar title="我的收藏" loading>
 	<!-- 标题 -->
-  <view class="ui-BG radius mt-3 px-3 border">
+  <view class="ui-BG radius px-3 border">
     <ui-title title="我的收藏" titleColor="text-blue" descUi="text-cyan" desc="Carefully chosen" tpl="center-column" hasDot/>
   </view>
 	<!-- 列表 -->
-  <view class="ui-container">
-  
+  <view class="mb-3" wx:for="{{item}}" wx:key="itemId">    
+    <ui-card ui="shadow m-2 radius" style="width: 750rpx;">
+      <view class="ui-grid">
+        <ui-img preview ui="radius border m-3" src="{{item.imgUrl}}" height="160rpx" width="160rpx"/>
+        <!-- 物品简要信息 -->
+        <navigator url='/pages/item/item_details?url={{item.itemId}}'>        
+          <view class="item-info" style="width: 500rpx;">
+            <view class="ui-grid">
+              <ui-title class="text-nowrap ml-2" title="{{item.itemName}}" hasLine/>
+              <ui-tag bg="bg-{{item.state? 'green' : 'red'}}-thin" ui=" mt-3 radius sm" style="text-align: end;" info="{{item.state? '已找回' : '未找回'}}"/>
+            </view>
+            <view class="text-cut">{{item.pickLocation}}</view>
+            <view class="text-grey" style="text-align: end;">{{item.pickTime}}</view>
+          </view>
+        </navigator>
+      </view>
+    </ui-card>   
   </view>
-	<view class="cu-list card-menu menu-avatar margin-top">
-		<navigator class="cu-item cur margin-bottom-ls radius" wx:for="{{item}}" wx:key="itemId" url='/pages/item/item_details?url={{item.itemId}}'>
-			<view class="cu-avatar radius lg" style="background-image:url({{item.imgUrl}});">
-			</view>
-			<view class="content">
-				<view>
-					<text class="text-cut">{{item.itemName}}</text>
-					<view class="cu-tag round {{item.state ? 'bg-green' : 'bg-red'}} sm">{{item.state? '已找回' : '未找回'}}</view>
-				</view>
-				<view class="text-gray text-sm flex">
-					<text class="text-cut"> {{item.itemInfo}}<text class="cuIcon-locationfill text-orange margin-right-xs"></text>{{item.pickLocation}}</text>
-				</view>
-			</view>
-			<view class="action">
-				<view class="text-grey text-xs">{{item.pickTime}}</view>
-			</view>
-		</navigator>
-	</view>
   <!-- footer -->
   <find-footer></find-footer>
 </ui-sys>
