@@ -42,9 +42,12 @@ Page({
 
       success(res) {
         console.log(res.data);
+        var info = res.data.data;
+        console.log(info);
+        console.log(info.userId)
         that.setData({
-          item: res.data,
-          userId: res.data.userId
+          item: res.data.data,
+          userId: info.userId
         });
         console.log("[findplatform-web] func getItemInfo done.");
       },
@@ -56,7 +59,8 @@ Page({
       complete(res) {
         console.log('[findplatform-web] func getItemInfo complete.');
         // 再这里调用用户信息，为了规范执行顺序
-        that.getUserInfo(res.data.userId);
+        var info = res.data.data;
+        that.getUserInfo(info.userId);
       }
     })
   },
@@ -115,7 +119,7 @@ Page({
         'content-type': 'application/json'
       },
       method: "POST",
-      data: {      
+      data: {
         "collectUid": global.userid,
         "itemId": that.data.itemId,
       },
@@ -133,7 +137,7 @@ Page({
       }
     })
   },
-  
+
   // 删除物品按钮绑定事件
   itemDelete: function (options) {
 
